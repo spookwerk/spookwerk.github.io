@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Exporter — Spookwerk</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        nav {
+            margin-bottom: 3rem;
+        }
+        nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        nav a:hover { color: #ccc; }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-size: 1.05rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        .features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+        .features li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #1a1a1a;
+            color: #ccc;
+        }
+        .features li::before {
+            content: "\2713\00a0\00a0";
+            color: #34c759;
+        }
+        .links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .links a {
+            color: #5a9eff;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .links a:hover { text-decoration: underline; }
+        footer {
+            margin-top: 4rem;
+            font-size: 0.8rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="/">&larr; Spookwerk</a></nav>
+        <h1>Health Exporter</h1>
+        <p class="subtitle">Export your Apple Health data to JSON and CSV. All 187 data types. Private by default.</p>
+        <ul class="features">
+            <li>All 187 HealthKit data types across 14 categories</li>
+            <li>Incremental exports — only new data since last export</li>
+            <li>Automatic background exports via HealthKit observer</li>
+            <li>CSV summary and per-metric detail files</li>
+            <li>ECG waveform export at full 512 Hz precision</li>
+            <li>Data stays on your device by default</li>
+            <li>No accounts, no analytics, no tracking</li>
+            <li>No internet connection required</li>
+        </ul>
+        <div class="links">
+            <a href="privacy/">Privacy Policy</a>
+        </div>
+    </div>
+    <footer>&copy; 2026 Spookwerk</footer>
+</body>
+</html>
