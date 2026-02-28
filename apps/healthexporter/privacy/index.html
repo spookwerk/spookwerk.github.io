@@ -69,40 +69,54 @@
     <div class="container">
         <nav><a href="/apps/healthexporter/">&larr; Health Exporter</a></nav>
         <h1>Privacy Policy</h1>
-        <p class="effective">Effective: 28 February 2026</p>
+        <p class="effective">Version 1.0 — Effective: 28 February 2026</p>
 
-        <p>Health Exporter is developed by Spookwerk. This policy explains how the app handles your data. The short version: your data stays on your device, and we have no access to it.</p>
+        <p>Health Exporter is developed by Spookwerk, based in the Netherlands. This policy explains how the app handles your data. The short version: your data stays on your device. Spookwerk does not access, cannot access, and will not access your data.</p>
 
-        <h2>Data Collection</h2>
-        <p>Health Exporter does <strong>not</strong> collect, transmit, or store any personal data on external servers. The app has no analytics, no tracking, no telemetry, and no advertising. It does not require an internet connection to function.</p>
+        <h2>Data We Do Not Collect</h2>
+        <p>Health Exporter does <strong>not</strong> collect, transmit, or store any personal data on external servers. The app contains no analytics, no tracking, no telemetry, no advertising, no crash reporting, and no network calls. It does not collect device identifiers, usage data, or any other information. It does not require an internet connection or a user account.</p>
 
         <h2>Health Data</h2>
-        <p>The app reads health data from Apple HealthKit with your explicit permission. This data is used solely to generate export files (JSON and CSV) that are stored locally on your device. Specifically:</p>
+        <p>The app reads health data from Apple HealthKit with your explicit permission. It can access up to 187 data types across 14 categories: Activity &amp; Fitness, Mobility, Running, Cycling, Heart, Respiratory, Body Measurements, Vitals &amp; Lab, Nutrition, Sleep, Hearing &amp; Environment, Reproductive Health, Symptoms, and Workouts.</p>
+        <p>This data is processed entirely on your device to generate export files (JSON and CSV). Specifically:</p>
         <ul>
-            <li>Health data is read from HealthKit only after you grant permission</li>
+            <li>Health data is read from HealthKit only after you grant permission via the iOS Health authorization dialog</li>
+            <li>All processing happens on your device — nothing is sent to Spookwerk or any third party</li>
             <li>Export files are saved to your device's local storage by default</li>
-            <li>You may optionally choose a custom export folder (such as iCloud Drive, Dropbox, or other providers accessible through the iOS Files app) — this is entirely your choice and your responsibility</li>
-            <li>The app never uploads health data to any server owned or operated by Spookwerk</li>
+            <li>You may optionally choose a custom export folder (such as iCloud Drive, Dropbox, or other providers accessible through the iOS Files app) — this is entirely your choice</li>
         </ul>
+        <p>Your health data is never used for advertising, marketing, data mining, or any purpose other than generating the export files you requested. This complies with Apple's HealthKit guidelines.</p>
 
-        <h2>Data Storage</h2>
+        <h2>Data Storage and Deletion</h2>
         <p>All exported data is stored locally on your device by default, in compliance with Apple's guidelines for health data. If you choose a cloud-based export folder, the data is transferred to that provider under their terms and privacy policy.</p>
+        <p>You are in full control of your exported files. You can view, share, or delete them at any time through the iOS Files app. Uninstalling Health Exporter removes all app data from your device, including export history and settings. Exported files in a custom folder you selected are not affected by uninstallation.</p>
+
+        <h2>Your Choices</h2>
+        <ul>
+            <li>You can revoke HealthKit access at any time via iOS Settings &gt; Privacy &amp; Security &gt; Health</li>
+            <li>You can delete all exported files through the Files app</li>
+            <li>You can uninstall the app to remove all app data from your device</li>
+        </ul>
 
         <h2>In-App Purchases</h2>
         <p>Health Exporter offers a one-time in-app purchase to unlock premium features. Purchases are processed entirely by Apple through StoreKit. Spookwerk does not receive or store any payment information.</p>
 
         <h2>Third-Party Services</h2>
-        <p>The app uses no third-party SDKs, libraries, or services. All functionality is built using Apple's native frameworks.</p>
+        <p>The app uses no third-party SDKs, libraries, or services. All functionality is built using Apple's native frameworks. There is no server-side component — Spookwerk operates no servers and no backend for this app.</p>
+
+        <h2>Health Disclaimer</h2>
+        <p>Health Exporter is a data export tool. It does not provide medical advice, diagnosis, or treatment recommendations. The exported data reflects what is stored in Apple Health and should not be used as a substitute for professional medical judgment.</p>
 
         <h2>Children's Privacy</h2>
         <p>Health Exporter is not directed at children under 13. The app does not knowingly collect data from children.</p>
 
         <h2>Changes to This Policy</h2>
-        <p>If this policy changes, the updated version will be posted here with a new effective date. Material changes will be noted in the app's update notes.</p>
+        <p>If this policy changes, the updated version will be posted here with a new effective date and version number. Material changes will be noted in the app's update notes.</p>
 
         <h2>Contact</h2>
         <p>Questions about this privacy policy can be directed to <a href="mailto:privacy@spookwerk.app">privacy@spookwerk.app</a>.</p>
+
+        <footer>&copy; 2026 Spookwerk</footer>
     </div>
-    <footer>&copy; 2026 Spookwerk</footer>
 </body>
 </html>
