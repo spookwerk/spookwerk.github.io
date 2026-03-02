@@ -125,6 +125,15 @@
             <li><strong>Hoe herstel ik mijn aankoop?</strong> Open de app, ga naar Instellingen en tik op &ldquo;Herstel aankopen&rdquo;.</li>
         </ul>
 
+        <h2>Hoe exports werken</h2>
+        <p>Health Exporter gebruikt incrementele exports &mdash; elke export haalt alleen nieuwe gegevens op sinds de vorige.</p>
+        <ul>
+            <li><strong>Apple Watch-synchronisatievertraging</strong> &mdash; Je Watch registreert continu gegevens, maar synchroniseert alleen met je iPhone als het toestel ontgrendeld is en binnen Bluetooth-bereik. Na het slapen of als je telefoon buiten bereik was, kan het minuten tot uren duren voordat recente Watch-gegevens verschijnen. Een export vlak na het ontgrendelen bevat mogelijk niet alles &mdash; de volgende export haalt het alsnog op.</li>
+            <li><strong>Slaapgegevens kunnen verschuiven tussen dagen</strong> &mdash; Slaapsessies die over middernacht heen gaan (bijv. 23:00&ndash;07:00) worden toegewezen aan de dag waarop je wakker werd, net zoals Apple Health ze toont. Dit is normaal.</li>
+            <li><strong>Waarden kunnen licht afwijken van Apple Health</strong> &mdash; Apple Health ontdubbelt overlappende metingen van iPhone en Apple Watch in real time. Health Exporter bevat deze ontdubbeling voor belangrijke metingen (stappen, afstand, trappen, energie), maar door timingverschillen in wanneer gegevens binnenkomen kunnen er kleine tijdelijke afwijkingen optreden die bij de volgende export worden opgelost.</li>
+            <li><strong>Automatische achtergrondexports</strong> (premium) &mdash; Wanneer ingeschakeld exporteert de app periodiek nieuwe gegevens op de achtergrond. iOS bepaalt de exacte timing op basis van batterij, gebruikspatronen en systeembelasting.</li>
+        </ul>
+
         <h2>Privacy</h2>
         <p>Health Exporter verzamelt geen persoonlijke gegevens. Alle verwerking vindt plaats op je apparaat. Lees het volledige <a href="/apps/healthexporter/privacy/nl/">privacybeleid</a>.</p>
 

@@ -125,6 +125,15 @@
             <li><strong>How do I restore my purchase?</strong> Open the app, go to Settings, and tap "Restore Purchases".</li>
         </ul>
 
+        <h2>How Exports Work</h2>
+        <p>Health Exporter uses incremental exports &mdash; each export picks up only new data since the last one.</p>
+        <ul>
+            <li><strong>Apple Watch sync delay</strong> &mdash; Your Watch records data continuously but only syncs to your iPhone when the phone is unlocked and in Bluetooth range. After sleeping or being away from your phone, recent Watch data may take minutes to hours to appear. An export right after unlocking may not include everything yet &mdash; the next export will catch it.</li>
+            <li><strong>Sleep data may shift between days</strong> &mdash; Sleep sessions that cross midnight (e.g. 23:00&ndash;07:00) are attributed to the day you woke up, matching how Apple Health displays them. This is normal.</li>
+            <li><strong>Numbers may differ slightly from Apple Health</strong> &mdash; Apple Health deduplicates overlapping samples from iPhone and Apple Watch in real time. Health Exporter includes this deduplication for key metrics (steps, distance, flights, energy), but timing differences in when data arrives can cause small temporary discrepancies that resolve on the next export.</li>
+            <li><strong>Automatic background exports</strong> (premium) &mdash; When enabled, the app exports new data periodically in the background. iOS controls the exact timing based on battery, usage patterns, and system load.</li>
+        </ul>
+
         <h2>Privacy</h2>
         <p>Health Exporter does not collect any personal data. All processing happens on your device. Read the full <a href="/apps/healthexporter/privacy/">privacy policy</a>.</p>
 
