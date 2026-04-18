@@ -120,9 +120,10 @@
             </details>
         </nav>
         <h1>Privacy Policy</h1>
-        <p class="effective">Version 1.1 — Effective: 2 March 2026</p>
+        <p class="effective">Version 1.2 — Effective: 17 April 2026</p>
 
-        <p>Health Exporter is developed by Spookwerk, a sole proprietorship (eenmanszaak) based in the Netherlands. This policy explains how the app handles your data. The short version: your data stays on your device. Spookwerk does not access, cannot access, and will not access your data.</p>
+        <p>Health Exporter is developed by Spookwerk, a sole proprietorship (eenmanszaak) registered in the Netherlands (Chamber of Commerce / KvK number 42035025, registered office: De Nieuwe Erven 3, Unit 14531, 5431 NV Cuijk, Netherlands). The data controller under the GDPR is Spookwerk, reachable at <a href="mailto:privacy@spookwerk.app">privacy@spookwerk.app</a>.</p>
+        <p>This policy explains how the app handles your data. The short version: your data stays on your device. Spookwerk does not access, cannot access, and will not access your data.</p>
 
         <h2>Data We Do Not Collect</h2>
         <p>Health Exporter does <strong>not</strong> collect, transmit, or store any personal data on external servers. The app contains no analytics, no tracking, no telemetry, no advertising, no crash reporting, and no network calls. It does not collect device identifiers, usage data, or any other information. It does not require an internet connection or a user account.</p>
@@ -139,12 +140,14 @@
             <li>With premium features enabled, the app may read and export new health data in the background when iOS delivers updates — the same privacy protections apply</li>
         </ul>
         <p>Your health data is never used for advertising, marketing, data mining, or any purpose other than generating the export files you requested. This complies with Apple's HealthKit guidelines.</p>
+        <p>Granting HealthKit access is required for the app to perform its core function. If you do not grant permission, the app cannot generate exports. You choose which specific data types to share in the iOS Health authorization dialog; restricting certain categories simply narrows the scope of what the app can export. There is no contractual obligation to use the app, and no consequences beyond reduced functionality.</p>
 
         <h2>Legal Basis</h2>
         <p>Health data is classified as a special category of personal data under the EU General Data Protection Regulation (GDPR). The lawful basis for processing your health data is your explicit consent (Article 9(2)(a)), which you provide through the iOS Health authorization dialog. No data is processed until you grant this permission.</p>
 
         <h2>Data Storage and Deletion</h2>
-        <p>All exported data is stored locally on your device by default, in compliance with Apple's guidelines for health data. If you choose a cloud-based export folder, the data is transferred to that provider under their terms and privacy policy.</p>
+        <p>All exported data is stored locally on your device by default, in compliance with Apple's guidelines for health data.</p>
+        <p>If you choose a cloud-based export folder such as iCloud Drive, Dropbox, Google Drive, or another provider accessible through the iOS Files app, your exported files are written to that location at your direction. Spookwerk does not initiate, intermediate, or control this transfer — it happens locally between your device and the provider you chose. When data is transferred to such a provider, that provider becomes the data controller for the data it holds, under its own terms and privacy policy. Some providers store data outside the European Economic Area; Spookwerk has no commercial relationship with these providers and provides no Standard Contractual Clauses or adequacy guarantees for those transfers. If international transfer matters to you, choose a storage location that meets your requirements (for example, a local folder on your device, or iCloud with a region you are comfortable with).</p>
         <p>You are in full control of your exported files. You can view, share, or delete them at any time through the iOS Files app. Uninstalling Health Exporter removes all app data from your device, including export history and settings. Exported files in a custom folder you selected are not affected by uninstallation.</p>
 
         <h2>Data Retention</h2>
@@ -162,7 +165,9 @@
             <li><strong>Right of access</strong> (Article 15) — Your data is stored on your device. You have direct, unrestricted access to it at all times.</li>
             <li><strong>Right to rectification</strong> (Article 16) — Spookwerk holds no copy of your data. Source data is maintained in Apple Health, where you can correct it.</li>
             <li><strong>Right to erasure</strong> (Article 17) — You can delete exported files via the Files app. Uninstalling the app removes all remaining app data.</li>
+            <li><strong>Right to restriction of processing</strong> (Article 18) — You can restrict processing at any time by revoking HealthKit access in iOS Settings. Since no data leaves your device, there is no server-side processing to restrict.</li>
             <li><strong>Right to data portability</strong> (Article 20) — The app is itself a data portability tool, exporting your health data in standard JSON and CSV formats.</li>
+            <li><strong>Right to object</strong> (Article 21) — You can object to processing at any time by revoking HealthKit access. No processing occurs for direct marketing, profiling, or automated decision-making.</li>
             <li><strong>Right to withdraw consent</strong> — You can revoke HealthKit access at any time. Prior processing that occurred while consent was active remains lawful.</li>
             <li><strong>Right to lodge a complaint</strong> — You may file a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens) at <a href="https://autoriteitpersoonsgegevens.nl">autoriteitpersoonsgegevens.nl</a>.</li>
         </ul>
@@ -173,15 +178,19 @@
         <h2>Third-Party Services</h2>
         <p>The app uses no third-party SDKs, libraries, or services. All functionality is built using Apple's native frameworks. There is no server-side component — Spookwerk operates no servers and no backend for this app.</p>
 
-        <h2>Health Disclaimer</h2>
-        <p>Health Exporter is a data export tool, not directed at children under 13. It does not provide medical advice, diagnosis, or treatment recommendations. The exported data reflects what is stored in Apple Health and should not be used as a substitute for professional medical judgment. Exported values reflect device sensor measurements, which have inherent accuracy limitations. Young users in particular should consult a parent or healthcare professional before interpreting health data.</p>
+        <h2>Automated Decision-Making</h2>
+        <p>Health Exporter does not perform automated decision-making or profiling of any kind as defined in Article 22 of the GDPR. The app does not score, categorize, evaluate, or make decisions about you based on your data. It generates the export files you requested — nothing else.</p>
+
+        <h2>Health Disclaimer and Children</h2>
+        <p>Health Exporter is a general-audience tool, not directed at children. Under Article 8 of the EU GDPR (and Article 5 of the Dutch UAVG), processing of a child's personal data based on consent requires authorization from a parent or legal guardian where the child is under the age set by Member State law — in the Netherlands, this age is 16. If you are under 16 and based in the EU, please do not use the app without the involvement of a parent or legal guardian.</p>
+        <p>The app does not provide medical advice, diagnosis, or treatment recommendations. The exported data reflects what is stored in Apple Health and should not be used as a substitute for professional medical judgment. Exported values reflect device sensor measurements, which have inherent accuracy limitations. Young users in particular should consult a parent or healthcare professional before interpreting health data.</p>
 
         <h2>Changes to This Policy</h2>
         <p>If this policy changes, the updated version will be posted here with a new effective date and version number. Material changes will be noted in the app's update notes.</p>
 
         <h2>Contact</h2>
         <p>Questions about this privacy policy can be directed to <a href="mailto:privacy@spookwerk.app">privacy@spookwerk.app</a>.</p>
-        <p>Spookwerk is a sole proprietorship (eenmanszaak) registered in the Netherlands.</p>
+        <p>Spookwerk (eenmanszaak) · KvK 42035025 · De Nieuwe Erven 3, Unit 14531, 5431 NV Cuijk, Netherlands.</p>
 
         <footer>&copy; 2026 Spookwerk</footer>
     </div>
