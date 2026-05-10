@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Huurprijscheck — Spookwerk</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.65;
+        }
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        nav {
+            margin-bottom: 3rem;
+        }
+        nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        nav a:hover { color: #ccc; }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+        .effective {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        p, li {
+            color: #bbb;
+            margin-bottom: 0.75rem;
+        }
+        ul {
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        li { margin-bottom: 0.35rem; }
+        a { color: #5a9eff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .lang-switcher {
+            position: relative;
+            float: right;
+        }
+        .lang-switcher summary {
+            list-style: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #888;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid #333;
+            border-radius: 6px;
+        }
+        .lang-switcher summary:hover { color: #ccc; border-color: #555; }
+        .lang-switcher summary::-webkit-details-marker { display: none; }
+        .lang-switcher .lang-menu {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            margin-top: 0.25rem;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 0.25rem 0;
+            min-width: 140px;
+            z-index: 10;
+        }
+        .lang-switcher .lang-menu a {
+            display: block;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.85rem;
+            color: #bbb;
+        }
+        .lang-switcher .lang-menu a:hover {
+            background: #252525;
+            text-decoration: none;
+        }
+        .lang-switcher .lang-menu .active {
+            color: #fff;
+            font-weight: 600;
+            pointer-events: none;
+        }
+        footer {
+            margin-top: 4rem;
+            font-size: 0.8rem;
+            color: #555;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">&larr; Spookwerk</a>
+            <details class="lang-switcher">
+                <summary>English &#9662;</summary>
+                <div class="lang-menu">
+                    <a href="./" class="active">English</a>
+                    <a href="nl/">Nederlands</a>
+                </div>
+            </details>
+        </nav>
+        <h1>Privacy Policy</h1>
+        <p class="effective">Version 1.0 — Effective: 17 April 2026</p>
+
+        <p>Huurprijscheck is developed by Spookwerk, a sole proprietorship (eenmanszaak) registered in the Netherlands (Chamber of Commerce / KvK number 42035025, registered office: De Nieuwe Erven 3, Unit 14531, 5431 NV Cuijk, Netherlands). The data controller under the GDPR is Spookwerk, reachable at <a href="mailto:privacy@spookwerk.app">privacy@spookwerk.app</a>.</p>
+        <p>This policy explains how the app handles your data. The short version: everything stays on your device. Spookwerk does not access, cannot access, and will not access your data.</p>
+
+        <h2>Data We Do Not Collect</h2>
+        <p>Huurprijscheck does <strong>not</strong> collect, transmit, or store any personal data on external servers. The app contains no analytics, no tracking, no telemetry, no advertising, no crash reporting, and no network calls to Spookwerk or any third party. It does not collect device identifiers, usage data, or any other information. It does not require an internet connection or a user account.</p>
+
+        <h2>Data You Enter</h2>
+        <p>To calculate a rent valuation, the app processes information you enter yourself:</p>
+        <ul>
+            <li>Optional property details such as street, house number, city, and postcode (a label only — no address lookup is performed, and the data never leaves your device)</li>
+            <li>Property characteristics: rooms and their surface areas, kitchen and bathroom features, heating type, insulation, outdoor spaces, parking</li>
+            <li>Property values: construction year, WOZ value, energy label</li>
+            <li>Your current rent (for comparison purposes)</li>
+            <li>Tenant name and labels for saved calculations (only if you choose to enter them for a PDF report)</li>
+        </ul>
+        <p>All of this data is processed entirely on your device. It is used exclusively to compute the rent valuation under the Dutch Woningwaarderingsstelsel (WWS) and to generate the PDF report you may export. Nothing is transmitted to Spookwerk or any third party.</p>
+
+        <h2>Where Your Data Is Stored</h2>
+        <p>The app stores draft and saved calculations in a local database on your device using Apple's SwiftData framework. This data is protected by iOS's standard device-level encryption and sandboxed to this app.</p>
+        <p>If you generate a PDF report and use iOS's share sheet to save it to iCloud Drive, Dropbox, Google Drive, email, or another destination, that happens at your direction and under your control. Spookwerk does not initiate, intermediate, or control this transfer. Once data is placed with a third-party provider, that provider becomes the data controller under its own terms and privacy policy. Some providers store data outside the European Economic Area; Spookwerk provides no Standard Contractual Clauses or adequacy guarantees for those transfers.</p>
+
+        <h2>Legal Basis</h2>
+        <p>The lawful basis for processing the data you enter is Article 6(1)(b) of the EU General Data Protection Regulation (GDPR): processing necessary to perform a service you have requested — namely, computing a rent valuation at your request. Where applicable, this is supported by Article 6(1)(a) (consent), evidenced by your voluntary entry of data into the app.</p>
+        <p>Providing data to the app is entirely optional. If you do not enter any data, the app cannot produce a calculation, but there are no other consequences.</p>
+
+        <h2>External Links</h2>
+        <p>The app contains links to authoritative Dutch sources, including the Huurcommissie (huurcommissie.nl), Wetten.overheid.nl, EP-online (ep-online.nl), the WOZ-waardeloket (wozwaardeloket.nl), and BAG Viewer (bagviewer.kadaster.nl). When you tap such a link, iOS opens Safari and connects you to that external site. Spookwerk has no control over, and accepts no responsibility for, the privacy practices of these external sites. Their own privacy policies apply.</p>
+
+        <h2>In-App Purchases</h2>
+        <p>Huurprijscheck offers a one-time in-app purchase to unlock premium features. Purchases are processed entirely by Apple through StoreKit and require an internet connection. Spookwerk receives only anonymized aggregate sales data from App Store Connect and does not receive or store any payment information, Apple ID, name, or address.</p>
+
+        <h2>Third-Party Services</h2>
+        <p>The app uses no third-party SDKs, libraries, or services. All functionality is built using Apple's native frameworks (SwiftUI, SwiftData, StoreKit, PDFKit). There is no server-side component — Spookwerk operates no servers and no backend for this app.</p>
+
+        <h2>Automated Decision-Making</h2>
+        <p>Huurprijscheck does not perform automated decision-making or profiling as defined in Article 22 of the GDPR. The WWS calculation is a deterministic application of Dutch rent law to the figures you provide; it is not a decision about you, and Spookwerk does not use any calculation output for any purpose. The result is shown to you, the user, and nowhere else.</p>
+
+        <h2>Data Retention</h2>
+        <p>Drafts, saved calculations, and exported PDFs remain on your device (or in any location you exported them to) until you delete them. There is no automatic expiration. Spookwerk retains no copy of any data — all data exists solely on your device and under your control.</p>
+
+        <h2>Your Rights</h2>
+        <p>You have full control over your data:</p>
+        <ul>
+            <li>You can delete any draft or saved calculation from within the app at any time</li>
+            <li>You can delete exported PDFs through the iOS Files app or the destination you chose</li>
+            <li>You can uninstall the app to remove all app data from your device</li>
+        </ul>
+        <p>Under the GDPR, you also have the following rights:</p>
+        <ul>
+            <li><strong>Right of access</strong> (Article 15) — Your data is stored on your device. You have direct, unrestricted access to it at all times.</li>
+            <li><strong>Right to rectification</strong> (Article 16) — You can edit any saved calculation in the app.</li>
+            <li><strong>Right to erasure</strong> (Article 17) — You can delete any saved calculation in the app. Uninstalling the app removes all remaining app data.</li>
+            <li><strong>Right to restriction of processing</strong> (Article 18) — Since no data leaves your device, there is no server-side processing to restrict.</li>
+            <li><strong>Right to data portability</strong> (Article 20) — The PDF export feature provides a structured copy of your calculation that you can save or share.</li>
+            <li><strong>Right to object</strong> (Article 21) — No processing occurs for direct marketing, profiling, or automated decision-making. You can object at any time by deleting your data or uninstalling the app.</li>
+            <li><strong>Right to withdraw consent</strong> — You can stop using the app and delete all local data at any time. Prior processing that occurred while consent was active remains lawful.</li>
+            <li><strong>Right to lodge a complaint</strong> — You may file a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens) at <a href="https://autoriteitpersoonsgegevens.nl">autoriteitpersoonsgegevens.nl</a>.</li>
+        </ul>
+
+        <h2>Children</h2>
+        <p>Huurprijscheck is a tool for adult tenants and is not directed at children. Under Article 8 of the EU GDPR (and Article 5 of the Dutch UAVG), processing of a child's personal data based on consent requires authorization from a parent or legal guardian where the child is under the age set by Member State law — in the Netherlands, this age is 16. If you are under 16 and based in the EU, please do not use the app without the involvement of a parent or legal guardian.</p>
+
+        <h2>Legal Disclaimer</h2>
+        <p>Huurprijscheck provides an informational estimate based on the Woningwaarderingsstelsel (WWS) as published in Dutch law. It is not legal advice and does not replace an official ruling by the Huurcommissie or a legal professional. Tenants and landlords disputing a rent should consult the Huurcommissie or a qualified legal adviser.</p>
+
+        <h2>Changes to This Policy</h2>
+        <p>If this policy changes, the updated version will be posted here with a new effective date and version number. Material changes will be noted in the app's update notes.</p>
+
+        <h2>Contact</h2>
+        <p>Questions about this privacy policy can be directed to <a href="mailto:privacy@spookwerk.app">privacy@spookwerk.app</a>.</p>
+        <p>Spookwerk (eenmanszaak) · KvK 42035025 · De Nieuwe Erven 3, Unit 14531, 5431 NV Cuijk, Netherlands.</p>
+
+        <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+    </div>
+</body>
+</html>
