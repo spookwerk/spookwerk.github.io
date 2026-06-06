@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Spookwerk favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0c0e13">
+    <title>Support — HuurScan — Spookwerk</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.65;
+        }
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        nav {
+            margin-bottom: 3rem;
+        }
+        nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        nav a:hover { color: #ccc; }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        p, li {
+            color: #bbb;
+            margin-bottom: 0.75rem;
+        }
+        ul {
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        li { margin-bottom: 0.35rem; }
+        a { color: #5a9eff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .lang-switcher {
+            position: relative;
+            float: right;
+        }
+        .lang-switcher summary {
+            list-style: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #888;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid #333;
+            border-radius: 6px;
+        }
+        .lang-switcher summary:hover { color: #ccc; border-color: #555; }
+        .lang-switcher summary::-webkit-details-marker { display: none; }
+        .lang-switcher .lang-menu {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            margin-top: 0.25rem;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 0.25rem 0;
+            min-width: 140px;
+            z-index: 10;
+        }
+        .lang-switcher .lang-menu a {
+            display: block;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.85rem;
+            color: #bbb;
+        }
+        .lang-switcher .lang-menu a:hover {
+            background: #252525;
+            text-decoration: none;
+        }
+        .lang-switcher .lang-menu .active {
+            color: #fff;
+            font-weight: 600;
+            pointer-events: none;
+        }
+        footer {
+            margin-top: 4rem;
+            font-size: 0.8rem;
+            color: #555;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/apps/huurscan/">&larr; HuurScan</a>
+            <details class="lang-switcher">
+                <summary>English &#9662;</summary>
+                <div class="lang-menu">
+                    <a href="./" class="active">English</a>
+                    <a href="nl/">Nederlands</a>
+                </div>
+            </details>
+        </nav>
+        <h1>Support</h1>
+
+        <p>If you have a question, found a bug, or need help with HuurScan, send an email to <a href="mailto:support@spookwerk.app">support@spookwerk.app</a>.</p>
+
+        <h2>Common Questions</h2>
+        <ul>
+            <li><strong>How accurate is the calculation?</strong> HuurScan provides an <em>indicative</em> calculation based on the official Dutch <abbr title="Woningwaarderingsstelsel">WWS</abbr> points system from the <em>Besluit huurprijzen woonruimte</em>. For an official ruling, contact the <a href="https://www.huurcommissie.nl">Huurcommissie (Rent Tribunal)</a>.</li>
+            <li><strong>Where do I find my WOZ value?</strong> Look it up for free at <a href="https://www.wozwaardeloket.nl">wozwaardeloket.nl</a>. Enter your address and the WOZ value for your peildatum (reference date) will appear.</li>
+            <li><strong>What does WWS stand for?</strong> Woningwaarderingsstelsel — the points-based system Dutch law uses to determine the maximum legal rent for a home. Every feature of your home (rooms, floor area, energy label, WOZ value, kitchen, bathroom, etc.) earns points; the total maps to a maximum monthly rent.</li>
+            <li><strong>What's the difference between sociaal, midden, and vrije sector?</strong> The three rent segments under Dutch law. The boundaries shift over time, but as of 2026 sociaal is up to 143 points, midden 144&ndash;186, and vrije sector 187+. HuurScan shows your segment alongside the maximum rent.</li>
+            <li><strong>I'm overpaying &mdash; what should I do?</strong> First, gather a copy of your lease and any rent increases. Then either contact your landlord directly with the calculation, or file a procedure with the <a href="https://www.huurcommissie.nl">Huurcommissie</a>. Premium users can generate a PDF dispute letter from inside the app to attach to that procedure.</li>
+            <li><strong>How do I restore my purchase on a new device?</strong> Open the app, go to Settings, and tap "Restore purchases". Make sure you're signed in with the same Apple ID that made the original purchase.</li>
+        </ul>
+
+        <h2>How the calculation works</h2>
+        <ul>
+            <li><strong>Updated annually</strong> &mdash; the WWS point tables and the rate ceilings are revised once a year (usually July 1, with some structural updates in January). The app ships with the current year's tables.</li>
+            <li><strong>Indicative, not legally binding</strong> &mdash; only the Huurcommissie can issue an official ruling. The app is a self-check tool to see whether the rent is plausibly within the legal maximum and to support your case if it isn't.</li>
+            <li><strong>Lease-start protection</strong> &mdash; if a rental contract started in the vrije sector (free segment), the dwelling cannot drop back to a regulated segment during the same lease just because the WOZ value changes. The app respects this rule (article 10a of the Besluit huurprijzen woonruimte) and offers an optional toggle in the wizard for users who know their lease started in the free segment.</li>
+            <li><strong>Self-contained vs shared housing</strong> &mdash; the WWS has two scoring tracks: zelfstandige woonruimte (a complete dwelling) and onzelfstandige woonruimte (a rented room sharing facilities with other tenants). HuurScan supports both, and switches engines based on the housing type you select.</li>
+        </ul>
+
+        <h2>Privacy</h2>
+        <p>HuurScan does not collect any personal data. All calculations happen on your device. Read the full <a href="/apps/huurscan/privacy/">privacy policy</a>.</p>
+
+        <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+    </div>
+</body>
+</html>
