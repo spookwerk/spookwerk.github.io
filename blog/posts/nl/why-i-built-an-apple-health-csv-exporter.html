@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0c0e13">
+    <title>Waarom ik een Apple Health → CSV-exporter bouwde — Spookwerk</title>
+    <meta name="description" content="Een hersteldagboek dat ik met de hand moest bijhouden werd een app die tien jaar aan Apple Health-data uit je telefoon haalt — lokaal, in JSON en CSV, van jou om écht iets mee te doen.">
+    <link rel="alternate" type="application/rss+xml" title="Spookwerk Blog" href="/blog/feed.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ECE7DA; color: #2B2820; min-height: 100vh; padding: 2rem; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 640px; margin: 0 auto; }
+        .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
+        .topbar .brand { line-height: 0; }
+        .topbar .brand img { width: 140px; height: auto; opacity: 0.92; transition: opacity 0.2s; }
+        .topbar .brand:hover img { opacity: 1; }
+        .backlink { display: inline-block; margin-bottom: 2.25rem; color: #7A7466; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.02em; }
+        .backlink:hover { color: #16140F; }
+        .lang-switcher { position: relative; }
+        .lang-switcher summary { list-style: none; cursor: pointer; font-size: 0.8rem; color: #7A7466; padding: 0.3rem 0.65rem; border: 1px solid #CFC7B4; border-radius: 6px; letter-spacing: 0.02em; }
+        .lang-switcher summary:hover { color: #16140F; border-color: #B8893F; }
+        .lang-switcher summary::-webkit-details-marker { display: none; }
+        .lang-switcher .lang-menu { position: absolute; right: 0; top: 100%; margin-top: 0.3rem; background: #F5F1E8; border: 1px solid #CFC7B4; border-radius: 6px; padding: 0.25rem 0; min-width: 150px; z-index: 10; box-shadow: 0 6px 20px rgba(22,20,15,0.08); }
+        .lang-switcher .lang-menu a { display: block; padding: 0.4rem 0.8rem; font-size: 0.82rem; color: #2B2820; text-decoration: none; }
+        .lang-switcher .lang-menu a:hover { background: #E7E1D2; color: #16140F; }
+        .lang-switcher .lang-menu .active { color: #936518; font-weight: 600; pointer-events: none; }
+        article header { margin-bottom: 2.5rem; }
+        h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.01em; color: #16140F; margin-bottom: 0.6rem; line-height: 1.18; }
+        .post-date { font-size: 0.76rem; color: #936518; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; text-transform: uppercase; }
+        article { font-size: 1.07rem; line-height: 1.75; color: #2B2820; }
+        article h2 { font-size: 1.45rem; font-weight: 600; color: #16140F; margin: 2.6rem 0 1rem; letter-spacing: -0.01em; }
+        article p { margin-bottom: 1.3rem; }
+        article em { color: #16140F; font-style: italic; }
+        article a { color: #246B7A; text-decoration: none; border-bottom: 1px solid #B7CDD3; }
+        article a:hover { border-bottom-color: #246B7A; }
+        article ul, article ol { margin: 0 0 1.3rem 1.5rem; }
+        article li { margin-bottom: 0.5rem; }
+        article blockquote { border-left: 3px solid #B8893F; padding-left: 1rem; margin: 0 0 1.3rem; color: #6B6658; font-style: italic; }
+        article code { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.9em; }
+        article pre { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 8px; padding: 1rem; overflow-x: auto; margin-bottom: 1.3rem; }
+        article pre code { background: none; border: none; padding: 0; }
+        .sig { margin-top: 3rem; color: #936518; font-size: 0.95rem; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #DBD4C3; font-size: 0.8rem; color: #7A7466; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <a href="/" class="brand"><img src="/wordmark-light.svg" alt="Spookwerk"></a>
+            <details class="lang-switcher">
+                <summary>Nederlands &#9662;</summary>
+                <div class="lang-menu">
+                    <a href="../en/why-i-built-an-apple-health-csv-exporter.html">English</a>
+                    <a href="why-i-built-an-apple-health-csv-exporter.html" class="active">Nederlands</a>
+                </div>
+            </details>
+        </div>
+        <a href="/blog/nl/" class="backlink">&larr; Blog</a>
+        <article>
+            <header>
+                <h1>Waarom ik een Apple Health → CSV-exporter bouwde</h1>
+                <p class="post-date">2026-06-07</p>
+            </header>
+            <p>Je iPhone houdt al jaren een dagboek over je bij. Stappen, hartslag, slaap, wandelafstand, elke work-out, het langzame verloop van je rusthartslag over tien jaar. Het zit er allemaal in, in de Health-app, achter een muur van prachtige grafieken waar je naar kunt kijken maar die je niet echt kunt <em>gebruiken</em>.</p>
+<p>Probeer het er maar eens uit te krijgen. Toe maar. Er zit een exportknop verstopt in je Health-profiel — die geeft je één gigantisch XML-bestand, één document met je hele gezondheidsgeschiedenis, in een formaat dat geen enkel spreadsheet opent en geen enkele AI-tool netjes inleest. Het is technisch gezien "jouw data." Het is ook technisch gezien nutteloos op het moment dat je er iets mee wilt doen.</p>
+<p>Ik bouwde Vitadatum omdat ik zelf tegen die muur aan liep, en ik had een heel specifieke reden om nodig te hebben wat erachter zat.</p>
+<h2>De data is van jou, totdat je hem probeert te gebruiken</h2>
+<p>Een tijd geleden was ik aan het revalideren van een zenuwaandoening. Ik deed ergotherapie, en een deel van het werk was het bijhouden van een dagboek: alles wat ik op een dag deed, hoeveel energie ik had, hoeveel pijn er in mijn benen zat. Dat soort langzame, eerlijke bijhouderij die je vertelt of je echt beter wordt of gewoon een goede week hebt.</p>
+<p>Ik wilde meer in dat dagboek dan wat ik kon voelen en onthouden. Wandelafstand. Stappenteller. De objectieve cijfers, die daar gewoon op mijn pols en in mijn telefoon zaten, die me iets zouden vertellen wat mijn eigen waarneming niet kon. Het probleem was ze eruit krijgen. Elke dag tikte ik cijfers met de hand over in een sheet — de meest tergende manier die er bestaat om om je eigen herstel te geven.</p>
+<p>Ik ben developer. Dus natuurlijk wilde ik geen cijfers met de hand overtikken; ik wilde dat de telefoon het deed. Ik bouwde een klein prototype dat de data automatisch uit HealthKit trok en neerzette waar mijn dagboek het kon lezen. Dat was in eerste instantie het hele idee: stoppen met dat handmatige getik.</p>
+<p>Maar een prototype dat je moet onthouden te openen is niet echt automatisering — het is gewoon een snellere klus. Dus het groeide. Het werd een volwaardige exporter die zichzelf, na de eerste volledige export, op de achtergrond up-to-date houdt. Nieuwe dag, nieuwe cijfers, vanzelf weggeschreven, geen app om te openen, geen knop om in te drukken. De data is gewoon altijd <em>aanwezig</em> — actueel — klaar voor elk systeem dat het wil weergeven, analyseren of correleren met hoe mijn benen die week eigenlijk aanvoelden. Dat exporteren-op-de-achtergrond was geen feature die ik voor een spec sheet had bedacht. Het bestond omdat een hersteldagboek dat je met de hand moet bijhouden een hersteldagboek is dat je uiteindelijk niet meer bijhoudt.</p>
+<p>Dat is de app. Het begon als een tool voor het ergotherapie-dagboek van één persoon, en die oorsprong staat nog steeds gewoon in de codebase — al vroeg, voordat het zelfs Vitadatum heette, was het "HealthExporter," en een van de allereerste dingen die ik erin schreef was de dagboekintegratie. De rest van Vitadatum is wat dat prototype werd toen ik het genoeg had opgeschoond om bruikbaar te zijn voor iemand die niet ik is.</p>
+<h2>Lokaal als standaard, want het is een lichaam, geen marketingfunnel</h2>
+<p>Gezondheidsdata is de meest persoonlijke data die er is, en het huidige moment maakt dat oncomfortabel duidelijk. ChatGPT bracht een health-functie uit. Perplexity bracht er een uit. Iedereen wil opeens jouw medische geschiedenis in hun cloud, zodat ze er behulpzaam mee kunnen zijn. Een deel daarvan is oprecht behulpzaam — een AI die een jaar aan je eigen metingen kan lezen en het patroon ziet dat jij miste, is nu echt iets, en iets goeds.</p>
+<p>Maar er is een verschil tussen <em>jij</em> die je data overhandigt aan een tool die je zelf koos, voor een vraag die je zelf stelde, en een app die stilletjes je vitale waarden naar een server stuurt omdat dáár het verdienmodel zit.</p>
+<p>Vitadatum kiest voor het eerste. Het schrijft je data naar een map op je eigen apparaat. Geen account, geen login, geen analytics, geen tracking, geen server van mij die ooit ook maar één hartslag van jou ziet. Als je een export aan ChatGPT of Claude wilt voeren, is dat jouw keuze om te maken, bestand in de hand — geen standaard die ik voor je heb gemaakt. De enige taak van de app is om je data <em>eruit te krijgen, in een schone vorm, onder jouw controle</em>. Wat je er daarna mee doet, is het hele punt, en het gaat mij niets aan.</p>
+<p>JSON voor de machines, CSV voor de spreadsheets. 187 metrieken verdeeld over 14 categorieën — stappen, hartslag, slaap, ECG, de hele mikmak. Eén bestand per dag, ontdubbeld, altijd actueel. Open het in Numbers, draai er een draaitabel mee in Excel, gooi het in een AI-tool, sluis het door je eigen script. Het zijn gewoon bestanden. Bestanden zijn het meest duurzame, meest overdraagbare formaat met de minste lock-in dat er bestaat, en dat is met opzet.</p>
+<h2>Waarom het €4.99 eenmalig is, en niet €4.99 per maand</h2>
+<p>De standaardzet in 2026 is een abonnement. Alles is een abonnement. Een zaklamp-app zou je maandelijks laten betalen als-ie dacht dat-ie ermee weg zou komen.</p>
+<p>Dat doe ik hier niet, en de reden is simpel: een abonnement is een belasting op iets wat je eigenlijk maar één keer doet. Je gezondheidsgeschiedenis uit je telefoon krijgen is geen doorlopende dienst die ik je lever — het is iets wat je wilt <em>bezitten</em>, als een sleutel van een deur die altijd al van jou had moeten zijn. Je eeuwig huur laten betalen om door je eigen deur te lopen zou een beetje schandalig zijn.</p>
+<p>Dus Vitadatum is freemium met een eenmalige unlock. De gratis versie exporteert de laatste zeven dagen, zodat je precies kunt zien wat je krijgt voordat je ook maar iets betaalt. €4.99, eenmalig, ontgrendelt de volledige geschiedenis, CSV-export, eigen mappen, en de achtergrond-exports die alles actueel houden. Geen abonnement, geen upsell, geen "premium tier twee." Je koopt de sleutel, de deur is van jou.</p>
+<p>Die prijs is ook met opzet. De serieuze concurrenten zitten op $14.99 en $24.99. Ik zette hem bewust laag — laag genoeg dat als je tot hier hebt gelezen en het klinkt nuttig, de prijs niet het deel is waar je over hoeft na te denken.</p>
+<h2>De clou</h2>
+<p>Ik had niet de bedoeling om een App Store-product te bouwen. Ik had de bedoeling om te stoppen met het met de hand overtikken van stappentellers in een hersteldagboek, en de tool die ik daarvoor bouwde bleek het ding te zijn waarvan ik wilde dat het bestond voor iedereen die op tien jaar aan eigen gezondheidsdata zit waar ze niet bij kunnen.</p>
+<p>Je data zou van jou moeten zijn — niet alleen in de zin dat die op je apparaat staat, maar in de zin dat je er ook echt <em>iets mee kunt doen ergens anders</em>. Dat is de hele app. De rest is detail.</p>
+<p><em>(Jaren aan gezondheidsdata van een telefoon af krijgen zonder dat het ding halverwege de export zonder geheugen komt te zitten, werd een eigen engineering-saga — maar dat is een verhaal voor een andere post.)</em></p>
+            <p class="sig">— O, Spookwerk</p>
+        </article>
+        <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+    </div>
+</body>
+</html>

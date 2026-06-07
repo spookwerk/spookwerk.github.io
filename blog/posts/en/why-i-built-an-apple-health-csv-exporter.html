@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0c0e13">
+    <title>Why I built an Apple Health → CSV exporter — Spookwerk</title>
+    <meta name="description" content="A recovery diary I had to keep by hand turned into an app that gets a decade of Apple Health data out of your phone — local, in JSON and CSV, yours to actually use.">
+    <link rel="alternate" type="application/rss+xml" title="Spookwerk Blog" href="/blog/feed.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ECE7DA; color: #2B2820; min-height: 100vh; padding: 2rem; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 640px; margin: 0 auto; }
+        .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
+        .topbar .brand { line-height: 0; }
+        .topbar .brand img { width: 140px; height: auto; opacity: 0.92; transition: opacity 0.2s; }
+        .topbar .brand:hover img { opacity: 1; }
+        .backlink { display: inline-block; margin-bottom: 2.25rem; color: #7A7466; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.02em; }
+        .backlink:hover { color: #16140F; }
+        .lang-switcher { position: relative; }
+        .lang-switcher summary { list-style: none; cursor: pointer; font-size: 0.8rem; color: #7A7466; padding: 0.3rem 0.65rem; border: 1px solid #CFC7B4; border-radius: 6px; letter-spacing: 0.02em; }
+        .lang-switcher summary:hover { color: #16140F; border-color: #B8893F; }
+        .lang-switcher summary::-webkit-details-marker { display: none; }
+        .lang-switcher .lang-menu { position: absolute; right: 0; top: 100%; margin-top: 0.3rem; background: #F5F1E8; border: 1px solid #CFC7B4; border-radius: 6px; padding: 0.25rem 0; min-width: 150px; z-index: 10; box-shadow: 0 6px 20px rgba(22,20,15,0.08); }
+        .lang-switcher .lang-menu a { display: block; padding: 0.4rem 0.8rem; font-size: 0.82rem; color: #2B2820; text-decoration: none; }
+        .lang-switcher .lang-menu a:hover { background: #E7E1D2; color: #16140F; }
+        .lang-switcher .lang-menu .active { color: #936518; font-weight: 600; pointer-events: none; }
+        article header { margin-bottom: 2.5rem; }
+        h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.01em; color: #16140F; margin-bottom: 0.6rem; line-height: 1.18; }
+        .post-date { font-size: 0.76rem; color: #936518; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; text-transform: uppercase; }
+        article { font-size: 1.07rem; line-height: 1.75; color: #2B2820; }
+        article h2 { font-size: 1.45rem; font-weight: 600; color: #16140F; margin: 2.6rem 0 1rem; letter-spacing: -0.01em; }
+        article p { margin-bottom: 1.3rem; }
+        article em { color: #16140F; font-style: italic; }
+        article a { color: #246B7A; text-decoration: none; border-bottom: 1px solid #B7CDD3; }
+        article a:hover { border-bottom-color: #246B7A; }
+        article ul, article ol { margin: 0 0 1.3rem 1.5rem; }
+        article li { margin-bottom: 0.5rem; }
+        article blockquote { border-left: 3px solid #B8893F; padding-left: 1rem; margin: 0 0 1.3rem; color: #6B6658; font-style: italic; }
+        article code { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.9em; }
+        article pre { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 8px; padding: 1rem; overflow-x: auto; margin-bottom: 1.3rem; }
+        article pre code { background: none; border: none; padding: 0; }
+        .sig { margin-top: 3rem; color: #936518; font-size: 0.95rem; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #DBD4C3; font-size: 0.8rem; color: #7A7466; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <a href="/" class="brand"><img src="/wordmark-light.svg" alt="Spookwerk"></a>
+            <details class="lang-switcher">
+                <summary>English &#9662;</summary>
+                <div class="lang-menu">
+                    <a href="why-i-built-an-apple-health-csv-exporter.html" class="active">English</a>
+                    <a href="../nl/why-i-built-an-apple-health-csv-exporter.html">Nederlands</a>
+                </div>
+            </details>
+        </div>
+        <a href="/blog/" class="backlink">&larr; Blog</a>
+        <article>
+            <header>
+                <h1>Why I built an Apple Health → CSV exporter</h1>
+                <p class="post-date">2026-06-07</p>
+            </header>
+            <p>Your iPhone has been keeping a diary about you for years. Steps, heart rate, sleep, walking distance, every workout, the slow drift of your resting pulse across a decade. It's all in there, in the Health app, behind a wall of beautiful charts you can look at but can't really <em>use</em>.</p>
+
+<p>Try to get it out. Go on. There's an Export button buried in your Health profile — it hands you a single giant XML file, one document containing your entire health history, in a format no spreadsheet opens and no AI tool politely reads. It's technically "your data." It's also technically useless the moment you want to do anything with it.</p>
+
+<p>I built Vitadatum because I hit that wall myself, and I had a very specific reason to need what was on the other side of it.</p>
+
+<h2>The data is yours until you try to use it</h2>
+
+<p>A while back I was rehabilitating from a nerve condition. I was doing ergotherapy, and part of the work was keeping a diary: everything I did in a day, how much energy I had, how much pain was in my legs. The kind of slow, honest tracking that tells you whether you're actually getting better or just having a good week.</p>
+
+<p>I wanted more in that diary than what I could feel and remember. Walking distance. Step count. The objective numbers, sitting right there on my wrist and in my phone, that would tell me something my own perception couldn't. The problem was getting them out. Every day I was copying figures by hand into a sheet — the most tedious possible version of caring about your own recovery.</p>
+
+<p>I'm a developer. So of course I didn't want to copy numbers by hand; I wanted the phone to do it. I built a small prototype that pulled the data out of HealthKit automatically and dropped it where my diary could read it. That was the whole idea, at first: stop the manual typing.</p>
+
+<p>But a prototype that you have to remember to open isn't really automation — it's just a faster chore. So it grew. It turned into a proper exporter that, after the first full export, keeps itself up to date in the background. New day, new numbers, written out on their own, no app to open, no button to press. The data is simply always <em>there</em> — current — ready for any system that wants to chart it, analyse it, or correlate it with how my legs actually felt that week. That background-export behaviour wasn't a feature I dreamed up for a spec sheet. It existed because a recovery diary you have to maintain by hand is a recovery diary you eventually stop maintaining.</p>
+
+<p>That's the app. It started as a tool for one person's ergotherapy diary, and the origin is still right there in the codebase — early on, before it was even called Vitadatum, it was "HealthExporter," and one of the very first things I wrote into it was the diary integration. The rest of Vitadatum is what that prototype became once I cleaned it up enough to be useful to someone who isn't me.</p>
+
+<h2>Local by default, because it's a body, not a marketing funnel</h2>
+
+<p>Health data is the most personal data there is, and the current moment makes that uncomfortably clear. ChatGPT shipped a health feature. Perplexity shipped one. Everybody suddenly wants your medical history in their cloud so they can be helpful at it. Some of that genuinely is helpful — an AI that can read a year of your own measurements and spot the pattern you missed is a real thing now, and a good one.</p>
+
+<p>But there's a difference between <em>you</em> handing your data to a tool you chose, for a question you asked, and an app quietly shipping your vitals off to a server because that's where the business model lives.</p>
+
+<p>Vitadatum picks the first one. It writes your data to a folder on your own device. No account, no login, no analytics, no tracking, no server I run that ever sees a single heartbeat of yours. If you want to feed an export into ChatGPT or Claude, that's your call to make, file in hand — not a default I made for you. The app's entire job is to get your data <em>out, in a clean form, under your control</em>. What you do with it after that is the whole point, and it's none of my business.</p>
+
+<p>JSON for the machines, CSV for the spreadsheets. 187 metrics across 14 categories — steps, heart rate, sleep, ECG, the lot. One file per day, deduplicated, always current. Open it in Numbers, pivot it in Excel, drop it into an AI tool, pipe it into your own script. It's just files. Files are the most durable, most portable, least lock-in format there is, and that's deliberate.</p>
+
+<h2>Why it's €4.99 once, and not €4.99 a month</h2>
+
+<p>The default move in 2026 is a subscription. Everything is a subscription. A flashlight app would charge you monthly if it thought it could get away with it.</p>
+
+<p>I'm not doing that here, and the reason is simple: a subscription is a tax on something you only really do once. Getting your health history out of your phone is not an ongoing service I provide you — it's a thing you want to <em>own</em>, like a key to a door that should have been yours all along. Charging you rent forever to walk through your own door would be a little obscene.</p>
+
+<p>So Vitadatum is freemium with a one-time unlock. The free tier exports the last seven days, so you can see exactly what you're getting before you pay anything. €4.99, once, unlocks the full history, CSV export, custom folders, and the background exports that keep everything current. No subscription, no upsell, no "premium tier two." You buy the key, the door is yours.</p>
+
+<p>That price is deliberate, too. The serious competitors sit at $14.99 and $24.99. I put it low on purpose — low enough that if you've read this far and the thing sounds useful, the price isn't the part you have to think about.</p>
+
+<h2>The point</h2>
+
+<p>I didn't set out to build an App Store product. I set out to stop hand-copying step counts into a recovery diary, and the tool I built to do that turned out to be the thing I wished existed for everyone sitting on a decade of their own health data they can't get at.</p>
+
+<p>Your data should be yours — not just in the sense that it lives on your device, but in the sense that you can actually <em>take it somewhere and use it</em>. That's the whole app. Everything else is detail.</p>
+
+<p><em>(Getting years of health data off a phone without the thing running out of memory mid-export turned into its own engineering saga — but that's a story for another post.)</em></p>
+            <p class="sig">— O, Spookwerk</p>
+        </article>
+        <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+    </div>
+</body>
+</html>

@@ -3,9 +3,16 @@
     <channel>
         <title>Spookwerk Blog</title>
         <link>https://spookwerk.app/blog/</link>
-        <description>Coming soon. Building Vitadatum and HuurScan.</description>
+        <description>Stories from the workshop.</description>
         <language>en-us</language>
-        <lastBuildDate>Sat, 09 May 2026 08:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sat, 07 Jun 2026 09:00:00 +0200</lastBuildDate>
         <atom:link href="https://spookwerk.app/blog/feed.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Why I built an Apple Health → CSV exporter</title>
+            <link>https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html</link>
+            <guid>https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html</guid>
+            <pubDate>Sat, 07 Jun 2026 09:00:00 +0200</pubDate>
+            <description>A recovery diary I had to keep by hand turned into an app that gets a decade of Apple Health data out of your phone — local, in JSON and CSV, yours to actually use.</description>
+        </item>
     </channel>
 </rss>
