@@ -89,5 +89,50 @@ class T(unittest.TestCase):
             code, out = self._run(d)
             self.assertNotEqual(code, 0)
 
+    def test_multitoken_rel_canonical_recognized(self):
+        # HTML rel is a token list: rel="canonical alternate" must still be seen.
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t); self._scaffold(d)
+            en = d / "blog" / "posts" / "en" / "p.html"
+            en.write_text(en.read_text().replace(
+                'rel="canonical"', 'rel="canonical alternate"'))
+            code, out = self._run(d)
+            self.assertEqual(code, 0, out)
+
+    def test_broken_reciprocity_fails(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            for lang in ("en", "nl"):
+                pdir = d / "blog" / "posts" / lang
+                pdir.mkdir(parents=True, exist_ok=True)
+                drop = {"hreflang"} if lang == "nl" else None
+                (pdir / "p.html").write_text(post("p", lang, drop=drop))
+            (d / "logo.png").write_bytes(b"x")
+            (d / "og").mkdir(); (d / "og" / "default.png").write_bytes(b"x")
+            code, out = self._run(d)
+            self.assertNotEqual(code, 0)
+            self.assertIn("reciprocal", out)
+
+    def test_jsonld_missing_org_id_fails(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t); self._scaffold(d)
+            en = d / "blog" / "posts" / "en" / "p.html"
+            bad = ('<script type="application/ld+json">'
+                   '{"@context":"https://schema.org","@graph":['
+                   '{"@type":"WebSite","@id":"https://spookwerk.app/#website"}]}'
+                   '</script>')
+            en.write_text(en.read_text().replace(GOOD_JSONLD, bad))
+            code, out = self._run(d)
+            self.assertNotEqual(code, 0)
+            self.assertIn("Organization", out)
+
+    def test_missing_asset_fails(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t); self._scaffold(d)
+            (d / "og" / "default.png").unlink()
+            code, out = self._run(d)
+            self.assertNotEqual(code, 0)
+            self.assertIn("og:image", out)
+
 if __name__ == "__main__":
     unittest.main()

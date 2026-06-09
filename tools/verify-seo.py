@@ -37,10 +37,10 @@ class Head(HTMLParser):
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if tag == "link":
-            rel = (a.get("rel") or "").lower()
-            if rel == "canonical":
+            rels = (a.get("rel") or "").lower().split()  # rel is a token list
+            if "canonical" in rels:
                 self.canonical = a.get("href")
-            elif rel == "alternate" and a.get("hreflang"):
+            elif "alternate" in rels and a.get("hreflang"):
                 self.alts.append((a["hreflang"], a.get("href")))
         elif tag == "meta":
             prop = a.get("property", "")
@@ -103,7 +103,9 @@ def check_page(root: Path, relpath: str, parsed_set: dict) -> list:
     elif h.canonical != exp:
         errs.append(f"canonical {h.canonical!r} != expected {exp!r}")
 
-    # 2. hreflang (only required if the page declares any alternates OR has a twin)
+    # 2. hreflang — only checked when the page declares alternates. Single-locale
+    # pages legitimately have none; bilingual twins must declare them. (Twin
+    # auto-detection is a known gap, deferred — see plan §14 / spec follow-ups.)
     if h.alts:
         hrefs = {hl: hr for hl, hr in h.alts}
         if "x-default" not in hrefs:
@@ -180,11 +182,10 @@ def main():
 
     # --all (or no args) checks the curated DEFAULT_PAGES set — the pages that
     # are supposed to carry the head-kit. The set grows as sub-projects retrofit
-    # more pages (E). Explicit file args override it.
-    if args.files:
-        rels = list(args.files)
-    else:
-        rels = DEFAULT_PAGES
+    # more pages (E). Explicit file args override it; the two are exclusive.
+    if args.files and args.all:
+        ap.error("pass either --all or explicit files, not both")
+    rels = list(args.files) if args.files else DEFAULT_PAGES
 
     parsed = {}
     missing = []
