@@ -46,7 +46,10 @@ def post(slug, lang, *, canonical=None, drop=None):
 
 class T(unittest.TestCase):
     def _run(self, root):
-        r = subprocess.run([sys.executable, str(VERIFY), "--root", str(root), "--all"],
+        # Pass explicit fixture paths (not --all): --all targets the production
+        # DEFAULT_PAGES set, which doesn't exist in the temp fixture dir.
+        r = subprocess.run([sys.executable, str(VERIFY), "--root", str(root),
+                            "blog/posts/en/p.html", "blog/posts/nl/p.html"],
                            capture_output=True, text=True)
         return r.returncode, r.stdout + r.stderr
 

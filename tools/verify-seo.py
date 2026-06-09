@@ -178,10 +178,11 @@ def main():
     args = ap.parse_args()
     root = Path(args.root).resolve()
 
+    # --all (or no args) checks the curated DEFAULT_PAGES set — the pages that
+    # are supposed to carry the head-kit. The set grows as sub-projects retrofit
+    # more pages (E). Explicit file args override it.
     if args.files:
         rels = list(args.files)
-    elif args.all:
-        rels = [str(p.relative_to(root)) for p in sorted(root.rglob("*.html"))]
     else:
         rels = DEFAULT_PAGES
 
