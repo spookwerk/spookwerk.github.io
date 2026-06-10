@@ -479,5 +479,46 @@ class T(unittest.TestCase):
         self.assertEqual(code, 0, out)
 
 
+    # ---- C: hreflang twin (B carryover) ----
+    def test_twin_pair_without_hreflang_fails(self):
+        # blog/index.html has no NL twin in the scaffold. Create one (a full
+        # valid page, but neither side declares hreflang) -> BOTH must fail.
+        # Sitemap is regenerated to include it, so the twin check is what fails.
+        nl_c = f"{SITE}/blog/nl/"
+        def mutate(d):
+            write(d, "blog/nl/index.html",
+                  page(nl_c, extra_ld=[[blogentity(nl_c, "nl"),
+                                        crumbs(nl_c, [("Home", HOME),
+                                                      ("Blog", None)])]]))
+            write(d, "sitemap.xml", sitemap_file(SCAFFOLD_URLS + [nl_c]))
+        code, out = self._case(mutate)
+        self.assertNotEqual(code, 0)
+        self.assertIn("twin", out)
+        self.assertIn("blog/index.html", out)
+        self.assertIn("blog/nl/index.html", out)
+
+    def test_twin_declared_but_missing_twin_url_fails(self):
+        # EN post declares alternates but omits the NL twin URL.
+        bad_alts = [("en", EN_P), ("x-default", EN_P)]
+        code, out = self._case(lambda d: write(
+            d, "blog/posts/en/p.html",
+            page(EN_P, og_type="article", alts=bad_alts,
+                 extra_ld=[[blogposting(EN_P, "en"),
+                            crumbs(EN_P, [("Home", HOME), ("Blog", BLOG_C),
+                                          ("Post", None)])]])))
+        self.assertNotEqual(code, 0)
+        self.assertIn("twin", out)
+
+    def test_noindex_twin_requires_no_hreflang(self):
+        # A noindex stub at the twin path must NOT trigger the requirement
+        # (stubs are excluded from discovery, so sitemap parity also holds).
+        def mutate(d):
+            write(d, "blog/nl/index.html",
+                  '<html><head><meta name="robots" content="noindex">'
+                  '</head><body>moved</body></html>')
+        code, out = self._case(mutate)
+        self.assertEqual(code, 0, out)
+
+
 if __name__ == "__main__":
     unittest.main()

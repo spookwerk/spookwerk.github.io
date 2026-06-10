@@ -26,6 +26,37 @@ APP_INDEX_RE = re.compile(r"^apps/[^/]+/index\.html$")
 APP_SUBPAGE_RE = re.compile(r"^apps/[^/]+/(privacy|support)/(nl/)?index\.html$")
 
 
+def twin_of(relpath: str):
+    """The NL<->EN counterpart path for bilingual page families, else None."""
+    if relpath == "blog/index.html":
+        return "blog/nl/index.html"
+    if relpath == "blog/nl/index.html":
+        return "blog/index.html"
+    m = re.match(r"^(apps/[^/]+/(?:privacy|support)/)index\.html$", relpath)
+    if m:
+        return m.group(1) + "nl/index.html"
+    m = re.match(r"^(apps/[^/]+/(?:privacy|support)/)nl/index\.html$", relpath)
+    if m:
+        return m.group(1) + "index.html"
+    m = re.match(r"^blog/posts/en/(.+)$", relpath)
+    if m:
+        return "blog/posts/nl/" + m.group(1)
+    m = re.match(r"^blog/posts/nl/(.+)$", relpath)
+    if m:
+        return "blog/posts/en/" + m.group(1)
+    return None
+
+
+def twin_is_indexable(root: Path, twin: str, parsed_set: dict) -> bool:
+    if twin in parsed_set:
+        return True
+    f = root / twin
+    if not f.exists():
+        return False
+    # scoped runs: twin may exist but not be in parsed_set — parse ad hoc
+    return "noindex" not in parse_file(f).robots.lower()
+
+
 def page_type(relpath: str) -> str:
     if relpath == "index.html":
         return "landing"
@@ -211,6 +242,16 @@ def check_page(root: Path, relpath: str, parsed_set: dict) -> list:
                 back = {v for _, v in parsed_set[rp].alts}
                 if exp not in back:
                     errs.append(f"hreflang not reciprocal with {rp}")
+
+    # 2b. hreflang twin: if the NL/EN counterpart exists and is indexable,
+    # hreflang is mandatory and must list the twin (closes B's silent pass).
+    twin = twin_of(relpath)
+    if twin and twin_is_indexable(root, twin, parsed_set):
+        twin_url = expected_canonical(twin)
+        if not h.alts:
+            errs.append(f"twin exists ({twin}) but no hreflang declared")
+        elif twin_url not in {hr for _, hr in h.alts}:
+            errs.append(f"hreflang does not list twin {twin_url}")
 
     # 3. Open Graph
     for k in OG_REQUIRED:
