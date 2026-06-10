@@ -71,6 +71,30 @@
   ]
 }
 </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": "https://spookwerk.app/blog/#blog",
+      "name": "Spookwerk Blog",
+      "description": "Stories from the workshop — Spookwerk's build logs, origin stories, and notes from making software.",
+      "inLanguage": "en",
+      "url": "https://spookwerk.app/blog/",
+      "publisher": { "@id": "https://spookwerk.app/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://spookwerk.app/blog/#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spookwerk.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog" }
+      ]
+    }
+  ]
+}
+</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ECE7DA; color: #2B2820; min-height: 100vh; padding: 2rem; -webkit-font-smoothing: antialiased; }
