@@ -101,6 +101,9 @@ POST_ALTS = [("en", EN_P), ("nl", NL_P), ("x-default", EN_P)]
 SCAFFOLD_URLS = [HOME, BLOG_C, EN_P, NL_P, APP_C]
 
 
+ROBOTS = "User-agent: *\nAllow: /\n\nSitemap: https://spookwerk.app/sitemap.xml\n"
+
+
 def sitemap_file(urls=None):
     body = "\n".join(f"  <url><loc>{u}</loc></url>"
                      for u in sorted(urls if urls is not None else SCAFFOLD_URLS))
@@ -141,6 +144,7 @@ def scaffold(d):
           '<html><head><meta name="robots" content="noindex"></head>'
           '<body>moved</body></html>')
     write(d, "sitemap.xml", sitemap_file())
+    write(d, "robots.txt", ROBOTS)
     (d / "logo.png").write_bytes(b"x")
     (d / "og").mkdir(exist_ok=True)
     (d / "og" / "default.png").write_bytes(b"x")
@@ -416,6 +420,25 @@ class T(unittest.TestCase):
             code, out = self._run(d, "--write-sitemap", "index.html")
             self.assertEqual(code, 2, out)
             self.assertIn("cannot be combined", out)
+
+
+    # ---- C: robots.txt ----
+    def test_robots_missing_fails(self):
+        code, out = self._case(lambda d: (d / "robots.txt").unlink())
+        self.assertNotEqual(code, 0)
+        self.assertIn("robots.txt", out)
+
+    def test_robots_wrong_sitemap_line_fails(self):
+        bad = "User-agent: *\nAllow: /\n\nSitemap: https://example.com/sitemap.xml\n"
+        code, out = self._case(lambda d: write(d, "robots.txt", bad))
+        self.assertNotEqual(code, 0)
+        self.assertIn("Sitemap", out)
+
+    def test_robots_disallow_fails(self):
+        bad = ROBOTS + "\nUser-agent: GPTBot\nDisallow: /\n"
+        code, out = self._case(lambda d: write(d, "robots.txt", bad))
+        self.assertNotEqual(code, 0)
+        self.assertIn("Disallow", out)
 
 
 if __name__ == "__main__":

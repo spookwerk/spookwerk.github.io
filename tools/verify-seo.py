@@ -365,6 +365,20 @@ def check_site_files(root: Path, parsed: dict) -> dict:
                 errs["sitemap.xml"] = e
         except ET.ParseError as ex:
             errs["sitemap.xml"] = [f"unparseable sitemap: {ex}"]
+    rb = root / "robots.txt"
+    if not rb.exists():
+        errs["robots.txt"] = ["missing"]
+    else:
+        e = []
+        lines = rb.read_text(encoding="utf-8").splitlines()
+        if f"Sitemap: {SITE}/sitemap.xml" not in lines:
+            e.append(f"missing line: Sitemap: {SITE}/sitemap.xml")
+        for ln in lines:
+            if ln.strip().lower().startswith("disallow:"):
+                e.append(f"Disallow directive present: {ln.strip()!r} "
+                         "(site policy is allow-all; see spec C §4)")
+        if e:
+            errs["robots.txt"] = e
     return errs
 
 
