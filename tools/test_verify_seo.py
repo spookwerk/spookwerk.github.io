@@ -103,6 +103,19 @@ SCAFFOLD_URLS = [HOME, BLOG_C, EN_P, NL_P, APP_C]
 
 ROBOTS = "User-agent: *\nAllow: /\n\nSitemap: https://spookwerk.app/sitemap.xml\n"
 
+LLMS = f"""# Demo
+
+> Demo site.
+
+## Apps
+
+- [Demo]({APP_C}): a demo app.
+
+## Blog
+
+- [Blog]({BLOG_C}): posts. ([one post]({EN_P}))
+"""
+
 
 def sitemap_file(urls=None):
     body = "\n".join(f"  <url><loc>{u}</loc></url>"
@@ -145,6 +158,7 @@ def scaffold(d):
           '<body>moved</body></html>')
     write(d, "sitemap.xml", sitemap_file())
     write(d, "robots.txt", ROBOTS)
+    write(d, "llms.txt", LLMS)
     (d / "logo.png").write_bytes(b"x")
     (d / "og").mkdir(exist_ok=True)
     (d / "og" / "default.png").write_bytes(b"x")
@@ -439,6 +453,24 @@ class T(unittest.TestCase):
         code, out = self._case(lambda d: write(d, "robots.txt", bad))
         self.assertNotEqual(code, 0)
         self.assertIn("Disallow", out)
+
+    # ---- C: llms.txt ----
+    def test_llms_missing_fails(self):
+        code, out = self._case(lambda d: (d / "llms.txt").unlink())
+        self.assertNotEqual(code, 0)
+        self.assertIn("llms.txt", out)
+
+    def test_llms_dead_link_fails(self):
+        code, out = self._case(lambda d: write(
+            d, "llms.txt", LLMS + f"\n- [gone]({SITE}/nope/)\n"))
+        self.assertNotEqual(code, 0)
+        self.assertIn("dead link", out)
+
+    def test_llms_external_links_ignored(self):
+        extra = ("\n- [App Store](https://apps.apple.com/app/id123)\n"
+                 "- [NL site](https://spookwerk.nl/)\n")
+        code, out = self._case(lambda d: write(d, "llms.txt", LLMS + extra))
+        self.assertEqual(code, 0, out)
 
 
 if __name__ == "__main__":

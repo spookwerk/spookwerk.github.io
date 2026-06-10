@@ -379,6 +379,18 @@ def check_site_files(root: Path, parsed: dict) -> dict:
                          "(site policy is allow-all; see spec C §4)")
         if e:
             errs["robots.txt"] = e
+    lm = root / "llms.txt"
+    if not lm.exists():
+        errs["llms.txt"] = ["missing"]
+    else:
+        e = []
+        text = lm.read_text(encoding="utf-8")
+        for url in re.findall(r"https://spookwerk\.app/[^\s)\"'>\]]*", text):
+            rp = href_to_relpath(url)
+            if rp and not (root / rp).exists():
+                e.append(f"dead link: {url}")
+        if e:
+            errs["llms.txt"] = e
     return errs
 
 
