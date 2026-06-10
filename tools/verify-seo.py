@@ -8,6 +8,8 @@ import argparse, json, re, sys
 from html.parser import HTMLParser
 from pathlib import Path
 
+SKIP_DIRS = {"tools"}  # non-site dirs: anything here is not a deployed page
+
 SITE = "https://spookwerk.app"
 ORG_ID = f"{SITE}/#organization"
 SITE_ID = f"{SITE}/#website"
@@ -87,7 +89,8 @@ class Head(HTMLParser):
 
 def parse_file(f: Path) -> Head:
     h = Head()
-    h.feed(f.read_text(encoding="utf-8"))
+    # errors="replace": a stray non-UTF-8 file must not abort the whole run
+    h.feed(f.read_text(encoding="utf-8", errors="replace"))
     return h
 
 
@@ -143,6 +146,8 @@ def check_breadcrumbs(root, nodes, exp, errs):
     if not bcs:
         errs.append("missing BreadcrumbList")
         return
+    if len(bcs) > 1:
+        errs.append("multiple BreadcrumbList nodes")
     items = bcs[0].get("itemListElement", [])
     if not items:
         errs.append("BreadcrumbList has no items")
@@ -151,7 +156,7 @@ def check_breadcrumbs(root, nodes, exp, errs):
         errs.append("breadcrumb must start at Home (https://spookwerk.app/)")
     for i, it in enumerate(items, 1):
         if it.get("position") != i:
-            errs.append(f"breadcrumb position {it.get('position')} != {i}")
+            errs.append(f"breadcrumb position {it.get('position')!r} != {i}")
         url = it.get("item")
         last = (i == len(items))
         if url is None:
@@ -248,6 +253,8 @@ def check_page(root: Path, relpath: str, parsed_set: dict) -> list:
         if not bp:
             errs.append("missing BlogPosting")
         else:
+            if len(bp) > 1:
+                errs.append("multiple BlogPosting nodes")
             b = bp[0]
             for k in ("headline", "datePublished", "inLanguage", "description"):
                 if not b.get(k):
@@ -263,6 +270,8 @@ def check_page(root: Path, relpath: str, parsed_set: dict) -> list:
         if not sa:
             errs.append("missing SoftwareApplication")
         else:
+            if len(sa) > 1:
+                errs.append("multiple SoftwareApplication nodes")
             s = sa[0]
             for k in ("name", "description", "operatingSystem",
                       "applicationCategory", "offers"):
@@ -275,6 +284,8 @@ def check_page(root: Path, relpath: str, parsed_set: dict) -> list:
         if not bl:
             errs.append("missing Blog entity")
         else:
+            if len(bl) > 1:
+                errs.append("multiple Blog nodes")
             if bl[0].get("@id") != BLOG_ID:
                 errs.append(f"Blog @id != {BLOG_ID}")
             if ref_id(bl[0].get("publisher")) != ORG_ID:
@@ -321,6 +332,10 @@ def main():
         # discovery: every *.html under root, minus robots-noindex stubs
         for f in sorted(root.rglob("*.html")):
             rel = f.relative_to(root).as_posix()
+            # non-site dirs: anything here is not a deployed page
+            if rel.split("/")[0] in SKIP_DIRS:
+                continue
+            # substring match on meta name="robots" only; name="googlebot" noindex is not detected
             h = parse_file(f)
             if "noindex" in h.robots.lower():
                 continue

@@ -166,11 +166,13 @@ class T(unittest.TestCase):
             d, "blog/posts/en/p.html",
             page(EN_P, og_type="article", alts=POST_ALTS, drop={"jsonld"})))
         self.assertNotEqual(code, 0)
+        self.assertIn("missing JSON-LD", out)
 
     def test_missing_og_fails(self):
         code, out = self._case(lambda d: write(
             d, "blog/posts/en/p.html", post_page(EN_P, "en", drop={"og"})))
         self.assertNotEqual(code, 0)
+        self.assertIn("og:", out)
 
     def test_multitoken_rel_canonical_recognized(self):
         code, out = self._case(lambda d: write(
@@ -273,6 +275,47 @@ class T(unittest.TestCase):
             d, "newpage.html", "<html><head></head><body>x</body></html>"))
         self.assertNotEqual(code, 0)
         self.assertIn("newpage.html", out)
+
+    # ---- M7: breadcrumb regression tests ----
+    def test_breadcrumb_last_item_url_mismatch_fails(self):
+        # Last crumb has an 'item' URL that exists (BLOG_C) but != canonical EN_P
+        def mutate(d):
+            write(d, "blog/posts/en/p.html",
+                  post_page(EN_P, "en",
+                             extra_ld=[[blogposting(EN_P, "en"),
+                                        crumbs(EN_P, [("Home", HOME),
+                                                       ("Blog", BLOG_C),
+                                                       ("Post", BLOG_C)])]]))
+        code, out = self._case(mutate)
+        self.assertNotEqual(code, 0)
+        self.assertIn("last item", out)
+
+    def test_breadcrumb_not_starting_at_home_fails(self):
+        # First crumb is not Home
+        def mutate(d):
+            write(d, "blog/posts/en/p.html",
+                  post_page(EN_P, "en",
+                             extra_ld=[[blogposting(EN_P, "en"),
+                                        crumbs(EN_P, [("Elsewhere", BLOG_C),
+                                                       ("Blog", BLOG_C),
+                                                       ("Post", None)])]]))
+        code, out = self._case(mutate)
+        self.assertNotEqual(code, 0)
+        self.assertIn("Home", out)
+
+    # ---- I2 regression test: duplicate BreadcrumbList must fail ----
+    def test_duplicate_breadcrumblist_fails(self):
+        garbage_crumbs = crumbs(EN_P, [("Nope", None)])
+        valid_crumbs = crumbs(EN_P, [("Home", HOME), ("Blog", BLOG_C),
+                                      ("Post", None)])
+        def mutate(d):
+            write(d, "blog/posts/en/p.html",
+                  post_page(EN_P, "en",
+                             extra_ld=[[blogposting(EN_P, "en"),
+                                        valid_crumbs, garbage_crumbs]]))
+        code, out = self._case(mutate)
+        self.assertNotEqual(code, 0)
+        self.assertIn("multiple", out)
 
 
 if __name__ == "__main__":
