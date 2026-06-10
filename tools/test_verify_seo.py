@@ -98,6 +98,16 @@ NL_P = f"{SITE}/blog/posts/nl/p.html"
 APP_C = f"{SITE}/apps/demo/"
 POST_ALTS = [("en", EN_P), ("nl", NL_P), ("x-default", EN_P)]
 
+SCAFFOLD_URLS = [HOME, BLOG_C, EN_P, NL_P, APP_C]
+
+
+def sitemap_file(urls=None):
+    body = "\n".join(f"  <url><loc>{u}</loc></url>"
+                     for u in sorted(urls if urls is not None else SCAFFOLD_URLS))
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + body + "\n</urlset>\n")
+
 
 def write(d, rel, content):
     p = d / rel
@@ -136,8 +146,9 @@ def scaffold(d):
 
 
 class T(unittest.TestCase):
-    def _run(self, root):
-        r = subprocess.run([sys.executable, str(VERIFY), "--root", str(root)],
+    def _run(self, root, *args):
+        r = subprocess.run([sys.executable, str(VERIFY), "--root", str(root),
+                            *args],
                            capture_output=True, text=True)
         return r.returncode, r.stdout + r.stderr
 
@@ -342,6 +353,32 @@ class T(unittest.TestCase):
         code, out = self._case(mutate)
         self.assertNotEqual(code, 0)
         self.assertIn("differs", out)
+
+
+    # ---- C: sitemap generation ----
+    def test_write_sitemap_generates_expected_content(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            scaffold(d)
+            code, out = self._run(d, "--write-sitemap")
+            self.assertEqual(code, 0, out)
+            self.assertEqual((d / "sitemap.xml").read_text(), sitemap_file())
+
+    def test_write_sitemap_idempotent(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            scaffold(d)
+            self._run(d, "--write-sitemap")
+            first = (d / "sitemap.xml").read_bytes()
+            self._run(d, "--write-sitemap")
+            self.assertEqual(first, (d / "sitemap.xml").read_bytes())
+
+    def test_write_sitemap_rejects_file_args(self):
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            scaffold(d)
+            code, out = self._run(d, "--write-sitemap", "index.html")
+            self.assertNotEqual(code, 0)
 
 
 if __name__ == "__main__":

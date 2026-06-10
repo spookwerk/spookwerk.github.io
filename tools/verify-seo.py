@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Head-kit + per-page-type JSON-LD verifier for spookwerk.app. Stdlib only.
-Usage: python3 tools/verify-seo.py [--root DIR] [--all] [FILE ...]
+Usage: python3 tools/verify-seo.py [--root DIR] [--all] [--write-sitemap] [FILE ...]
 Pages are auto-discovered (every *.html under root, minus robots-noindex
 stubs); pass explicit FILEs to scope. --all is accepted for back-compat.
 Exit 0 = all checked pages pass; non-zero = failures (printed)."""
 import argparse, json, re, sys
+from xml.sax.saxutils import escape
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -329,11 +330,23 @@ def discover(root: Path) -> dict:
     return parsed
 
 
+def sitemap_xml(relpaths) -> str:
+    """Deterministic <loc>-only sitemap: sorted URLs, byte-stable output."""
+    body = "\n".join(f"  <url><loc>{escape(expected_canonical(r))}</loc></url>"
+                     for r in sorted(relpaths,
+                                     key=lambda r: expected_canonical(r)))
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + body + "\n</urlset>\n")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=".")
     ap.add_argument("--all", action="store_true",
                     help="deprecated no-op; discovery is the default")
+    ap.add_argument("--write-sitemap", action="store_true",
+                    help="(re)generate sitemap.xml from discovered pages, then exit")
     ap.add_argument("files", nargs="*")
     args = ap.parse_args()
     root = Path(args.root).resolve()
@@ -349,6 +362,14 @@ def main():
             parsed[rel] = parse_file(f)
     else:
         parsed = discover(root)
+
+    if args.write_sitemap:
+        if args.files:
+            print("--write-sitemap cannot be combined with FILE args")
+            sys.exit(2)
+        (root / "sitemap.xml").write_text(sitemap_xml(parsed), encoding="utf-8")
+        print(f"sitemap.xml written ({len(parsed)} URLs)")
+        sys.exit(0)
 
     failures = {}
     for rel in parsed:
