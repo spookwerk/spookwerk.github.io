@@ -148,6 +148,9 @@ def check_breadcrumbs(root, nodes, exp, errs):
         return
     if len(bcs) > 1:
         errs.append("multiple BreadcrumbList nodes")
+    expected_id = exp + "#breadcrumbs"
+    if bcs[0].get("@id") != expected_id:
+        errs.append(f"BreadcrumbList @id {bcs[0].get('@id')!r} != {expected_id!r}")
     items = bcs[0].get("itemListElement", [])
     if not items:
         errs.append("BreadcrumbList has no items")
@@ -300,14 +303,14 @@ def check_page(root: Path, relpath: str, parsed_set: dict) -> list:
     return errs
 
 
-def org_node(h: Head):
+def sitewide_block(h: Head):
+    """Return the parsed first ld+json block, or None if missing/invalid."""
+    if not h.ld_raw:
+        return None
     try:
-        for n in ld_nodes(h.ld_raw):
-            if isinstance(n, dict) and n.get("@id") == ORG_ID:
-                return n
+        return json.loads(h.ld_raw[0])
     except (json.JSONDecodeError, TypeError):
-        pass
-    return None
+        return None
 
 
 def main():
@@ -349,15 +352,16 @@ def main():
     for rel in missing:
         failures[rel] = ["file not found"]
 
-    # sitewide Organization block must be identical (parsed) on every page
-    orgs = {rel: n for rel in parsed if (n := org_node(parsed[rel]))}
-    if orgs:
-        first_rel = next(iter(orgs))
-        ref = orgs[first_rel]
-        for rel, n in orgs.items():
-            if n != ref:
+    # sitewide JSON-LD block (full first block) must be identical on every page
+    sitewide_blocks = {rel: b for rel in parsed
+                       if (b := sitewide_block(parsed[rel])) is not None}
+    if sitewide_blocks:
+        first_rel = next(iter(sitewide_blocks))
+        ref = sitewide_blocks[first_rel]
+        for rel, b in sitewide_blocks.items():
+            if b != ref:
                 failures.setdefault(rel, []).append(
-                    f"Organization block differs from {first_rel}")
+                    f"sitewide JSON-LD block differs from {first_rel}")
 
     if failures:
         for rel, errs in failures.items():

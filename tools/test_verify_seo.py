@@ -12,8 +12,8 @@ WEB = {"@type": "WebSite", "@id": SITE_ID,
        "publisher": {"@id": ORG_ID}}
 
 
-def sitewide(org=None):
-    g = {"@context": "https://schema.org", "@graph": [org or ORG, WEB]}
+def sitewide(org=None, web=None):
+    g = {"@context": "https://schema.org", "@graph": [org or ORG, web or WEB]}
     return f'<script type="application/ld+json">{json.dumps(g)}</script>'
 
 
@@ -58,7 +58,7 @@ def blogentity(canonical, lang):
 
 
 def page(canonical, *, og_type="website", alts=None, extra_ld=None,
-         drop=None, org=None, raw=None):
+         drop=None, org=None, web=None, raw=None):
     drop = drop or set()
     L = []
     if "canonical" not in drop:
@@ -82,7 +82,7 @@ def page(canonical, *, og_type="website", alts=None, extra_ld=None,
               '<meta name="twitter:description" content="D">',
               f'<meta name="twitter:image" content="{SITE}/og/default.png">']
     if "jsonld" not in drop:
-        L.append(sitewide(org))
+        L.append(sitewide(org, web))
     for x in (extra_ld or []):
         L.append(second(*x) if isinstance(x, list) else second(x))
     for r in (raw or []):
@@ -316,6 +316,32 @@ class T(unittest.TestCase):
         code, out = self._case(mutate)
         self.assertNotEqual(code, 0)
         self.assertIn("multiple", out)
+
+
+    # ---- Fix A: breadcrumb @id must anchor to THIS page ----
+    def test_breadcrumb_foreign_id_fails(self):
+        # Crumbs block uses NL_P as its canonical (@id = NL_P + "#breadcrumbs")
+        # but the page being checked is EN_P — that's a foreign @id.
+        def mutate(d):
+            write(d, "blog/posts/en/p.html",
+                  post_page(EN_P, "en",
+                             extra_ld=[[blogposting(EN_P, "en"),
+                                        crumbs(NL_P, [("Home", HOME),
+                                                      ("Blog", BLOG_C),
+                                                      ("Post", None)])]]))
+        code, out = self._case(mutate)
+        self.assertNotEqual(code, 0)
+        self.assertIn("@id", out)
+
+    # ---- Fix B: WHOLE sitewide block must be cross-page identical ----
+    def test_website_node_drift_fails(self):
+        # Org node is unchanged but the WebSite node differs from the reference.
+        drifted_web = dict(WEB, name="WrongName")
+        def mutate(d):
+            write(d, "index.html", page(HOME, web=drifted_web))
+        code, out = self._case(mutate)
+        self.assertNotEqual(code, 0)
+        self.assertIn("differs", out)
 
 
 if __name__ == "__main__":
