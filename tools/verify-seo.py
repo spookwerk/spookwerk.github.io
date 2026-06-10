@@ -27,7 +27,10 @@ APP_SUBPAGE_RE = re.compile(r"^apps/[^/]+/(privacy|support)/(nl/)?index\.html$")
 
 
 def twin_of(relpath: str):
-    """The NL<->EN counterpart path for bilingual page families, else None."""
+    """The NL<->EN counterpart path for bilingual page families, else None.
+
+    App *index* pages (apps/<slug>/index.html) are single-locale by design
+    and deliberately have no twin mapping."""
     if relpath == "blog/index.html":
         return "blog/nl/index.html"
     if relpath == "blog/nl/index.html":
