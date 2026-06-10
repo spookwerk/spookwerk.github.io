@@ -1,6 +1,6 @@
 # Spookwerk
 
-> Spookwerk is a one-person, AI-powered app studio in the Netherlands building privacy-first iOS apps. Apps process data on-device wherever possible and are free downloads with a one-time unlock — no subscriptions, no ads, no tracking.
+> Spookwerk is an app studio in the Netherlands building privacy-first iOS apps. Apps process data on-device wherever possible and are free downloads with a one-time unlock — no subscriptions, no ads, no tracking.
 
 ## Apps
 
