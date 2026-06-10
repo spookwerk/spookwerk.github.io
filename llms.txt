@@ -1,0 +1,20 @@
+# Spookwerk
+
+> Spookwerk is a one-person, AI-powered app studio in the Netherlands building privacy-first iOS apps. Apps process data on-device wherever possible and are free downloads with a one-time unlock — no subscriptions, no ads, no tracking.
+
+## Apps
+
+- [Vitadatum](https://spookwerk.app/apps/vitadatum/): export your Apple Health data to CSV, entirely on-device. iPhone. ([Privacy](https://spookwerk.app/apps/vitadatum/privacy/), [Support](https://spookwerk.app/apps/vitadatum/support/))
+- [HuurScan](https://spookwerk.app/apps/huurscan/): check the legal maximum rent for a Dutch home using the official WWS points system. iPhone. ([Privacy](https://spookwerk.app/apps/huurscan/privacy/), [Support](https://spookwerk.app/apps/huurscan/support/))
+
+## Blog
+
+- [Spookwerk Blog](https://spookwerk.app/blog/): stories from the workshop — building an AI-powered app studio. Also in [Dutch](https://spookwerk.app/blog/nl/).
+- [Why I built an Apple Health CSV exporter](https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html)
+
+## Company
+
+- Legal name: Spookwerk (sole proprietorship, Netherlands — KvK 42035025)
+- Address: De Nieuwe Erven 3, Unit 14531, 5431NV Cuijk, Netherlands
+- Contact: info@spookwerk.app
+- Dutch-language site: https://spookwerk.nl/
