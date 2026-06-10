@@ -472,6 +472,12 @@ class T(unittest.TestCase):
         code, out = self._case(lambda d: write(d, "llms.txt", LLMS + extra))
         self.assertEqual(code, 0, out)
 
+    def test_llms_bare_url_trailing_punctuation_ok(self):
+        prose = (f"\nSee {EN_P}, our launch post. "
+                 f"Also {APP_C}#features and {BLOG_C}?utm=x for details.\n")
+        code, out = self._case(lambda d: write(d, "llms.txt", LLMS + prose))
+        self.assertEqual(code, 0, out)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -386,6 +386,8 @@ def check_site_files(root: Path, parsed: dict) -> dict:
         e = []
         text = lm.read_text(encoding="utf-8")
         for url in re.findall(r"https://spookwerk\.app/[^\s)\"'>\]]*", text):
+            # bare URLs in prose: strip fragment/query, then trailing punctuation
+            url = re.split(r"[#?]", url)[0].rstrip(".,;:")
             rp = href_to_relpath(url)
             if rp and not (root / rp).exists():
                 e.append(f"dead link: {url}")
