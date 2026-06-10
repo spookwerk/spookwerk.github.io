@@ -378,7 +378,8 @@ class T(unittest.TestCase):
             d = Path(t)
             scaffold(d)
             code, out = self._run(d, "--write-sitemap", "index.html")
-            self.assertNotEqual(code, 0)
+            self.assertEqual(code, 2, out)
+            self.assertIn("cannot be combined", out)
 
 
 if __name__ == "__main__":
