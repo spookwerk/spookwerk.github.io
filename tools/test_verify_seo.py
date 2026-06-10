@@ -380,7 +380,7 @@ class T(unittest.TestCase):
         code, out = self._case(lambda d: write(
             d, "sitemap.xml", "<urlset><loc>broken"))
         self.assertNotEqual(code, 0)
-        self.assertIn("sitemap", out)
+        self.assertIn("unparseable", out)
 
     def test_scoped_run_skips_site_checks(self):
         # Explicit FILE args = partial page set; parity would false-positive.
