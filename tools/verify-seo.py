@@ -313,6 +313,22 @@ def sitewide_block(h: Head):
         return None
 
 
+def discover(root: Path) -> dict:
+    """Every deployable *.html under root, minus SKIP_DIRS and noindex stubs."""
+    parsed = {}
+    for f in sorted(root.rglob("*.html")):
+        rel = f.relative_to(root).as_posix()
+        # non-site dirs: anything here is not a deployed page
+        if rel.split("/")[0] in SKIP_DIRS:
+            continue
+        # substring match on meta name="robots" only; name="googlebot" noindex is not detected
+        h = parse_file(f)
+        if "noindex" in h.robots.lower():
+            continue
+        parsed[rel] = h
+    return parsed
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=".")
@@ -332,17 +348,7 @@ def main():
                 continue
             parsed[rel] = parse_file(f)
     else:
-        # discovery: every *.html under root, minus robots-noindex stubs
-        for f in sorted(root.rglob("*.html")):
-            rel = f.relative_to(root).as_posix()
-            # non-site dirs: anything here is not a deployed page
-            if rel.split("/")[0] in SKIP_DIRS:
-                continue
-            # substring match on meta name="robots" only; name="googlebot" noindex is not detected
-            h = parse_file(f)
-            if "noindex" in h.robots.lower():
-                continue
-            parsed[rel] = h
+        parsed = discover(root)
 
     failures = {}
     for rel in parsed:
