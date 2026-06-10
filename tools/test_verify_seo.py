@@ -140,6 +140,7 @@ def scaffold(d):
     write(d, "apps/old/index.html",
           '<html><head><meta name="robots" content="noindex"></head>'
           '<body>moved</body></html>')
+    write(d, "sitemap.xml", sitemap_file())
     (d / "logo.png").write_bytes(b"x")
     (d / "og").mkdir(exist_ok=True)
     (d / "og" / "default.png").write_bytes(b"x")
@@ -354,6 +355,41 @@ class T(unittest.TestCase):
         self.assertNotEqual(code, 0)
         self.assertIn("differs", out)
 
+
+    # ---- C: sitemap parity ----
+    def test_sitemap_missing_fails(self):
+        code, out = self._case(lambda d: (d / "sitemap.xml").unlink())
+        self.assertNotEqual(code, 0)
+        self.assertIn("sitemap", out)
+
+    def test_sitemap_stale_extra_url_fails(self):
+        stale = SCAFFOLD_URLS + [f"{SITE}/gone/"]
+        code, out = self._case(lambda d: write(
+            d, "sitemap.xml", sitemap_file(stale)))
+        self.assertNotEqual(code, 0)
+        self.assertIn("gone", out)
+
+    def test_sitemap_missing_page_fails(self):
+        short = [u for u in SCAFFOLD_URLS if u != APP_C]
+        code, out = self._case(lambda d: write(
+            d, "sitemap.xml", sitemap_file(short)))
+        self.assertNotEqual(code, 0)
+        self.assertIn("missing from sitemap", out)
+
+    def test_sitemap_unparseable_fails(self):
+        code, out = self._case(lambda d: write(
+            d, "sitemap.xml", "<urlset><loc>broken"))
+        self.assertNotEqual(code, 0)
+        self.assertIn("sitemap", out)
+
+    def test_scoped_run_skips_site_checks(self):
+        # Explicit FILE args = partial page set; parity would false-positive.
+        with tempfile.TemporaryDirectory() as t:
+            d = Path(t)
+            scaffold(d)
+            (d / "sitemap.xml").unlink()
+            code, out = self._run(d, "index.html")
+            self.assertEqual(code, 0, out)
 
     # ---- C: sitemap generation ----
     def test_write_sitemap_generates_expected_content(self):

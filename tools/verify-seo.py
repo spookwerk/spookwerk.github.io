@@ -5,6 +5,7 @@ Pages are auto-discovered (every *.html under root, minus robots-noindex
 stubs); pass explicit FILEs to scope. --all is accepted for back-compat.
 Exit 0 = all checked pages pass; non-zero = failures (printed)."""
 import argparse, json, re, sys
+import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape
 from html.parser import HTMLParser
 from pathlib import Path
@@ -340,6 +341,33 @@ def sitemap_xml(relpaths) -> str:
             + body + "\n</urlset>\n")
 
 
+SITEMAP_NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+
+
+def check_site_files(root: Path, parsed: dict) -> dict:
+    """Site-level checks, discovery mode only. Returns {filename: [errors]}."""
+    errs = {}
+    sm = root / "sitemap.xml"
+    expected = {expected_canonical(r) for r in parsed}
+    if not sm.exists():
+        errs["sitemap.xml"] = [
+            "missing — generate with: tools/verify-seo.py --write-sitemap"]
+    else:
+        try:
+            got = {(el.text or "").strip()
+                   for el in ET.parse(sm).findall(".//sm:loc", SITEMAP_NS)}
+            e = []
+            for url in sorted(got - expected):
+                e.append(f"sitemap lists URL with no page: {url}")
+            for url in sorted(expected - got):
+                e.append(f"page missing from sitemap: {url} — regenerate")
+            if e:
+                errs["sitemap.xml"] = e
+        except ET.ParseError as ex:
+            errs["sitemap.xml"] = [f"unparseable sitemap: {ex}"]
+    return errs
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=".")
@@ -378,6 +406,11 @@ def main():
             failures[rel] = e
     for rel in missing:
         failures[rel] = ["file not found"]
+
+    # site-level checks only make sense against the full discovered set
+    if not args.files:
+        for name, e in check_site_files(root, parsed).items():
+            failures.setdefault(name, []).extend(e)
 
     # sitewide JSON-LD block (full first block) must be identical on every page
     sitewide_blocks = {rel: b for rel in parsed
