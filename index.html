@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0c0e13">
+    <meta name="theme-color" content="#ECE7DA">
     <title>Spookwerk</title>
     <link rel="alternate" type="application/rss+xml" title="Spookwerk Blog" href="/blog/feed.xml">
     <meta name="description" content="Spookwerk is a Dutch indie studio building privacy-first iOS apps — Vitadatum (Apple Health export) and HuurScan (Dutch legal rent check).">
@@ -71,27 +71,34 @@
 </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #ECE7DA;            /* bone — page background */
+            --surface: #F3EFE5;       /* card surface */
+            --border: #DBD4C3;        /* hairline borders */
+            --ink: #16140F;           /* headings / strong text */
+            --text: #2B2820;          /* body text */
+            --text-soft: #4A4538;     /* secondary text (descriptions) */
+            --muted: #7A7466;         /* faint text (tagline, footer) */
+            --link: #246B7A;          /* teal links */
+            --link-underline: #B7CDD3;/* teal link underline */
+            --accent: #936518;        /* brass — dates, small accents */
+            --accent-strong: #B8893F; /* brass — hover / active borders */
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
+            font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 2rem;
+            -webkit-font-smoothing: antialiased;
         }
         .container {
             max-width: 600px;
             text-align: center;
-        }
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: #fff;
-            margin-bottom: 0.75rem;
         }
         .brand {
             line-height: 0;
@@ -101,10 +108,11 @@
             width: min(340px, 75%);
             height: auto;
             display: inline-block;
+            opacity: 0.92;
         }
         .tagline {
             font-size: 1.1rem;
-            color: #888;
+            color: var(--muted);
             margin-bottom: 3rem;
         }
         .apps {
@@ -118,15 +126,16 @@
             align-items: center;
             gap: 1rem;
             padding: 1.25rem 1.5rem;
-            background: #161616;
-            border: 1px solid #222;
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 12px;
             text-decoration: none;
             color: inherit;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
         .app-card:hover {
-            border-color: #444;
+            border-color: var(--accent-strong);
+            box-shadow: 0 4px 16px rgba(22, 20, 15, 0.06);
         }
         .app-icon {
             width: 48px;
@@ -146,24 +155,24 @@
         .app-name {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #fff;
+            color: var(--ink);
         }
         .app-badge {
             display: inline-block;
             margin-left: 0.5rem;
             padding: 0.15rem 0.5rem;
-            background: #2a2a2a;
-            color: #aaa;
+            background: rgba(147, 101, 24, 0.10);
+            color: var(--accent);
             font-size: 0.7rem;
-            font-weight: 500;
+            font-weight: 600;
             border-radius: 4px;
             vertical-align: middle;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.03em;
             text-transform: uppercase;
         }
         .app-desc {
             font-size: 0.85rem;
-            color: #888;
+            color: var(--text-soft);
             margin-top: 0.2rem;
         }
         .more-link {
@@ -171,29 +180,31 @@
             font-size: 0.9rem;
         }
         .more-link a {
-            color: #888;
+            color: var(--link);
             text-decoration: none;
-            transition: color 0.2s;
+            border-bottom: 1px solid var(--link-underline);
+            transition: border-color 0.2s;
         }
-        .more-link a:hover { color: #ccc; }
+        .more-link a:hover { border-bottom-color: var(--link); }
         footer {
             margin-top: 4rem;
             font-size: 0.8rem;
-            color: #555;
+            color: var(--muted);
             line-height: 1.7;
         }
         footer a {
-            color: #777;
+            color: var(--muted);
             text-decoration: none;
+            border-bottom: 1px solid var(--border);
         }
         footer a:hover {
-            color: #aaa;
+            color: var(--ink);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="brand"><img src="/wordmark.svg" alt="Spookwerk"></h1>
+        <h1 class="brand"><img src="/wordmark-light.svg" alt="Spookwerk"></h1>
         <p class="tagline">Apps that respect your data</p>
         <div class="apps">
             <a href="/apps/vitadatum/" class="app-card">

@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0c0e13">
+    <meta name="theme-color" content="#ECE7DA">
     <title>HuurScan — Spookwerk</title>
     <meta name="description" content="Calculate the maximum legal rent for Dutch homes with the official points system (WWS). Works offline — no accounts, no tracking, your data stays on your device.">
     <link rel="canonical" href="https://spookwerk.app/apps/huurscan/">
@@ -96,12 +96,28 @@
 </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #ECE7DA;            /* bone — page background */
+            --surface: #F3EFE5;       /* raised surface (lang menu) */
+            --surface-hover: #E7E1D2; /* lang-menu row hover */
+            --border: #DBD4C3;        /* hairline borders, footer rule */
+            --border-soft: #CFC7B4;   /* control borders (lang summary) */
+            --ink: #16140F;           /* headings / strong text */
+            --text: #2B2820;          /* body text */
+            --text-soft: #4A4538;     /* secondary body text (p, li, features) */
+            --muted: #7A7466;         /* faint text (nav, subtitle, footer) */
+            --link: #246B7A;          /* teal links */
+            --accent: #936518;        /* brass — badge, accents */
+            --accent-strong: #B8893F; /* brass — hover borders */
+            --check: #6F8F78;         /* sage — feature checkmarks */
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
+            font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
             padding: 2rem;
+            -webkit-font-smoothing: antialiased;
         }
         .container {
             max-width: 640px;
@@ -111,23 +127,23 @@
             margin-bottom: 3rem;
         }
         nav a {
-            color: #888;
+            color: var(--muted);
             text-decoration: none;
             font-size: 0.9rem;
         }
-        nav a:hover { color: #ccc; }
+        nav a:hover { color: var(--ink); }
         h1 {
             font-size: 2rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--ink);
             margin-bottom: 0.5rem;
         }
         .badge {
             display: inline-block;
             margin-left: 0.6rem;
             padding: 0.2rem 0.6rem;
-            background: #2a2a2a;
-            color: #aaa;
+            background: rgba(147, 101, 24, 0.10);
+            color: var(--accent);
             font-size: 0.75rem;
             font-weight: 500;
             border-radius: 5px;
@@ -137,7 +153,7 @@
         }
         .subtitle {
             font-size: 1.05rem;
-            color: #888;
+            color: var(--muted);
             margin-bottom: 2rem;
         }
         .features {
@@ -146,12 +162,12 @@
         }
         .features li {
             padding: 0.6rem 0;
-            border-bottom: 1px solid #1a1a1a;
-            color: #ccc;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-soft);
         }
         .features li::before {
             content: "\2713\00a0\00a0";
-            color: #ff9500;
+            color: var(--check);
         }
         .links {
             display: flex;
@@ -159,7 +175,7 @@
             flex-wrap: wrap;
         }
         .links a {
-            color: #5a9eff;
+            color: var(--link);
             text-decoration: none;
             font-size: 0.95rem;
         }
@@ -167,7 +183,7 @@
         footer {
             margin-top: 4rem;
             font-size: 0.8rem;
-            color: #555;
+            color: var(--muted);
         }
     </style>
 </head>
