@@ -84,6 +84,17 @@
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
     },
     {
+      "@type": "FAQPage",
+      "@id": "https://spookwerk.app/apps/vitadatum/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I export my Apple Health data to CSV?", "acceptedAnswer": { "@type": "Answer", "text": "Install Vitadatum, grant it read access to Apple Health, and choose a CSV export. You get a summary CSV with 26 daily columns plus detailed per-metric files covering your full history — all generated on your iPhone." } },
+        { "@type": "Question", "name": "Can I export Apple Health data for ChatGPT or Claude?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Vitadatum exports structured JSON, the format AI tools read most reliably, so you can upload it straight to ChatGPT, Claude, or any LLM. Vitadatum doesn't do any AI itself — it just prepares your data in the format those tools prefer." } },
+        { "@type": "Question", "name": "Does Vitadatum upload my health data anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Everything happens on your device. No accounts, no cloud uploads, no analytics, no tracking. Your health data never leaves your iPhone unless you share the exported file yourself." } },
+        { "@type": "Question", "name": "What does Vitadatum cost?", "acceptedAnswer": { "@type": "Answer", "text": "A one-time €4.99 unlock, with no subscription. The last 7 days of JSON export — all 187 metrics — are free, so you can see your data before paying." } },
+        { "@type": "Question", "name": "Which health data can I export?", "acceptedAnswer": { "@type": "Answer", "text": "All 187 HealthKit data types across 14 categories: steps, heart rate, HRV, sleep stages, workouts, blood glucose, ECG waveforms, nutrition, and more." } }
+      ]
+    },
+    {
       "@type": "BreadcrumbList",
       "@id": "https://spookwerk.app/apps/vitadatum/#breadcrumbs",
       "itemListElement": [
@@ -167,6 +178,33 @@
             font-size: 0.95rem;
         }
         .links a:hover { text-decoration: underline; }
+        .lead {
+            font-size: 1.05rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+        .faq {
+            margin-top: 3rem;
+        }
+        .faq h2 {
+            font-size: 1.3rem;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+        }
+        .faq .qa {
+            margin-bottom: 1.5rem;
+        }
+        .faq h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.35rem;
+        }
+        .faq p {
+            color: var(--text-soft);
+            line-height: 1.55;
+        }
         footer {
             margin-top: 4rem;
             font-size: 0.8rem;
@@ -179,6 +217,7 @@
         <nav><a href="/">&larr; Spookwerk</a></nav>
         <h1>Vitadatum</h1>
         <p class="subtitle">Export your Apple Health data to JSON and CSV. All 187 data types. Private by default.</p>
+        <p class="lead">Vitadatum is an iOS app that exports your Apple Health data to clean CSV and JSON files, right on your iPhone. Grant it read access to Apple Health, pick what you want, and you get all 187 HealthKit data types as spreadsheet-ready CSV or AI-ready JSON — no account, no cloud upload, nothing leaving your device. One-time &euro;4.99; the last 7 days of JSON are free to try first.</p>
         <ul class="features">
             <li>All 187 HealthKit data types across 14 categories</li>
             <li>Incremental exports — only new data since last export</li>
@@ -193,6 +232,29 @@
         <div class="links">
             <a href="privacy/">Privacy Policy</a>
         </div>
+        <section class="faq">
+            <h2>Frequently asked questions</h2>
+            <div class="qa">
+                <h3>How do I export my Apple Health data to CSV?</h3>
+                <p>Install Vitadatum, grant it read access to Apple Health, and choose a CSV export. You get a summary CSV with 26 daily columns plus detailed per-metric files covering your full history — all generated on your iPhone.</p>
+            </div>
+            <div class="qa">
+                <h3>Can I export Apple Health data for ChatGPT or Claude?</h3>
+                <p>Yes. Vitadatum exports structured JSON, the format AI tools read most reliably, so you can upload it straight to ChatGPT, Claude, or any LLM. Vitadatum doesn't do any AI itself — it just prepares your data in the format those tools prefer.</p>
+            </div>
+            <div class="qa">
+                <h3>Does Vitadatum upload my health data anywhere?</h3>
+                <p>No. Everything happens on your device. No accounts, no cloud uploads, no analytics, no tracking. Your health data never leaves your iPhone unless you share the exported file yourself.</p>
+            </div>
+            <div class="qa">
+                <h3>What does Vitadatum cost?</h3>
+                <p>A one-time €4.99 unlock, with no subscription. The last 7 days of JSON export — all 187 metrics — are free, so you can see your data before paying.</p>
+            </div>
+            <div class="qa">
+                <h3>Which health data can I export?</h3>
+                <p>All 187 HealthKit data types across 14 categories: steps, heart rate, HRV, sleep stages, workouts, blood glucose, ECG waveforms, nutrition, and more.</p>
+            </div>
+        </section>
     </div>
     <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
 </body>
