@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ECE7DA">
+    <title>Apple Health-data exporteren naar CSV — Spookwerk</title>
+    <meta name="description" content="Apple Health exporteert XML, geen CSV — dit is de eerlijke handleiding om je gezondheidsdata echt in een spreadsheet te krijgen, met de hand of met een app.">
+    <link rel="alternate" type="application/rss+xml" title="Spookwerk Blog" href="/blog/feed.xml">
+    <link rel="canonical" href="https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html">
+    <link rel="alternate" hreflang="en" href="https://spookwerk.app/blog/posts/en/how-to-export-apple-health-to-csv.html">
+    <link rel="alternate" hreflang="nl" href="https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html">
+    <link rel="alternate" hreflang="x-default" href="https://spookwerk.app/blog/posts/en/how-to-export-apple-health-to-csv.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Apple Health-data exporteren naar CSV">
+    <meta property="og:description" content="Apple Health exporteert XML, geen CSV — dit is de eerlijke handleiding om je gezondheidsdata echt in een spreadsheet te krijgen, met de hand of met een app.">
+    <meta property="og:url" content="https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html">
+    <meta property="og:image" content="https://spookwerk.app/og/default.png">
+    <meta property="og:site_name" content="Spookwerk">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="article:published_time" content="2026-06-27">
+    <meta property="article:author" content="Spookwerk">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apple Health-data exporteren naar CSV">
+    <meta name="twitter:description" content="Apple Health exporteert XML, geen CSV — dit is de eerlijke handleiding om je gezondheidsdata echt in een spreadsheet te krijgen, met de hand of met een app.">
+    <meta name="twitter:image" content="https://spookwerk.app/og/default.png">
+    <meta name="twitter:site" content="@Spookwerk">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://spookwerk.app/#organization",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "logo": "https://spookwerk.app/logo.png",
+      "description": "Dutch indie studio building privacy-first iOS apps.",
+      "email": "info@spookwerk.app",
+      "vatID": "NL005445579B82",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "De Nieuwe Erven 3, Unit 14531",
+        "postalCode": "5431NV",
+        "addressLocality": "Cuijk",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://spookwerk.nl",
+        "https://x.com/Spookwerk",
+        "https://www.instagram.com/spookwerk/",
+        "https://bsky.app/profile/spookwerk.app",
+        "https://www.youtube.com/@Spookwerk",
+        "https://www.tiktok.com/@spookwerk",
+        "https://www.threads.net/@spookwerk",
+        "https://www.reddit.com/user/Spookwerk"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://spookwerk.app/#website",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "inLanguage": ["en", "nl"],
+      "publisher": { "@id": "https://spookwerk.app/#organization" }
+    }
+  ]
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html#blogposting",
+      "headline": "Apple Health-data exporteren naar CSV",
+      "description": "Apple Health exporteert XML, geen CSV — dit is de eerlijke handleiding om je gezondheidsdata echt in een spreadsheet te krijgen, met de hand of met een app.",
+      "inLanguage": "nl",
+      "datePublished": "2026-06-27",
+      "image": "https://spookwerk.app/og/default.png",
+      "url": "https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html",
+      "mainEntityOfPage": "https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html",
+      "author":    { "@id": "https://spookwerk.app/#organization" },
+      "publisher": { "@id": "https://spookwerk.app/#organization" },
+      "isPartOf":  { "@id": "https://spookwerk.app/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spookwerk.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://spookwerk.app/blog/nl/" },
+        { "@type": "ListItem", "position": 3, "name": "Apple Health-data exporteren naar CSV" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kan Apple Health rechtstreeks naar CSV exporteren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. De ingebouwde functie Exporteer alle gezondheidsgegevens levert een .zip met XML (export.xml) op, geen CSV. Om CSV te krijgen converteer je de XML zelf of gebruik je een app als Vitadatum die rechtstreeks CSV exporteert."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Waar staat de exportknop in Apple Health?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open de Gezondheid-app, tik op Overzicht, tik op je profielfoto of initialen rechtsboven, scrol naar beneden en tik op Exporteer alle gezondheidsgegevens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "In welk formaat exporteert Apple Health?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een .zip-archief met een groot XML-bestand (export.xml) met je volledige gezondheidsgeschiedenis. Geen enkele spreadsheet opent het in nette rijen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe open ik het geëxporteerde bestand in Excel of Numbers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Je kunt export.xml niet rechtstreeks als spreadsheet openen — XML is niet tabelvormig. Converteer het eerst naar CSV (met een script), of gebruik een app als Vitadatum die CSV exporteert die je direct in Excel, Numbers of Google Sheets opent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Uploadt Vitadatum mijn gezondheidsdata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. Vitadatum draait volledig op je toestel — geen account, geen server, geen cloud-upload. Je data verlaat je telefoon alleen als je er zelf voor kiest om een geëxporteerd bestand te delen."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ECE7DA; color: #2B2820; min-height: 100vh; padding: 2rem; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 640px; margin: 0 auto; }
+        .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
+        .topbar .brand { line-height: 0; }
+        .topbar .brand img { width: 140px; height: auto; opacity: 0.92; transition: opacity 0.2s; }
+        .topbar .brand:hover img { opacity: 1; }
+        .backlink { display: inline-block; margin-bottom: 2.25rem; color: #7A7466; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.02em; }
+        .backlink:hover { color: #16140F; }
+        .lang-switcher { position: relative; }
+        .lang-switcher summary { list-style: none; cursor: pointer; font-size: 0.8rem; color: #7A7466; padding: 0.3rem 0.65rem; border: 1px solid #CFC7B4; border-radius: 6px; letter-spacing: 0.02em; }
+        .lang-switcher summary:hover { color: #16140F; border-color: #B8893F; }
+        .lang-switcher summary::-webkit-details-marker { display: none; }
+        .lang-switcher .lang-menu { position: absolute; right: 0; top: 100%; margin-top: 0.3rem; background: #F5F1E8; border: 1px solid #CFC7B4; border-radius: 6px; padding: 0.25rem 0; min-width: 150px; z-index: 10; box-shadow: 0 6px 20px rgba(22,20,15,0.08); }
+        .lang-switcher .lang-menu a { display: block; padding: 0.4rem 0.8rem; font-size: 0.82rem; color: #2B2820; text-decoration: none; }
+        .lang-switcher .lang-menu a:hover { background: #E7E1D2; color: #16140F; }
+        .lang-switcher .lang-menu .active { color: #936518; font-weight: 600; pointer-events: none; }
+        article header { margin-bottom: 2.5rem; }
+        h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.01em; color: #16140F; margin-bottom: 0.6rem; line-height: 1.18; }
+        .post-date { font-size: 0.76rem; color: #936518; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; text-transform: uppercase; }
+        article { font-size: 1.07rem; line-height: 1.75; color: #2B2820; }
+        article h2 { font-size: 1.45rem; font-weight: 600; color: #16140F; margin: 2.6rem 0 1rem; letter-spacing: -0.01em; }
+        article h3 { font-size: 1.1rem; font-weight: 600; color: #16140F; margin: 1.8rem 0 0.5rem; }
+        article p { margin-bottom: 1.3rem; }
+        article em { color: #16140F; font-style: italic; }
+        article a { color: #246B7A; text-decoration: none; border-bottom: 1px solid #B7CDD3; }
+        article a:hover { border-bottom-color: #246B7A; }
+        article ul, article ol { margin: 0 0 1.3rem 1.5rem; }
+        article li { margin-bottom: 0.5rem; }
+        article blockquote { border-left: 3px solid #B8893F; padding-left: 1rem; margin: 0 0 1.3rem; color: #6B6658; font-style: italic; }
+        article code { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.9em; }
+        article pre { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 8px; padding: 1rem; overflow-x: auto; margin-bottom: 1.3rem; }
+        article pre code { background: none; border: none; padding: 0; }
+        .sig { margin-top: 3rem; color: #936518; font-size: 0.95rem; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #DBD4C3; font-size: 0.8rem; color: #7A7466; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <a href="/" class="brand"><img src="/wordmark-light.svg" alt="Spookwerk"></a>
+            <details class="lang-switcher">
+                <summary>Nederlands &#9662;</summary>
+                <div class="lang-menu">
+                    <a href="../en/how-to-export-apple-health-to-csv.html">English</a>
+                    <a href="how-to-export-apple-health-to-csv.html" class="active">Nederlands</a>
+                </div>
+            </details>
+        </div>
+        <a href="/blog/nl/" class="backlink">&larr; Blog</a>
+        <article>
+            <header>
+                <h1>Apple Health-data exporteren naar CSV</h1>
+                <p class="post-date">2026-06-27</p>
+            </header>
+            <p><strong>Apple Health exporteert niet naar CSV.</strong> De ingebouwde export geeft je één <code>.zip</code> met daarin één groot XML-bestand (<code>export.xml</code>) — geen spreadsheet. Om echt CSV te krijgen heb je twee opties: die XML zelf converteren met een script, of een app gebruiken die Apple Health uitleest en rechtstreeks CSV wegschrijft, zoals Vitadatum. Deze handleiding behandelt ze allebei, eerlijk.</p>
+
+<h2>Waar de exportknop staat — en wat je er eigenlijk mee krijgt</h2>
+
+<p>Open op je iPhone de Gezondheid-app, tik op <em>Overzicht</em>, tik op je <em>profielfoto of initialen</em> rechtsboven, scrol naar beneden en tik op <em>Exporteer alle gezondheidsgegevens</em>. Na een minuut of twee krijg je een <code>.zip</code>-archief. Pak het uit en je vindt <code>export.xml</code> — één groot XML-document met je volledige gezondheidsgeschiedenis.</p>
+
+<p>Er is nergens in Apple Health een knop "Exporteer naar CSV", en die is er ook nooit geweest. XML is een formaat waarmee apps met elkaar praten; het is geen formaat dat Numbers, Excel of Google Sheets in nette rijen opent, en je kunt het ook niet comfortabel aan ChatGPT of Claude geven. Dus je hebt "je data" — technisch waar, praktisch vastgelopen.</p>
+
+<h2>Route 1 — converteer de XML zelf</h2>
+
+<p>Als je wel raad weet met een beetje code, kun je <code>export.xml</code> platslaan tot CSV. Pak het archief uit, parse vervolgens de XML (Python's ingebouwde <code>xml.etree.ElementTree</code> werkt prima) en schrijf de records weg als rijen. De structuur is genest en het bestand kan enorm zijn — jaren aan hartslagmetingen per minuut tellen snel op — dus een naïef script dat alles in het geheugen laadt zal het zwaar krijgen. Er zijn ook open-source converters die dit doen.</p>
+
+<p>Het is een echte optie, en het is gratis. Het is ook echt gepriegel: je werkt met één gigantisch bestand, inconsistente recordtypes en eenheidsvelden die je zelf moet ontcijferen. Prima voor een ontwikkelaar op een rustige middag. Lastig voor wie gewoon zijn stappenteller in een spreadsheet wil.</p>
+
+<h2>Route 2 — gebruik een app die rechtstreeks CSV exporteert</h2>
+
+<p>De andere route is om de XML helemaal over te slaan en een app te gebruiken die Apple Health uitleest en de CSV voor je wegschrijft. <a href="/apps/vitadatum/">Vitadatum</a> (die ik maak) doet precies dat, op je toestel. Het leest HealthKit uit en exporteert nette CSV en JSON — een samenvattings-CSV plus een detail-CSV per metriek, voor 187 metrieken in 14 categorieën, inclusief ECG. Open de CSV in Excel, Numbers of Google Sheets; geef de JSON aan ChatGPT of Claude.</p>
+
+<p>Het draait volledig op je telefoon: geen account, geen backend, geen cloud-upload. Je gezondheidsdata verlaat het toestel nooit, tenzij je er zelf voor kiest om een bestand te delen — wat een wezenlijk verschil is met tools die alles naar een server uploaden om de conversie te doen.</p>
+
+<p>Het is gratis voor de laatste 7 dagen, zodat je precies ziet wat je krijgt voordat je iets betaalt, en een eenmalige ontgrendeling van € 4,99 (geen abonnement) geeft je de volledige geschiedenis, CSV-export en automatische exports op de achtergrond. Je vindt het <a href="https://apps.apple.com/app/vitadatum/id6763707308">in de App Store</a>.</p>
+
+<h2>Welke route moet je kiezen?</h2>
+
+<p>Schrijf je code en heb je de data maar één keer nodig, converteer de XML dan zelf — het kost niets dan een middag. Heb je geen zin om een XML-bestand van meerdere gigabytes met de hand te ontleden, of wil je exports die actueel blijven zonder dat je eraan denkt, dan is een app die rechtstreeks CSV wegschrijft de schonere weg. Hoe dan ook is het doel hetzelfde: je data, uit de telefoon, in een formaat dat je echt kunt gebruiken.</p>
+
+<h2>Veelgestelde vragen</h2>
+
+<h3>Kan Apple Health rechtstreeks naar CSV exporteren?</h3>
+<p>Nee. De ingebouwde functie Exporteer alle gezondheidsgegevens levert een <code>.zip</code> met XML (<code>export.xml</code>) op, geen CSV. Om CSV te krijgen converteer je de XML zelf of gebruik je een app als Vitadatum die rechtstreeks CSV exporteert.</p>
+
+<h3>Waar staat de exportknop in Apple Health?</h3>
+<p>Open de Gezondheid-app, tik op Overzicht, tik op je profielfoto of initialen rechtsboven, scrol naar beneden en tik op Exporteer alle gezondheidsgegevens.</p>
+
+<h3>In welk formaat exporteert Apple Health?</h3>
+<p>Een <code>.zip</code>-archief met een groot XML-bestand (<code>export.xml</code>) met je volledige gezondheidsgeschiedenis. Geen enkele spreadsheet opent het in nette rijen.</p>
+
+<h3>Hoe open ik het geëxporteerde bestand in Excel of Numbers?</h3>
+<p>Je kunt <code>export.xml</code> niet rechtstreeks als spreadsheet openen — XML is niet tabelvormig. Converteer het eerst naar CSV (met een script), of gebruik een app als Vitadatum die CSV exporteert die je direct in Excel, Numbers of Google Sheets opent.</p>
+
+<h3>Uploadt Vitadatum mijn gezondheidsdata?</h3>
+<p>Nee. Vitadatum draait volledig op je toestel — geen account, geen server, geen cloud-upload. Je data verlaat je telefoon alleen als je er zelf voor kiest om een geëxporteerd bestand te delen.</p>
+            <p class="sig">— O, Spookwerk</p>
+        </article>
+        <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+    </div>
+</body>
+</html>
