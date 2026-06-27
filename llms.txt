@@ -11,6 +11,8 @@
 
 - [Spookwerk Blog](https://spookwerk.app/blog/): stories from the workshop — building an AI-powered app studio. Also in [Dutch](https://spookwerk.app/blog/nl/).
 - [Why I built an Apple Health CSV exporter](https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html)
+- [How to export Apple Health data to CSV](https://spookwerk.app/blog/posts/en/how-to-export-apple-health-to-csv.html): Apple Health's built-in export gives you XML, not CSV — how to actually get CSV (convert the XML yourself, or use Vitadatum). Includes a FAQ.
+- [Is my rent too high? Calculate your max rent (Dutch WWS)](https://spookwerk.app/blog/posts/en/is-my-rent-too-high-calculate-max-rent-wws.html): how to calculate the legal maximum rent for a Dutch home using the official WWS points system.
 
 ## Company
 
