@@ -5,7 +5,7 @@
 ## Apps
 
 - [Vitadatum](https://spookwerk.app/apps/vitadatum/): export your Apple Health data to CSV, entirely on-device. iPhone. Now on the [App Store](https://apps.apple.com/app/vitadatum/id6763707308). ([Privacy](https://spookwerk.app/apps/vitadatum/privacy/), [Support](https://spookwerk.app/apps/vitadatum/support/))
-- [HuurScan](https://spookwerk.app/apps/huurscan/): check the indicative legal maximum rent for a Dutch home using the statutory WWS points system. iPhone. ([Privacy](https://spookwerk.app/apps/huurscan/privacy/), [Support](https://spookwerk.app/apps/huurscan/support/))
+- [HuurScan](https://spookwerk.app/apps/huurscan/): check the indicative legal maximum rent for a Dutch home using the statutory WWS points system. iPhone. Now on the [App Store](https://apps.apple.com/app/huurscan/id6777383544). ([Privacy](https://spookwerk.app/apps/huurscan/privacy/), [Support](https://spookwerk.app/apps/huurscan/support/))
 
 ## Blog
 
