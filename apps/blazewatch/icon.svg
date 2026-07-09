@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="BlazeWatch placeholder icon">
+  <!-- Placeholder until the real app icon exists (iOS asset set is still
+       empty). Brand palette: night background, brass fire dot, spectral
+       detection ring — a satellite's view of a fire at night. -->
+  <rect width="48" height="48" rx="11" fill="#0C0E13"/>
+  <circle cx="24" cy="26" r="4.5" fill="#B8893F"/>
+  <circle cx="24" cy="26" r="9.5" fill="none" stroke="#82D4E6" stroke-width="1.4" opacity="0.75"/>
+  <circle cx="24" cy="26" r="14.5" fill="none" stroke="#82D4E6" stroke-width="1" opacity="0.35"/>
+</svg>

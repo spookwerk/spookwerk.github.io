@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Spookwerk favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ECE7DA">
+    <title>BlazeWatch — Spookwerk</title>
+    <meta name="description" content="Pan-European wildfire awareness for iOS: satellite-detected fires, filtered proximity alerts for the places you care about, and a live fire-danger map. Coming 2027.">
+    <link rel="canonical" href="https://spookwerk.app/apps/blazewatch/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BlazeWatch">
+    <meta property="og:description" content="Pan-European wildfire awareness for iOS: satellite-detected fires, filtered proximity alerts for the places you care about, and a live fire-danger map. Coming 2027.">
+    <meta property="og:url" content="https://spookwerk.app/apps/blazewatch/">
+    <meta property="og:image" content="https://spookwerk.app/og/default.png">
+    <meta property="og:site_name" content="Spookwerk">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BlazeWatch">
+    <meta name="twitter:description" content="Pan-European wildfire awareness for iOS: satellite-detected fires, filtered proximity alerts for the places you care about, and a live fire-danger map. Coming 2027.">
+    <meta name="twitter:image" content="https://spookwerk.app/og/default.png">
+    <meta name="twitter:site" content="@Spookwerk">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://spookwerk.app/#organization",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "logo": "https://spookwerk.app/logo.png",
+      "description": "Dutch indie studio building privacy-first iOS apps.",
+      "email": "info@spookwerk.app",
+      "vatID": "NL005445579B82",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "De Nieuwe Erven 3, Unit 14531",
+        "postalCode": "5431NV",
+        "addressLocality": "Cuijk",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://spookwerk.nl",
+        "https://x.com/Spookwerk",
+        "https://www.instagram.com/spookwerk/",
+        "https://bsky.app/profile/spookwerk.app",
+        "https://www.youtube.com/@Spookwerk",
+        "https://www.tiktok.com/@spookwerk",
+        "https://www.threads.net/@spookwerk",
+        "https://www.reddit.com/user/Spookwerk"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://spookwerk.app/#website",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "inLanguage": ["en", "nl"],
+      "publisher": { "@id": "https://spookwerk.app/#organization" }
+    }
+  ]
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://spookwerk.app/apps/blazewatch/#app",
+      "name": "BlazeWatch",
+      "description": "Pan-European wildfire awareness for iOS: satellite-detected fires, filtered proximity alerts for the places you care about, and a live fire-danger map. Coming 2027.",
+      "url": "https://spookwerk.app/apps/blazewatch/",
+      "operatingSystem": "iOS",
+      "applicationCategory": "WeatherApplication",
+      "publisher": { "@id": "https://spookwerk.app/#organization" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://spookwerk.app/apps/blazewatch/#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spookwerk.app/" },
+        { "@type": "ListItem", "position": 2, "name": "BlazeWatch" }
+      ]
+    }
+  ]
+}
+</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #ECE7DA;            /* bone — page background */
+            --surface: #F3EFE5;       /* raised surface (lang menu) */
+            --surface-hover: #E7E1D2; /* lang-menu row hover */
+            --border: #DBD4C3;        /* hairline borders, footer rule */
+            --border-soft: #CFC7B4;   /* control borders (lang summary) */
+            --ink: #16140F;           /* headings / strong text */
+            --text: #2B2820;          /* body text */
+            --text-soft: #4A4538;     /* secondary body text (p, li, features) */
+            --muted: #7A7466;         /* faint text (nav, subtitle, footer) */
+            --link: #246B7A;          /* teal links */
+            --accent: #936518;        /* brass — badge, accents */
+            --accent-strong: #B8893F; /* brass — hover borders */
+            --check: #6F8F78;         /* sage — feature checkmarks */
+        }
+        body {
+            font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        nav {
+            margin-bottom: 3rem;
+        }
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        nav a:hover { color: var(--ink); }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+        .badge {
+            display: inline-block;
+            margin-left: 0.6rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba(147, 101, 24, 0.10);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 5px;
+            vertical-align: middle;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+        .features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+        .features li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-soft);
+        }
+        .features li::before {
+            content: "\2713\00a0\00a0";
+            color: var(--check);
+        }
+        .disclaimer {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+        footer {
+            margin-top: 4rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="/">&larr; Spookwerk</a></nav>
+        <h1>BlazeWatch<span class="badge">Coming 2027</span></h1>
+        <p class="subtitle">Wildfire awareness for all of Europe, in one app &mdash; satellite-detected fires and proximity alerts for the places you care about, wherever you are.</p>
+        <p style="font-size: 0.9rem; color: var(--text-soft); margin-top: -1rem; margin-bottom: 2rem;">2025 was the worst EU wildfire season on record &mdash; over one million hectares burned (JRC). If your holiday home, family, or favourite hiking region is in a fire-prone part of Europe, "is everything okay over there?" deserves a better answer than scanning local news in a language you don't read.</p>
+        <ul class="features">
+            <li>Pan-European &mdash; one app, no national borders where the data stops</li>
+            <li>Satellite detections from NASA and Copernicus, roughly ten passes a day</li>
+            <li>Multi-layer false-alarm filtering &mdash; when BlazeWatch pings, it means something</li>
+            <li>Proximity alerts for your saved place &mdash; a holiday home 2,000 km away, or the town your family lives in</li>
+            <li>Live fire map with a Copernicus fire-danger overlay</li>
+            <li>Free: full map and alerts for one saved place &mdash; a small one-time unlock for more. No subscription.</li>
+            <li>English-first, built in the EU</li>
+        </ul>
+        <p class="disclaimer">BlazeWatch is an awareness tool, not an emergency service. In an emergency, always follow the instructions of local authorities. Fire data: NASA FIRMS and Copernicus EFFIS.</p>
+        <!-- spookwerk-signup -->
+        <form
+          action="https://buttondown.email/api/emails/embed-subscribe/spookwerk"
+          method="post"
+          target="_blank"
+          style="display:flex;flex-wrap:wrap;gap:.5rem;max-width:28rem;margin:1.5rem 0">
+          <label for="bd-email" style="flex:1 1 100%;font-weight:600">
+            Join the waitlist &mdash; launch news and early beta invites. No spam, unsubscribe anytime.
+          </label>
+          <input id="bd-email" type="email" name="email" required
+            placeholder="you@example.com"
+            style="flex:1 1 12rem;padding:.6rem .8rem;border:1px solid #999;border-radius:6px">
+          <button type="submit"
+            style="flex:0 0 auto;padding:.6rem 1.1rem;border:0;border-radius:6px;
+                   background:#16140F;color:#ECE7DA;font-weight:600;cursor:pointer">
+            Join the waitlist
+          </button>
+        </form>
+        <!-- /spookwerk-signup -->
+    </div>
+    <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+</body>
+</html>
