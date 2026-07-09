@@ -6,7 +6,7 @@
 
 - [Vitadatum](https://spookwerk.app/apps/vitadatum/): export your Apple Health data to CSV, entirely on-device. iPhone. Now on the [App Store](https://apps.apple.com/app/vitadatum/id6763707308). ([Privacy](https://spookwerk.app/apps/vitadatum/privacy/), [Support](https://spookwerk.app/apps/vitadatum/support/))
 - [HuurScan](https://spookwerk.app/apps/huurscan/): check the indicative legal maximum rent for a Dutch home using the statutory WWS points system. iPhone. Now on the [App Store](https://apps.apple.com/app/huurscan/id6777383544). ([Privacy](https://spookwerk.app/apps/huurscan/privacy/), [Support](https://spookwerk.app/apps/huurscan/support/))
-- [BlazeWatch](https://spookwerk.app/apps/blazewatch/): pan-European wildfire awareness — satellite-detected fires (NASA FIRMS, Copernicus EFFIS) with filtered proximity alerts for saved places. iPhone. In development, launching 2027; waitlist open on the app page.
+- [BlazeWatch](https://spookwerk.app/apps/blazewatch/): pan-European wildfire awareness — satellite-detected fires (NASA FIRMS, Copernicus EFFIS) with filtered proximity alerts for saved places. iPhone. In development, launching 2027; the app page has a newsletter signup for launch news and beta invites.
 
 ## Blog
 
