@@ -1,0 +1,6 @@
+# Spookwerk — coordinated vulnerability disclosure (RFC 9116)
+# Covers spookwerk.app, spookwerk.nl, and all Spookwerk iOS apps.
+Contact: mailto:security@spookwerk.app
+Expires: 2027-07-01T00:00:00.000Z
+Preferred-Languages: en, nl
+Canonical: https://spookwerk.app/.well-known/security.txt
