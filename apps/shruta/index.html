@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Spookwerk favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ECE7DA">
+    <title>Shruta — Spookwerk</title>
+    <meta name="description" content="Shruta records 1:1 conversations and produces speaker-labeled transcripts entirely on your device — end-to-end encrypted, in English, Dutch, and German. Coming soon.">
+    <link rel="canonical" href="https://spookwerk.app/apps/shruta/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shruta">
+    <meta property="og:description" content="Shruta records 1:1 conversations and produces speaker-labeled transcripts entirely on your device — end-to-end encrypted, in English, Dutch, and German. Coming soon.">
+    <meta property="og:url" content="https://spookwerk.app/apps/shruta/">
+    <meta property="og:image" content="https://spookwerk.app/og/default.png">
+    <meta property="og:site_name" content="Spookwerk">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shruta">
+    <meta name="twitter:description" content="Shruta records 1:1 conversations and produces speaker-labeled transcripts entirely on your device — end-to-end encrypted, in English, Dutch, and German. Coming soon.">
+    <meta name="twitter:image" content="https://spookwerk.app/og/default.png">
+    <meta name="twitter:site" content="@Spookwerk">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://spookwerk.app/#organization",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "logo": "https://spookwerk.app/logo.png",
+      "description": "Dutch indie studio building privacy-first iOS apps.",
+      "email": "info@spookwerk.app",
+      "vatID": "NL005445579B82",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "De Nieuwe Erven 3, Unit 14531",
+        "postalCode": "5431NV",
+        "addressLocality": "Cuijk",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://spookwerk.nl",
+        "https://x.com/Spookwerk",
+        "https://www.instagram.com/spookwerk/",
+        "https://bsky.app/profile/spookwerk.app",
+        "https://www.youtube.com/@Spookwerk",
+        "https://www.tiktok.com/@spookwerk",
+        "https://www.threads.net/@spookwerk",
+        "https://www.reddit.com/user/Spookwerk"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://spookwerk.app/#website",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "inLanguage": ["en", "nl"],
+      "publisher": { "@id": "https://spookwerk.app/#organization" }
+    }
+  ]
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://spookwerk.app/apps/shruta/#app",
+      "name": "Shruta",
+      "description": "Shruta records 1:1 conversations and produces speaker-labeled transcripts entirely on your device — end-to-end encrypted, in English, Dutch, and German. Coming soon.",
+      "url": "https://spookwerk.app/apps/shruta/",
+      "operatingSystem": "iOS",
+      "applicationCategory": "ProductivityApplication",
+      "publisher": { "@id": "https://spookwerk.app/#organization" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://spookwerk.app/apps/shruta/#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spookwerk.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Shruta" }
+      ]
+    }
+  ]
+}
+</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #ECE7DA;            /* bone — page background */
+            --surface: #F3EFE5;       /* raised surface (lang menu) */
+            --surface-hover: #E7E1D2; /* lang-menu row hover */
+            --border: #DBD4C3;        /* hairline borders, footer rule */
+            --border-soft: #CFC7B4;   /* control borders (lang summary) */
+            --ink: #16140F;           /* headings / strong text */
+            --text: #2B2820;          /* body text */
+            --text-soft: #4A4538;     /* secondary body text (p, li, features) */
+            --muted: #7A7466;         /* faint text (nav, subtitle, footer) */
+            --link: #246B7A;          /* teal links */
+            --accent: #936518;        /* brass — badge, accents */
+            --accent-strong: #B8893F; /* brass — hover borders */
+            --check: #6F8F78;         /* sage — feature checkmarks */
+        }
+        body {
+            font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        nav {
+            margin-bottom: 3rem;
+        }
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        nav a:hover { color: var(--ink); }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+        .badge {
+            display: inline-block;
+            margin-left: 0.6rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba(147, 101, 24, 0.10);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 5px;
+            vertical-align: middle;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+        .links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .links a {
+            color: var(--link);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .links a:hover { text-decoration: underline; }
+        footer {
+            margin-top: 4rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="/">&larr; Spookwerk</a></nav>
+        <h1>Shruta<span class="badge">Coming Soon</span></h1>
+        <p class="subtitle">Records 1:1 conversations and produces speaker-labeled transcripts &mdash; entirely on your device, end-to-end encrypted. English, Dutch, and German.</p>
+        <div class="links">
+            <a href="privacy/">Privacy Policy</a>
+            <a href="support/">Support</a>
+        </div>
+    </div>
+    <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+</body>
+</html>
