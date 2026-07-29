@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Head-kit + per-page-type JSON-LD verifier for spookwerk.app. Stdlib only.
 Usage: python3 tools/verify-seo.py [--root DIR] [--all] [--write-sitemap] [FILE ...]
-Pages are auto-discovered (every *.html under root, minus robots-noindex
-stubs); pass explicit FILEs to scope. --all is accepted for back-compat.
+Pages are auto-discovered (every *.html under root, minus meta-refresh
+redirect stubs and robots-noindex stubs); pass explicit FILEs to scope.
+--all is accepted for back-compat.
 Exit 0 = all checked pages pass; non-zero = failures (printed)."""
 import argparse, json, re, sys
 import xml.etree.ElementTree as ET
@@ -83,6 +84,7 @@ class Head(HTMLParser):
         self.tw = {}            # twitter:* -> content
         self.description = None
         self.robots = ""
+        self.refresh = None     # meta http-equiv="refresh" content, if any
         self.ld_raw = []
         self._in_ld = False
         self._buf = []
@@ -96,6 +98,8 @@ class Head(HTMLParser):
             elif "alternate" in rels and a.get("hreflang"):
                 self.alts.append((a["hreflang"], a.get("href")))
         elif tag == "meta":
+            if (a.get("http-equiv") or "").lower() == "refresh":
+                self.refresh = a.get("content", "")
             prop = a.get("property", "")
             if prop.startswith("og:") or prop.startswith("article:"):
                 self.og[prop] = a.get("content", "")
@@ -360,15 +364,23 @@ def sitewide_block(h: Head):
 
 
 def discover(root: Path) -> dict:
-    """Every deployable *.html under root, minus SKIP_DIRS and noindex stubs."""
+    """Every deployable *.html under root, minus SKIP_DIRS, redirect stubs and
+    noindex stubs."""
     parsed = {}
     for f in sorted(root.rglob("*.html")):
         rel = f.relative_to(root).as_posix()
         # non-site dirs: anything here is not a deployed page
         if rel.split("/")[0] in SKIP_DIRS:
             continue
-        # substring match on meta name="robots" only; name="googlebot" noindex is not detected
         h = parse_file(f)
+        # A meta-refresh page is a redirect stub for a moved URL, not a page:
+        # never head-kit-verified, never in the sitemap. Detected on the
+        # refresh itself so the stub does NOT need noindex — noindex would
+        # tell Google to drop the old URL, fighting the canonical that asks it
+        # to consolidate into the new one.
+        if h.refresh is not None:
+            continue
+        # substring match on meta name="robots" only; name="googlebot" noindex is not detected
         if "noindex" in h.robots.lower():
             continue
         parsed[rel] = h
