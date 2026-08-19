@@ -30,8 +30,13 @@ APP_SUBPAGE_RE = re.compile(r"^apps/[^/]+/(privacy|support)/(nl/)?index\.html$")
 def twin_of(relpath: str):
     """The NL<->EN counterpart path for bilingual page families, else None.
 
-    App *index* pages (apps/<slug>/index.html) are single-locale by design
-    and deliberately have no twin mapping."""
+    App *index* pages have no twin mapping. This is NOT because they are
+    single-locale — since 2026-08-19 Shruta has nl/ + de/ and Vitadatum and
+    HuurScan have nl/ — but because their locale sets are per-app and are not
+    a fixed EN<->NL pair, so a two-way mapping cannot express them. Those pages
+    declare the full hreflang group explicitly instead, and rule 2 enforces
+    reciprocity on it. Consequence: a locale variant types as `base`, so its
+    SoftwareApplication node is not validated (see head-kit.md)."""
     if relpath == "blog/index.html":
         return "blog/nl/index.html"
     if relpath == "blog/nl/index.html":
