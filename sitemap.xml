@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://spookwerk.app/</loc></url>
   <url><loc>https://spookwerk.app/apps/huurscan/</loc></url>
+  <url><loc>https://spookwerk.app/apps/huurscan/nl/</loc></url>
   <url><loc>https://spookwerk.app/apps/huurscan/privacy/</loc></url>
   <url><loc>https://spookwerk.app/apps/huurscan/privacy/nl/</loc></url>
   <url><loc>https://spookwerk.app/apps/huurscan/support/</loc></url>
@@ -16,6 +17,7 @@
   <url><loc>https://spookwerk.app/apps/shruta/support/de/</loc></url>
   <url><loc>https://spookwerk.app/apps/shruta/support/nl/</loc></url>
   <url><loc>https://spookwerk.app/apps/vitadatum/</loc></url>
+  <url><loc>https://spookwerk.app/apps/vitadatum/nl/</loc></url>
   <url><loc>https://spookwerk.app/apps/vitadatum/privacy/</loc></url>
   <url><loc>https://spookwerk.app/apps/vitadatum/privacy/nl/</loc></url>
   <url><loc>https://spookwerk.app/apps/vitadatum/support/</loc></url>
