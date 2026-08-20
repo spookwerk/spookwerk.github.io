@@ -368,6 +368,33 @@ def sitewide_block(h: Head):
         return None
 
 
+LOCALE_DIRS = ("nl", "de")
+SIGNUP_RE = re.compile(
+    r"<!-- spookwerk-signup -->.*?<!-- /spookwerk-signup -->", re.S)
+
+
+def page_locale(relpath: str) -> str:
+    """Locale from the path: a `nl/` or `de/` path segment, else English.
+
+    Matches the site's own convention (twin_of above relies on it) rather than
+    reading <html lang>, which the Head parser does not capture."""
+    for seg in relpath.split("/"):
+        if seg in LOCALE_DIRS:
+            return seg
+    return "en"
+
+
+def signup_block(root: Path, relpath: str):
+    """The <!-- spookwerk-signup --> block verbatim, or None if the page has none.
+
+    Re-reads the file because the block lives in <body> and Head only parses
+    <head>. Pages without a signup form are not a failure — only pages that
+    have one and disagree with their locale's peers."""
+    m = SIGNUP_RE.search((root / relpath).read_text(encoding="utf-8",
+                                                    errors="replace"))
+    return m.group(0) if m else None
+
+
 def discover(root: Path) -> dict:
     """Every deployable *.html under root, minus SKIP_DIRS, redirect stubs and
     noindex stubs."""
@@ -511,6 +538,35 @@ def main():
             if b != ref:
                 failures.setdefault(rel, []).append(
                     f"sitewide JSON-LD block differs from {first_rel}")
+
+    # The Buttondown signup block is hand-copied onto every app and blog index.
+    # It has drifted three times (a Dutch block left on an English page — also
+    # an accessibility bug, since a screen reader voices Dutch with English
+    # phonemes — plus Subscribe/Sign up and two spellings of "anytime"), and it
+    # will drift again the moment page N+1 is copied from whichever file happens
+    # to be open. Grouping by locale rather than pinning canonical strings here
+    # means this check needs no maintenance when the copy is reworded: it only
+    # demands that every page in a locale agree, and it fails on the FIRST
+    # divergence rather than after someone notices. A block pasted under the
+    # wrong locale lands in that locale's group and breaks it, which is exactly
+    # the original bug. Two honest limits: a locale with a SINGLE page (de/, as
+    # of 2026-08-20) has no peer to disagree with and is therefore unguarded
+    # until a second page in that locale exists; and, same caveat as the JSON-LD
+    # check above, with explicit FILE args only those files are compared — the
+    # pre-push hook runs the full discovery.
+    by_locale = {}
+    for rel in parsed:
+        b = signup_block(root, rel)
+        if b is not None:
+            by_locale.setdefault(page_locale(rel), {})[rel] = b
+    for loc, blocks in by_locale.items():
+        first_rel = next(iter(blocks))
+        ref = blocks[first_rel]
+        for rel, b in blocks.items():
+            if b != ref:
+                failures.setdefault(rel, []).append(
+                    f"spookwerk-signup block differs from {first_rel} "
+                    f"(same locale: {loc})")
 
     if failures:
         for rel, errs in failures.items():
