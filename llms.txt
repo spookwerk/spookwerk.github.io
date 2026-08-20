@@ -6,7 +6,7 @@
 
 - [Vitadatum](https://spookwerk.app/apps/vitadatum/): export your Apple Health data to CSV, entirely on-device. iPhone. Now on the [App Store](https://apps.apple.com/app/vitadatum/id6763707308). ([Privacy](https://spookwerk.app/apps/vitadatum/privacy/), [Support](https://spookwerk.app/apps/vitadatum/support/))
 - [HuurScan](https://spookwerk.app/apps/huurscan/): check the indicative legal maximum rent for a Dutch home using the statutory WWS points system. iPhone. Now on the [App Store](https://apps.apple.com/app/huurscan/id6777383544). ([Privacy](https://spookwerk.app/apps/huurscan/privacy/), [Support](https://spookwerk.app/apps/huurscan/support/))
-- [Shruta](https://spookwerk.app/apps/shruta/): records 1:1 conversations and produces speaker-labeled transcripts entirely on-device — end-to-end encrypted (Argon2id + AES-256-GCM), in English, Dutch, and German. iPhone + Apple Watch. First 7 recordings free, one-time €5.99 unlock, no subscription. Now on the [App Store](https://apps.apple.com/app/shruta/id6791590853). ([Privacy](https://spookwerk.app/apps/shruta/privacy/), [Support](https://spookwerk.app/apps/shruta/support/))
+- [Shruta](https://spookwerk.app/apps/shruta/): records conversations and produces speaker-labeled transcripts entirely on-device — end-to-end encrypted (Argon2id + AES-256-GCM), in English, Dutch, and German. iPhone + Apple Watch. First 7 recordings free, one-time €5.99 unlock, no subscription. Now on the [App Store](https://apps.apple.com/app/shruta/id6791590853). ([Privacy](https://spookwerk.app/apps/shruta/privacy/), [Support](https://spookwerk.app/apps/shruta/support/))
 
 ## Blog
 
