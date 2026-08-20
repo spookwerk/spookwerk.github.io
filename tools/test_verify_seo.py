@@ -520,5 +520,89 @@ class T(unittest.TestCase):
         self.assertEqual(code, 0, out)
 
 
+    # ---- spookwerk-signup block, grouped by locale (Office task #576) ----
+    #
+    # The block is hand-copied onto every app and blog index and has drifted
+    # three times. The verifier does not pin canonical strings — it requires the
+    # blocks within one locale to agree — so these tests assert the GROUPING
+    # behaviour, not any particular wording. That is deliberate: rewording the
+    # copy must not break the suite, while divergence must.
+
+    @staticmethod
+    def _with_signup(html, label, button):
+        block = ('<!-- spookwerk-signup -->'
+                 f'<form action="https://buttondown.email/x"><label for="bd-email">'
+                 f'{label}</label><button>{button}</button></form>'
+                 '<!-- /spookwerk-signup -->')
+        return html.replace("<body>x</body>", f"<body>x{block}</body>")
+
+    def test_signup_blocks_agreeing_within_locale_pass(self):
+        def mutate(d):
+            write(d, "index.html",
+                  self._with_signup(page(HOME), "Sign up", "Go"))
+            write(d, "apps/demo/index.html", self._with_signup(
+                page(APP_C, extra_ld=[[swapp(APP_C),
+                                       crumbs(APP_C, [("Home", HOME),
+                                                      ("Demo", None)])]]),
+                "Sign up", "Go"))
+        code, out = self._case(mutate)
+        self.assertEqual(code, 0, out)
+
+    def test_signup_block_drift_within_locale_fails(self):
+        def mutate(d):
+            write(d, "index.html",
+                  self._with_signup(page(HOME), "Sign up", "Go"))
+            write(d, "apps/demo/index.html", self._with_signup(
+                page(APP_C, extra_ld=[[swapp(APP_C),
+                                       crumbs(APP_C, [("Home", HOME),
+                                                      ("Demo", None)])]]),
+                "Subscribe", "Go"))   # one word apart — the real drift shape
+        code, out = self._case(mutate)
+        self.assertNotEqual(code, 0)
+        self.assertIn("spookwerk-signup", out)
+
+    def test_signup_blocks_may_differ_across_locales(self):
+        # nl/ and en pages legitimately carry different copy; the check must not
+        # compare across groups or every translated page would fail.
+        def mutate(d):
+            write(d, "index.html",
+                  self._with_signup(page(HOME), "Sign up", "Go"))
+            write(d, "blog/nl/index.html", self._with_signup(
+                page(f"{SITE}/blog/nl/",
+                     alts=[("en", BLOG_C), ("nl", f"{SITE}/blog/nl/"),
+                           ("x-default", BLOG_C)],
+                     extra_ld=[[blogentity(f"{SITE}/blog/nl/", "nl"),
+                                crumbs(f"{SITE}/blog/nl/",
+                                       [("Home", HOME), ("Blog", None)])]]),
+                "Aanmelden", "Ga"))
+            write(d, "blog/index.html",
+                  page(BLOG_C,
+                       alts=[("en", BLOG_C), ("nl", f"{SITE}/blog/nl/"),
+                             ("x-default", BLOG_C)],
+                       extra_ld=[[blogentity(BLOG_C, "en"),
+                                  crumbs(BLOG_C, [("Home", HOME),
+                                                  ("Blog", None)])]]))
+            write(d, "sitemap.xml",
+                  sitemap_file(SCAFFOLD_URLS + [f"{SITE}/blog/nl/"]))
+        code, out = self._case(mutate)
+        self.assertEqual(code, 0, out)
+
+    def test_wrong_locale_block_pasted_on_english_page_fails(self):
+        # The original 2026-08-19 bug: a Dutch block left on an English page.
+        # It joins the EN group and breaks it — no locale detection of the TEXT
+        # is needed, which is the point of grouping.
+        def mutate(d):
+            write(d, "index.html",
+                  self._with_signup(page(HOME), "Sign up", "Go"))
+            write(d, "apps/demo/index.html", self._with_signup(
+                page(APP_C, extra_ld=[[swapp(APP_C),
+                                       crumbs(APP_C, [("Home", HOME),
+                                                      ("Demo", None)])]]),
+                "Aanmelden", "Ga"))
+        code, out = self._case(mutate)
+        self.assertNotEqual(code, 0)
+        self.assertIn("spookwerk-signup", out)
+
+
 if __name__ == "__main__":
     unittest.main()
