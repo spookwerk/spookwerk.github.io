@@ -5,8 +5,15 @@
         <link>https://spookwerk.app/blog/</link>
         <description>Stories from the workshop.</description>
         <language>en-us</language>
-        <lastBuildDate>Sat, 27 Jun 2026 09:05:00 +0200</lastBuildDate>
+        <lastBuildDate>Tue, 08 Sep 2026 09:00:00 +0200</lastBuildDate>
         <atom:link href="https://spookwerk.app/blog/feed.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>How to back up your Apple Health data before switching to a new iPhone</title>
+            <link>https://spookwerk.app/blog/posts/en/back-up-apple-health-data-before-new-iphone.html</link>
+            <guid>https://spookwerk.app/blog/posts/en/back-up-apple-health-data-before-new-iphone.html</guid>
+            <pubDate>Tue, 08 Sep 2026 09:00:00 +0200</pubDate>
+            <description>Apple only carries Health data to a new iPhone along certain paths. Here's how to check yours, and how to keep your own readable copy either way.</description>
+        </item>
         <item>
             <title>How to export Apple Health data to CSV</title>
             <link>https://spookwerk.app/blog/posts/en/how-to-export-apple-health-to-csv.html</link>
