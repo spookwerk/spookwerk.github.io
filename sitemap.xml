@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://spookwerk.app/</loc></url>
+  <url><loc>https://spookwerk.app/apps/cube-superfly/</loc></url>
+  <url><loc>https://spookwerk.app/apps/cube-superfly/nl/</loc></url>
+  <url><loc>https://spookwerk.app/apps/cube-superfly/privacy/</loc></url>
+  <url><loc>https://spookwerk.app/apps/cube-superfly/privacy/nl/</loc></url>
+  <url><loc>https://spookwerk.app/apps/cube-superfly/support/</loc></url>
+  <url><loc>https://spookwerk.app/apps/cube-superfly/support/nl/</loc></url>
   <url><loc>https://spookwerk.app/apps/huurscan/</loc></url>
   <url><loc>https://spookwerk.app/apps/huurscan/nl/</loc></url>
   <url><loc>https://spookwerk.app/apps/huurscan/privacy/</loc></url>
