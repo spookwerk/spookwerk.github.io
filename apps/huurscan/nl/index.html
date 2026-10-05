@@ -11,23 +11,23 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#ECE7DA">
-    <title>HuurScan — Spookwerk</title>
-    <meta name="description" content="Bereken de indicatieve maximale huurprijs van een huurwoning met het wettelijke WWS-puntensysteem. Werkt offline, alles blijft op je toestel, geen account.">
+    <title>Huurpunten berekenen op je iPhone | HuurScan</title>
+    <meta name="description" content="Maak de WWS-puntentelling van je huurwoning en zie wat de huur maximaal mag zijn. De berekening is gratis en indicatief, werkt offline en vraagt geen account.">
     <link rel="canonical" href="https://spookwerk.app/apps/huurscan/nl/">
     <link rel="alternate" hreflang="en" href="https://spookwerk.app/apps/huurscan/">
     <link rel="alternate" hreflang="nl" href="https://spookwerk.app/apps/huurscan/nl/">
     <link rel="alternate" hreflang="x-default" href="https://spookwerk.app/apps/huurscan/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="HuurScan">
-    <meta property="og:description" content="Bereken de indicatieve maximale huurprijs van een huurwoning met het wettelijke WWS-puntensysteem. Werkt offline, alles blijft op je toestel, geen account.">
+    <meta property="og:title" content="Huurpunten berekenen op je iPhone | HuurScan">
+    <meta property="og:description" content="Maak de WWS-puntentelling van je huurwoning en zie wat de huur maximaal mag zijn. De berekening is gratis en indicatief, werkt offline en vraagt geen account.">
     <meta property="og:url" content="https://spookwerk.app/apps/huurscan/nl/">
     <meta property="og:image" content="https://spookwerk.app/og/default.png">
     <meta property="og:site_name" content="Spookwerk">
     <meta property="og:locale" content="nl_NL">
     <meta property="og:locale:alternate" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="HuurScan">
-    <meta name="twitter:description" content="Bereken de indicatieve maximale huurprijs van een huurwoning met het wettelijke WWS-puntensysteem. Werkt offline, alles blijft op je toestel, geen account.">
+    <meta name="twitter:title" content="Huurpunten berekenen op je iPhone | HuurScan">
+    <meta name="twitter:description" content="Maak de WWS-puntentelling van je huurwoning en zie wat de huur maximaal mag zijn. De berekening is gratis en indicatief, werkt offline en vraagt geen account.">
     <meta name="twitter:image" content="https://spookwerk.app/og/default.png">
     <meta name="twitter:site" content="@Spookwerk">
     <script type="application/ld+json">
@@ -80,13 +80,24 @@
       "@type": "SoftwareApplication",
       "@id": "https://spookwerk.app/apps/huurscan/nl/#app",
       "name": "HuurScan",
-      "description": "Bereken de indicatieve maximale huurprijs van een huurwoning met het wettelijke WWS-puntensysteem. Werkt offline, alles blijft op je toestel, geen account.",
+      "description": "Maak de WWS-puntentelling van je huurwoning en zie wat de huur maximaal mag zijn. De berekening is gratis en indicatief, werkt offline en vraagt geen account.",
       "url": "https://spookwerk.app/apps/huurscan/nl/",
       "installUrl": "https://apps.apple.com/app/huurscan/id6777383544",
       "operatingSystem": "iOS",
       "applicationCategory": "FinanceApplication",
       "publisher": { "@id": "https://spookwerk.app/#organization" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://spookwerk.app/apps/huurscan/nl/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Hoe bereken ik de huurpunten van mijn woning?", "acceptedAnswer": { "@type": "Answer", "text": "Je hebt de oppervlakte van elke ruimte nodig, het energielabel, de WOZ-waarde en de gegevens van keuken, badkamer en buitenruimte. De WOZ-waarde van een adres zoek je op bij het WOZ-waardeloket. Voer die gegevens in HuurScan in, of in de Huurprijscheck van de Huurcommissie. Je krijgt dan het puntentotaal en de maximale huur." } },
+        { "@type": "Question", "name": "Vanaf hoeveel punten is een huurwoning vrije sector?", "acceptedAnswer": { "@type": "Answer", "text": "Een zelfstandige woning met 187 punten of meer valt bij een nieuw huurcontract in de vrije sector. Tot en met 186 punten geldt een maximale huur. In 2026 is dat €1.228,07 per maand bij 186 punten. Tot en met 143 punten is het sociale huur, met een maximum van €932,93." } },
+        { "@type": "Question", "name": "Moet een verhuurder een puntentelling meegeven?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Sinds 1 januari 2025 moet een verhuurder bij een nieuw huurcontract de puntentelling en de maximale huurprijs meegeven, ook in de vrije sector. Met HuurScan reken je die telling zelf na." } },
+        { "@type": "Question", "name": "Wat is het verschil tussen HuurScan en de Huurprijscheck van de Huurcommissie?", "acceptedAnswer": { "@type": "Answer", "text": "De Huurprijscheck van de Huurcommissie is gratis en werkt in de browser. HuurScan is een app voor je iPhone die ook zonder internet werkt, en je kunt je woning bewaren en later aanpassen. Beide geven een indicatie. Alleen de Huurcommissie kan een uitspraak over je huur doen." } },
+        { "@type": "Question", "name": "Wat kost HuurScan?", "acceptedAnswer": { "@type": "Answer", "text": "De puntentelling en de maximale huur zijn gratis. Voor eenmalig €4,99 zie je hoeveel je per maand en per jaar te veel betaalt en krijg je de brief die bij jouw situatie past, met een stappenplan naar de Huurcommissie. Er is geen abonnement." } }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -200,6 +211,7 @@
         }
         .subtitle {
             font-size: 1.05rem;
+            line-height: 1.5;
             color: var(--muted);
             margin-bottom: 2rem;
         }
@@ -227,6 +239,44 @@
             font-size: 0.95rem;
         }
         .links a:hover { text-decoration: underline; }
+        .explainer {
+            margin-top: 3rem;
+        }
+        .explainer h2,
+        .faq h2 {
+            font-size: 1.3rem;
+            color: var(--ink);
+            margin: 2.5rem 0 0.75rem;
+        }
+        .explainer p {
+            color: var(--text-soft);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .explainer a,
+        .cta a {
+            color: var(--link);
+        }
+        .cta {
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+        .faq {
+            margin-top: 3rem;
+        }
+        .faq .qa {
+            margin-bottom: 1.5rem;
+        }
+        .faq h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.35rem;
+        }
+        .faq p {
+            color: var(--text-soft);
+            line-height: 1.55;
+        }
         footer {
             margin-top: 4rem;
             font-size: 0.8rem;
@@ -246,25 +296,60 @@
                 </div>
             </details>
         </nav>
-        <h1>HuurScan</h1>
-        <p class="subtitle">HuurScan berekent de maximale huurprijs van een huurwoning volgens het wettelijke puntensysteem (WWS).</p>
-        <p style="font-size: 0.85rem; color: var(--muted); margin-top: -0.5rem;">Een indicatieve berekening op basis van het WWS &mdash; voor een officieel oordeel kun je terecht bij de <a href="https://www.huurcommissie.nl">Huurcommissie</a>.</p>
+        <h1>Huurpunten berekenen op je iPhone</h1>
+        <p class="subtitle">HuurScan telt de punten van je huurwoning volgens het woningwaarderingsstelsel, kortweg WWS. Bij dat puntentotaal hoort een maximale huur. Zo zie je of je te veel betaalt.</p>
+        <p style="font-size: 0.85rem; color: var(--muted); margin-top: -0.5rem;">De uitkomst is indicatief. Alleen de <a href="https://www.huurcommissie.nl">Huurcommissie</a> kan een uitspraak over je huur doen.</p>
         <ul class="features">
-            <li>Het volledige Woningwaarderingsstelsel (WWS) is ingebouwd</li>
-            <li>Zelf gebouwde puntentelling &mdash; geen externe dienst, geen account</li>
-            <li>Bereken de maximale huurprijs en zie of je huidige huur te hoog is</li>
-            <li>Stap voor stap invullen, volgens de wettelijke WWS-criteria</li>
-            <li>Werkt offline &mdash; geen internetverbinding nodig</li>
-            <li>Je gegevens blijven op je toestel</li>
-            <li>Geen accounts, geen analytics, geen tracking</li>
-            <li>Volledig toegankelijk &mdash; met ondersteuning voor VoiceOver, Dynamic Type en hoog contrast</li>
-            <li>De volledige WWS-berekening is gratis &mdash; met een eenmalige ontgrendeling van &euro;4,99 zie je hoeveel je te veel betaalt en krijg je een kant-en-klare brief</li>
+            <li>Het volledige WWS zit in de app, voor een zelfstandige woning en voor een kamer</li>
+            <li>Je vult je woning stap voor stap in en ziet de punten per onderdeel</li>
+            <li>De puntentelling en de maximale huur zijn gratis</li>
+            <li>Bewaar je woning en pas de gegevens later aan</li>
+            <li>Werkt offline en je gegevens blijven op je iPhone</li>
+            <li>Geen account, geen analytics, geen tracking</li>
+            <li>De app werkt ook in het Engels</li>
+            <li>Toegankelijk met VoiceOver, Dynamic Type en hoog contrast</li>
+            <li>Eenmalig €4,99 voor de volgende stap: hoeveel je te veel betaalt, de brief die bij jouw situatie past en een stappenplan naar de Huurcommissie</li>
         </ul>
         <div class="links">
-            <a href="https://apps.apple.com/app/huurscan/id6777383544">Download in de App Store</a>
+            <a href="https://apps.apple.com/app/huurscan/id6777383544">Download HuurScan in de App Store</a>
             <a href="../support/nl/">Ondersteuning</a>
             <a href="../privacy/nl/">Privacybeleid</a>
         </div>
+        <section class="explainer">
+            <h2>Zo werkt de puntentelling</h2>
+            <p>Een huurwoning krijgt punten voor alles wat haar meer of minder waard maakt. Denk aan de oppervlakte, het energielabel, de WOZ-waarde, de keuken, de badkamer, de verwarming, de buitenruimte, een parkeerplek en een monumentstatus. Samen vormen die punten de puntentelling. Bij elk puntenaantal hoort een maximale kale huur. De overheid past die bedragen elk jaar op 1 januari aan.</p>
+            <p>Voor een zelfstandige woning gelden in 2026 twee grenzen. Tot en met 143 punten is het sociale huur, met een maximum van €932,93 per maand bij 143 punten. Van 144 tot en met 186 punten is het middenhuur, met een maximum van €1.228,07 bij 186 punten. Heeft de woning 187 punten of meer, dan valt een nieuw huurcontract in de vrije sector en geldt er geen maximum.</p>
+            <p>Huur je een kamer en deel je de keuken of badkamer met anderen, dan geldt een aparte puntentelling voor onzelfstandige woonruimte. HuurScan rekent met allebei.</p>
+            <p>Sinds 1 januari 2025 moet een verhuurder bij een nieuw huurcontract de puntentelling meegeven. Met HuurScan reken je die na. Ben je zelf verhuurder, dan maak je met de ontgrendeling een WWS-rapport als PDF.</p>
+            <h2>Betaal je te veel huur?</h2>
+            <p>Ligt je huur boven het maximum, dan kun je de Huurcommissie vragen je aanvangshuur te toetsen. Dat kan tot zes maanden na de ingangsdatum van je huurcontract. Krijg je gelijk, dan geldt de lagere huur vanaf de eerste dag van je contract en krijg je terug wat je te veel betaalde.</p>
+            <p>Is die termijn voorbij, dan kun je je verhuurder in veel gevallen nog een huurverlaging voorstellen. Die verlaging geldt alleen voor de toekomst. Welke route voor jou openstaat, hangt af van wanneer je je contract tekende en hoeveel punten je woning heeft.</p>
+            <p>Met de ontgrendeling van €4,99 zoekt HuurScan die route voor je uit. Je krijgt de brief die erbij hoort als PDF en een stappenplan naar de Huurcommissie. Meer over de termijnen lees je in het artikel <a href="/blog/posts/nl/is-my-rent-too-high-calculate-max-rent-wws.html">Is mijn huur te hoog?</a></p>
+            <p class="cta"><a href="https://apps.apple.com/app/huurscan/id6777383544">Download HuurScan gratis in de App Store</a></p>
+        </section>
+        <section class="faq">
+            <h2>Veelgestelde vragen</h2>
+            <div class="qa">
+                <h3>Hoe bereken ik de huurpunten van mijn woning?</h3>
+                <p>Je hebt de oppervlakte van elke ruimte nodig, het energielabel, de WOZ-waarde en de gegevens van keuken, badkamer en buitenruimte. De WOZ-waarde van een adres zoek je op bij het WOZ-waardeloket. Voer die gegevens in HuurScan in, of in de Huurprijscheck van de Huurcommissie. Je krijgt dan het puntentotaal en de maximale huur.</p>
+            </div>
+            <div class="qa">
+                <h3>Vanaf hoeveel punten is een huurwoning vrije sector?</h3>
+                <p>Een zelfstandige woning met 187 punten of meer valt bij een nieuw huurcontract in de vrije sector. Tot en met 186 punten geldt een maximale huur. In 2026 is dat €1.228,07 per maand bij 186 punten. Tot en met 143 punten is het sociale huur, met een maximum van €932,93.</p>
+            </div>
+            <div class="qa">
+                <h3>Moet een verhuurder een puntentelling meegeven?</h3>
+                <p>Ja. Sinds 1 januari 2025 moet een verhuurder bij een nieuw huurcontract de puntentelling en de maximale huurprijs meegeven, ook in de vrije sector. Met HuurScan reken je die telling zelf na.</p>
+            </div>
+            <div class="qa">
+                <h3>Wat is het verschil tussen HuurScan en de Huurprijscheck van de Huurcommissie?</h3>
+                <p>De Huurprijscheck van de Huurcommissie is gratis en werkt in de browser. HuurScan is een app voor je iPhone die ook zonder internet werkt, en je kunt je woning bewaren en later aanpassen. Beide geven een indicatie. Alleen de Huurcommissie kan een uitspraak over je huur doen.</p>
+            </div>
+            <div class="qa">
+                <h3>Wat kost HuurScan?</h3>
+                <p>De puntentelling en de maximale huur zijn gratis. Voor eenmalig €4,99 zie je hoeveel je per maand en per jaar te veel betaalt en krijg je de brief die bij jouw situatie past, met een stappenplan naar de Huurcommissie. Er is geen abonnement.</p>
+            </div>
+        </section>
         <!-- spookwerk-signup -->
         <form
           action="https://buttondown.email/api/emails/embed-subscribe/spookwerk"
