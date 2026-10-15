@@ -16,6 +16,7 @@
 - [How to export Apple Health data to CSV](https://spookwerk.app/blog/posts/en/how-to-export-apple-health-to-csv.html): Apple Health's built-in export gives you XML, not CSV — how to actually get CSV (convert the XML yourself, or use Vitadatum). Includes a FAQ.
 - [Is my rent too high? Calculate your max rent (Dutch WWS)](https://spookwerk.app/blog/posts/en/is-my-rent-too-high-calculate-max-rent-wws.html): how to calculate the legal maximum rent for a Dutch home using the statutory WWS points system.
 - [How to back up your Apple Health data before switching to a new iPhone](https://spookwerk.app/blog/posts/en/back-up-apple-health-data-before-new-iphone.html): Apple carries Health data to a new iPhone only via Quick Start, an iCloud backup with Health enabled, or an encrypted computer backup. How to check yours before switching, and how to export your own JSON/CSV copy with Vitadatum. Includes a FAQ.
+- [How to get your Apple Health data into Excel or Google Sheets](https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html): Vitadatum exports Apple Health data to CSV (a 26-column daily summary plus one detail file per metric) that opens in Excel, Google Sheets and Numbers; step-by-step import instructions, what each file contains, and the free 7-day JSON alternative. CSV is part of the €4.99 one-time Premium unlock. Includes a FAQ.
 
 ## Company
 

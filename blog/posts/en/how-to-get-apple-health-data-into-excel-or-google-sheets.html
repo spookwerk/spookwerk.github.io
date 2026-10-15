@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ECE7DA">
+    <title>How to get your Apple Health data into Excel or Google Sheets — Spookwerk</title>
+    <meta name="description" content="Apple's Health export gives you an XML file that Excel and Google Sheets can't use. Here's how to get a table you can sort and chart instead, step by step.">
+    <link rel="alternate" type="application/rss+xml" title="Spookwerk Blog" href="/blog/feed.xml">
+    <link rel="canonical" href="https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html">
+    <link rel="alternate" hreflang="en" href="https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html">
+    <link rel="alternate" hreflang="nl" href="https://spookwerk.app/blog/posts/nl/how-to-get-apple-health-data-into-excel-or-google-sheets.html">
+    <link rel="alternate" hreflang="x-default" href="https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to get your Apple Health data into Excel or Google Sheets">
+    <meta property="og:description" content="Apple's Health export gives you an XML file that Excel and Google Sheets can't use. Here's how to get a table you can sort and chart instead, step by step.">
+    <meta property="og:url" content="https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html">
+    <meta property="og:image" content="https://spookwerk.app/og/default.png">
+    <meta property="og:site_name" content="Spookwerk">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="nl_NL">
+    <meta property="article:published_time" content="2026-10-14">
+    <meta property="article:author" content="Spookwerk">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to get your Apple Health data into Excel or Google Sheets">
+    <meta name="twitter:description" content="Apple's Health export gives you an XML file that Excel and Google Sheets can't use. Here's how to get a table you can sort and chart instead, step by step.">
+    <meta name="twitter:image" content="https://spookwerk.app/og/default.png">
+    <meta name="twitter:site" content="@Spookwerk">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://spookwerk.app/#organization",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "logo": "https://spookwerk.app/logo.png",
+      "description": "Dutch indie studio building privacy-first iOS apps.",
+      "email": "info@spookwerk.app",
+      "vatID": "NL005445579B82",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "De Nieuwe Erven 3, Unit 14531",
+        "postalCode": "5431NV",
+        "addressLocality": "Cuijk",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://spookwerk.nl",
+        "https://x.com/Spookwerk",
+        "https://www.instagram.com/spookwerk/",
+        "https://bsky.app/profile/spookwerk.app",
+        "https://www.youtube.com/@Spookwerk",
+        "https://www.tiktok.com/@spookwerk",
+        "https://www.threads.net/@spookwerk",
+        "https://www.reddit.com/user/Spookwerk"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://spookwerk.app/#website",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "inLanguage": ["en", "nl"],
+      "publisher": { "@id": "https://spookwerk.app/#organization" }
+    }
+  ]
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html#blogposting",
+      "headline": "How to get your Apple Health data into Excel or Google Sheets",
+      "description": "Apple's Health export gives you an XML file that Excel and Google Sheets can't use. Here's how to get a table you can sort and chart instead, step by step.",
+      "inLanguage": "en",
+      "datePublished": "2026-10-14",
+      "image": "https://spookwerk.app/og/default.png",
+      "url": "https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html",
+      "mainEntityOfPage": "https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html",
+      "author":    { "@id": "https://spookwerk.app/#organization" },
+      "publisher": { "@id": "https://spookwerk.app/#organization" },
+      "isPartOf":  { "@id": "https://spookwerk.app/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spookwerk.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://spookwerk.app/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to get your Apple Health data into Excel or Google Sheets" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I export Apple Health data to Excel for free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apple's own export is free, but it produces an XML file that Excel doesn't open as a usable table. Vitadatum's free version exports the last 7 days as JSON; CSV export for Excel and Google Sheets is part of Vitadatum Premium, a €4.99 one-time purchase with no subscription."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export just one metric, like blood pressure or workouts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not on its own. You switch categories off, not single metrics. With Include Detailed CSVs on, each metric gets its own file, workouts included. Blood pressure comes as two files, systolic and diastolic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my health data uploaded anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Vitadatum uploads nothing and has no account. By default the files stay in On My iPhone. With Premium you can pick an iCloud Drive folder or another folder in Files. If you pick iCloud Drive, iCloud syncs those files itself, like any other file there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far back can I export?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As far back as Apple Health lets the app read. On iOS 27 you choose that window when you grant access; picking 'All Recorded Data and Future Data' lets Vitadatum read beyond the last 30 days. The free version exports the last 7 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work with Google Sheets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Vitadatum's CSV files import into Google Sheets with File → Import → Upload, and open directly in Excel and Numbers."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ECE7DA; color: #2B2820; min-height: 100vh; padding: 2rem; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 640px; margin: 0 auto; }
+        .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
+        .topbar .brand { line-height: 0; }
+        .topbar .brand img { width: 140px; height: auto; opacity: 0.92; transition: opacity 0.2s; }
+        .topbar .brand:hover img { opacity: 1; }
+        .backlink { display: inline-block; margin-bottom: 2.25rem; color: #7A7466; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.02em; }
+        .backlink:hover { color: #16140F; }
+        .lang-switcher { position: relative; }
+        .lang-switcher summary { list-style: none; cursor: pointer; font-size: 0.8rem; color: #7A7466; padding: 0.3rem 0.65rem; border: 1px solid #CFC7B4; border-radius: 6px; letter-spacing: 0.02em; }
+        .lang-switcher summary:hover { color: #16140F; border-color: #B8893F; }
+        .lang-switcher summary::-webkit-details-marker { display: none; }
+        .lang-switcher .lang-menu { position: absolute; right: 0; top: 100%; margin-top: 0.3rem; background: #F5F1E8; border: 1px solid #CFC7B4; border-radius: 6px; padding: 0.25rem 0; min-width: 150px; z-index: 10; box-shadow: 0 6px 20px rgba(22,20,15,0.08); }
+        .lang-switcher .lang-menu a { display: block; padding: 0.4rem 0.8rem; font-size: 0.82rem; color: #2B2820; text-decoration: none; }
+        .lang-switcher .lang-menu a:hover { background: #E7E1D2; color: #16140F; }
+        .lang-switcher .lang-menu .active { color: #936518; font-weight: 600; pointer-events: none; }
+        article header { margin-bottom: 2.5rem; }
+        h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.01em; color: #16140F; margin-bottom: 0.6rem; line-height: 1.18; }
+        .post-date { font-size: 0.76rem; color: #936518; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; text-transform: uppercase; }
+        article { font-size: 1.07rem; line-height: 1.75; color: #2B2820; }
+        article h2 { font-size: 1.45rem; font-weight: 600; color: #16140F; margin: 2.6rem 0 1rem; letter-spacing: -0.01em; }
+        article h3 { font-size: 1.1rem; font-weight: 600; color: #16140F; margin: 1.8rem 0 0.5rem; }
+        article p { margin-bottom: 1.3rem; }
+        article em { color: #16140F; font-style: italic; }
+        article a { color: #246B7A; text-decoration: none; border-bottom: 1px solid #B7CDD3; }
+        article a:hover { border-bottom-color: #246B7A; }
+        article ul, article ol { margin: 0 0 1.3rem 1.5rem; }
+        article li { margin-bottom: 0.5rem; }
+        article blockquote { border-left: 3px solid #B8893F; padding-left: 1rem; margin: 0 0 1.3rem; color: #6B6658; font-style: italic; }
+        article code { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.9em; }
+        article pre { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 8px; padding: 1rem; overflow-x: auto; margin-bottom: 1.3rem; }
+        article pre code { background: none; border: none; padding: 0; }
+        .sig { margin-top: 3rem; color: #936518; font-size: 0.95rem; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #DBD4C3; font-size: 0.8rem; color: #7A7466; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <a href="/" class="brand"><img src="/wordmark-light.svg" alt="Spookwerk"></a>
+            <details class="lang-switcher">
+                <summary>English &#9662;</summary>
+                <div class="lang-menu">
+                    <a href="how-to-get-apple-health-data-into-excel-or-google-sheets.html" class="active">English</a>
+                    <a href="../nl/how-to-get-apple-health-data-into-excel-or-google-sheets.html">Nederlands</a>
+                </div>
+            </details>
+        </div>
+        <a href="/blog/" class="backlink">&larr; Blog</a>
+        <article>
+            <header>
+                <h1>How to get your Apple Health data into Excel or Google Sheets</h1>
+                <p class="post-date">2026-10-14</p>
+            </header>
+            <p><strong>Vitadatum exports your Apple Health data to CSV files that open directly in Excel and Google Sheets. You get one summary file with 26 daily columns, plus a detailed file per metric, and all of it is processed on your iPhone.</strong></p>
+
+<p>CSV export is part of Vitadatum Premium, a €4.99 one-time purchase with no subscription. The free version exports the last 7 days as JSON, which has its uses, but it isn't a spreadsheet. I'd rather you read that in the second paragraph than find out at the paywall.</p>
+
+<p><a href="https://apps.apple.com/app/vitadatum/id6763707308">Download Vitadatum on the App Store</a></p>
+
+<p>If you're still at the stage of wondering why the Health app has no CSV button at all, the earlier post <a href="how-to-export-apple-health-to-csv.html">How to export Apple Health data to CSV</a> covers that, including the free route of converting the XML yourself with a script. This post starts where that one stops, at the spreadsheet.</p>
+
+<h2>Why Apple's own export doesn't open in Excel</h2>
+
+<p>Apple does hand you your data. In the Health app, tap your profile picture, scroll to the bottom and tap Export All Health Data. A while later you have <code>export.zip</code>, and inside it <code>export.xml</code>. That file holds almost every record, in a format written for software to read. ECG recordings come as separate CSV files in an electrocardiograms folder, and workout routes as GPX files.</p>
+
+<p>This is where most people get stuck. Someone on Apple's support forum, trying to get their blood pressure readings back out of Health, <a href="https://discussions.apple.com/thread/255564716">put it like this</a>:</p>
+
+<blockquote>"I see no way to selectively export BP data, or electro cardiogram, etc." "These files will NOT open in Excel, Word or anything I have on my Mac."</blockquote>
+
+<p>Both complaints hold up. The export is all or nothing, so you can't ask for blood pressure alone. The XML is one long list of records with no columns to sort. And after a few years of Apple Watch data the file is big enough that opening it at all becomes a project.</p>
+
+<p>To be fair to Apple, the export is free and it's thorough. It just isn't a spreadsheet, and it never claimed to be one. I built Vitadatum because I wanted the spreadsheet.</p>
+
+<h2>Step by step: Apple Health to CSV with Vitadatum</h2>
+
+<ol>
+<li><strong>Install it and give it Health access.</strong> Open Vitadatum and tap Get Started. iOS shows its Health permission sheet. On iOS 27, Health also asks how much history to share. Choose <em>All Recorded Data and Future Data</em>. With the 30-day option, Vitadatum can only read the last 30 days, and no export can reach further back than the window you grant. You can widen it later in Settings › Privacy &amp; Security › Health › Vitadatum › Change Access. Once you have Premium, run Full Export (Reset) after widening it, so the older data gets picked up.</li>
+<li><strong>Unlock Premium.</strong> In Vitadatum's settings, Also Export as CSV carries a lock on the free version. Tapping it opens the €4.99 unlock.</li>
+<li><strong>Pick your categories.</strong> Export Categories lists 14 health categories, such as heart, sleep, workouts and nutrition. Switch off what you don't need. Fewer categories means a faster export and fewer files.</li>
+<li><strong>Turn on CSV.</strong> Switch on Also Export as CSV, then Include Detailed CSVs if you want a separate file per metric. Do this before your first export. If you switch it on later, there are two ways to get detail files for your older data. Run Full Export (Reset) once, or tap Generate Summary + Detail CSVs.</li>
+<li><strong>Choose where the files go.</strong> By default they land in a HealthExports folder under On My iPhone in the Files app. Choose Export Folder lets you pick iCloud Drive or any other folder in Files. iCloud Drive is the easiest way to get the files onto a computer.</li>
+<li><strong>Export.</strong> Tap Export My Health Data and keep the app open with the screen on while it runs. A first export of years of data can take several minutes. When it's done, Open in Files takes you to the folder.</li>
+</ol>
+
+<h2>Opening the files in Excel and Google Sheets</h2>
+
+<p>Start with <code>summary.csv</code> in the HealthExports folder. The per-metric files sit next to it in a folder called <code>csv</code>.</p>
+
+<p><strong>Excel, on Windows or a Mac.</strong> Double-clicking the CSV usually works. If everything lands in column A, your Excel expects semicolons, which is common in Europe. Import the file instead. On Windows that's Data → From Text/CSV. Excel for Mac has no From Text/CSV button, so there it's Data → Get Data (Power Query) → Text/CSV. Pick the file and set the delimiter to comma.</p>
+
+<p>Vitadatum writes decimals with a full stop, like 5.43. If your Excel uses a decimal comma, those numbers can come in as text, or as wrong whole numbers. The second case is worse, because it looks right. In the import window, choose Transform Data. Under Applied Steps, delete the automatic Changed Type step. Then right-click the column header and choose Change Type → Using Locale, then English (United States).</p>
+
+<p><strong>Google Sheets.</strong> Open a new spreadsheet. If its locale uses a decimal comma, Sheets can read 5.43 as text or as a date, so first set File → Settings → Locale to United States. Then go to File → Import → Upload and drop in <code>summary.csv</code>. Sheets detects the comma separator on its own. Pick Replace current sheet or Insert new sheet(s), and you're done.</p>
+
+<p><strong>Numbers</strong> opens the CSV directly, no import step.</p>
+
+<h2>What's in the files</h2>
+
+<p><code>summary.csv</code> has one row per day and 26 columns. The date comes first. Then steps, distance, flights climbed, active and resting energy, exercise and stand minutes, resting heart rate, HRV, walking speed and walking asymmetry, weight and body fat, systolic and diastolic blood pressure, respiratory rate, blood glucose, body temperature and peak physical effort. The last six columns are worked out from other data: sleep hours, deep sleep hours, stand hours, and workout count, duration and energy.</p>
+
+<p>That's the file for charting a trend over months. The detail files are for when you want every reading. Each metric gets its own CSV in the <code>csv</code> folder, one row per measurement, with its start and end time, the value, the unit, and the app or device that recorded it. <code>StepCount.csv</code>, <code>HeartRate.csv</code> and <code>workouts.csv</code> are typical. Blood pressure comes as two files, <code>BloodPressureSystolic.csv</code> and <code>BloodPressureDiastolic.csv</code>, one row per reading. Match them on the timestamp and you have each reading back as a pair.</p>
+
+<p>Workouts come out as one row per workout, with type, duration, energy and distance. Sleep comes out as one row per segment, with the stage, such as core, deep or REM, named in its own column. ECG recordings from an Apple Watch include the voltage trace, about 15,000 samples per recording at 512 Hz, one file per recording in <code>csv/ECG</code>. A <code>README.txt</code> in the export folder lists the summary columns, how each one is calculated, and which detail files you have.</p>
+
+<h2>Keeping it current</h2>
+
+<p>With Premium, Background Exports run on their own. There's no switch for them. When new data arrives in Health, Vitadatum adds it to the export folder without you opening the app, but only while your iPhone is unlocked. iOS decides when background work runs, so the update can lag behind your watch by a while.</p>
+
+<p>Your spreadsheet does not follow along on its own. Google Sheets doesn't read a folder on your iPhone or in iCloud Drive, and an imported sheet is a copy. When you want fresh numbers, import <code>summary.csv</code> again with Replace current sheet, or reopen the file in Excel.</p>
+
+<h2>The free option</h2>
+
+<p>The free version exports the last 7 days as JSON, across all 14 categories. There's no CSV in it. JSON doesn't open well in Excel either, but it's easy to hand to ChatGPT or Claude, so a week of data attached to a chat is a fair way to ask questions about your sleep or your heart rate. Vitadatum has no AI inside it. It writes the files, and what reads them is your choice.</p>
+
+<p>It's also the honest way to check before you pay. Export a week, open the folder, and see whether the data you care about is there.</p>
+
+<p><a href="https://apps.apple.com/app/vitadatum/id6763707308">Download Vitadatum on the App Store</a>, or read more on the <a href="/apps/vitadatum/">Vitadatum page</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>Can I export Apple Health data to Excel for free?</h3>
+<p>Apple's own export is free, but it produces an XML file that Excel doesn't open as a usable table. Vitadatum's free version exports the last 7 days as JSON; CSV export for Excel and Google Sheets is part of Vitadatum Premium, a €4.99 one-time purchase with no subscription.</p>
+
+<h3>Can I export just one metric, like blood pressure or workouts?</h3>
+<p>Not on its own. You switch categories off, not single metrics. With Include Detailed CSVs on, each metric gets its own file, workouts included. Blood pressure comes as two files, systolic and diastolic.</p>
+
+<h3>Is my health data uploaded anywhere?</h3>
+<p>No. Vitadatum uploads nothing and has no account. By default the files stay in On My iPhone. With Premium you can pick an iCloud Drive folder or another folder in Files. If you pick iCloud Drive, iCloud syncs those files itself, like any other file there.</p>
+
+<h3>How far back can I export?</h3>
+<p>As far back as Apple Health lets the app read. On iOS 27 you choose that window when you grant access; picking 'All Recorded Data and Future Data' lets Vitadatum read beyond the last 30 days. The free version exports the last 7 days.</p>
+
+<h3>Does it work with Google Sheets?</h3>
+<p>Yes. Vitadatum's CSV files import into Google Sheets with File → Import → Upload, and open directly in Excel and Numbers.</p>
+            <p class="sig">Spookwerk</p>
+        </article>
+        <!-- spookwerk-signup -->
+        <form
+          action="https://buttondown.email/api/emails/embed-subscribe/spookwerk"
+          method="post"
+          target="_blank"
+          style="display:flex;flex-wrap:wrap;gap:.5rem;max-width:28rem;margin:1.5rem 0">
+          <label for="bd-email" style="flex:1 1 100%;font-weight:600">
+            New apps from Spookwerk — no spam, unsubscribe anytime
+          </label>
+          <input id="bd-email" type="email" name="email" required
+            placeholder="you@example.com"
+            style="flex:1 1 12rem;padding:.6rem .8rem;border:1px solid #999;border-radius:6px">
+          <button type="submit"
+            style="flex:0 0 auto;padding:.6rem 1.1rem;border:0;border-radius:6px;
+                   background:#16140F;color:#ECE7DA;font-weight:600;cursor:pointer">
+            Subscribe
+          </button>
+        </form>
+        <!-- /spookwerk-signup -->
+        <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+    </div>
+</body>
+</html>

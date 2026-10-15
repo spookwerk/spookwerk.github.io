@@ -5,8 +5,15 @@
         <link>https://spookwerk.app/blog/</link>
         <description>Stories from the workshop.</description>
         <language>en-us</language>
-        <lastBuildDate>Tue, 08 Sep 2026 09:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Wed, 14 Oct 2026 09:00:00 +0200</lastBuildDate>
         <atom:link href="https://spookwerk.app/blog/feed.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>How to get your Apple Health data into Excel or Google Sheets</title>
+            <link>https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html</link>
+            <guid>https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html</guid>
+            <pubDate>Wed, 14 Oct 2026 09:00:00 +0200</pubDate>
+            <description>Apple's Health export gives you an XML file that Excel and Google Sheets can't use. Here's how to get a table you can sort and chart instead, step by step.</description>
+        </item>
         <item>
             <title>How to back up your Apple Health data before switching to a new iPhone</title>
             <link>https://spookwerk.app/blog/posts/en/back-up-apple-health-data-before-new-iphone.html</link>
