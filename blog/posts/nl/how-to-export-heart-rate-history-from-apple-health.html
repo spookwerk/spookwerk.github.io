@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ECE7DA">
+    <title>Zo exporteer je je hartslaggeschiedenis uit Apple Health — Spookwerk</title>
+    <meta name="description" content="De export van Apple Gezondheid stopt je hartslag in één enorm XML-bestand. Zo krijg je hartslag en HRV eruit als eigen bestanden, stap voor stap.">
+    <link rel="alternate" type="application/rss+xml" title="Spookwerk Blog" href="/blog/feed.xml">
+    <link rel="canonical" href="https://spookwerk.app/blog/posts/nl/how-to-export-heart-rate-history-from-apple-health.html">
+    <link rel="alternate" hreflang="en" href="https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html">
+    <link rel="alternate" hreflang="nl" href="https://spookwerk.app/blog/posts/nl/how-to-export-heart-rate-history-from-apple-health.html">
+    <link rel="alternate" hreflang="x-default" href="https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Zo exporteer je je hartslaggeschiedenis uit Apple Health">
+    <meta property="og:description" content="De export van Apple Gezondheid stopt je hartslag in één enorm XML-bestand. Zo krijg je hartslag en HRV eruit als eigen bestanden, stap voor stap.">
+    <meta property="og:url" content="https://spookwerk.app/blog/posts/nl/how-to-export-heart-rate-history-from-apple-health.html">
+    <meta property="og:image" content="https://spookwerk.app/og/default.png">
+    <meta property="og:site_name" content="Spookwerk">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="article:published_time" content="2026-10-15">
+    <meta property="article:author" content="Spookwerk">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zo exporteer je je hartslaggeschiedenis uit Apple Health">
+    <meta name="twitter:description" content="De export van Apple Gezondheid stopt je hartslag in één enorm XML-bestand. Zo krijg je hartslag en HRV eruit als eigen bestanden, stap voor stap.">
+    <meta name="twitter:image" content="https://spookwerk.app/og/default.png">
+    <meta name="twitter:site" content="@Spookwerk">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://spookwerk.app/#organization",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "logo": "https://spookwerk.app/logo.png",
+      "description": "Dutch indie studio building privacy-first iOS apps.",
+      "email": "info@spookwerk.app",
+      "vatID": "NL005445579B82",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "De Nieuwe Erven 3, Unit 14531",
+        "postalCode": "5431NV",
+        "addressLocality": "Cuijk",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://spookwerk.nl",
+        "https://x.com/Spookwerk",
+        "https://www.instagram.com/spookwerk/",
+        "https://bsky.app/profile/spookwerk.app",
+        "https://www.youtube.com/@Spookwerk",
+        "https://www.tiktok.com/@spookwerk",
+        "https://www.threads.net/@spookwerk",
+        "https://www.reddit.com/user/Spookwerk"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://spookwerk.app/#website",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "inLanguage": ["en", "nl"],
+      "publisher": { "@id": "https://spookwerk.app/#organization" }
+    }
+  ]
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://spookwerk.app/blog/posts/nl/how-to-export-heart-rate-history-from-apple-health.html#blogposting",
+      "headline": "Zo exporteer je je hartslaggeschiedenis uit Apple Health",
+      "description": "De export van Apple Gezondheid stopt je hartslag in één enorm XML-bestand. Zo krijg je hartslag en HRV eruit als eigen bestanden, stap voor stap.",
+      "inLanguage": "nl",
+      "datePublished": "2026-10-15",
+      "image": "https://spookwerk.app/og/default.png",
+      "url": "https://spookwerk.app/blog/posts/nl/how-to-export-heart-rate-history-from-apple-health.html",
+      "mainEntityOfPage": "https://spookwerk.app/blog/posts/nl/how-to-export-heart-rate-history-from-apple-health.html",
+      "author":    { "@id": "https://spookwerk.app/#organization" },
+      "publisher": { "@id": "https://spookwerk.app/#organization" },
+      "isPartOf":  { "@id": "https://spookwerk.app/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://spookwerk.app/blog/posts/nl/how-to-export-heart-rate-history-from-apple-health.html#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spookwerk.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://spookwerk.app/blog/nl/" },
+        { "@type": "ListItem", "position": 3, "name": "Zo exporteer je je hartslaggeschiedenis uit Apple Health" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://spookwerk.app/blog/posts/nl/how-to-export-heart-rate-history-from-apple-health.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kan ik alleen mijn hartslaggegevens uit Apple Health exporteren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De export van Apple zelf zet altijd alles in één XML-bestand. In Vitadatum kies je welke van de 14 gezondheidscategorieën je exporteert. Met Inclusief gedetailleerde CSV's aan krijgen hartslag en HRV elk een eigen CSV-bestand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik hartslaggegevens gratis exporteren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, van de laatste 7 dagen. De gratis versie van Vitadatum exporteert die als JSON. Oudere gegevens en CSV-bestanden horen bij Vitadatum Premium, een eenmalige aankoop van €4,99 zonder abonnement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe ver terug gaat de export?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zo ver terug als Apple Health de app laat lezen. Op iOS 27 kies je die periode wanneer je toegang geeft. Met 'Alle vastgelegde en toekomstige gegevens' leest Vitadatum verder terug dan de laatste 30 dagen. De gratis versie exporteert de laatste 7 dagen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Worden mijn hartslaggegevens ergens naartoe geüpload?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. Vitadatum uploadt niets en heeft geen account. Standaard blijven de bestanden in de map HealthExports van Vitadatum onder Op mijn iPhone. Met Premium kun je een map in iCloud Drive of een andere map in Bestanden kiezen. Kies je iCloud Drive, dan synchroniseert iCloud die bestanden zelf, net als elk ander bestand daar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Exporteert Vitadatum ook HRV en ECG's?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Met Inclusief gedetailleerde CSV's aan krijgt HRV een eigen bestand naast dat van je hartslag, en ECG's van een Apple Watch komen mee met hun volledige spanningscurve, één bestand per opname, als je de export in de app start."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ECE7DA; color: #2B2820; min-height: 100vh; padding: 2rem; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 640px; margin: 0 auto; }
+        .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
+        .topbar .brand { line-height: 0; }
+        .topbar .brand img { width: 140px; height: auto; opacity: 0.92; transition: opacity 0.2s; }
+        .topbar .brand:hover img { opacity: 1; }
+        .backlink { display: inline-block; margin-bottom: 2.25rem; color: #7A7466; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.02em; }
+        .backlink:hover { color: #16140F; }
+        .lang-switcher { position: relative; }
+        .lang-switcher summary { list-style: none; cursor: pointer; font-size: 0.8rem; color: #7A7466; padding: 0.3rem 0.65rem; border: 1px solid #CFC7B4; border-radius: 6px; letter-spacing: 0.02em; }
+        .lang-switcher summary:hover { color: #16140F; border-color: #B8893F; }
+        .lang-switcher summary::-webkit-details-marker { display: none; }
+        .lang-switcher .lang-menu { position: absolute; right: 0; top: 100%; margin-top: 0.3rem; background: #F5F1E8; border: 1px solid #CFC7B4; border-radius: 6px; padding: 0.25rem 0; min-width: 150px; z-index: 10; box-shadow: 0 6px 20px rgba(22,20,15,0.08); }
+        .lang-switcher .lang-menu a { display: block; padding: 0.4rem 0.8rem; font-size: 0.82rem; color: #2B2820; text-decoration: none; }
+        .lang-switcher .lang-menu a:hover { background: #E7E1D2; color: #16140F; }
+        .lang-switcher .lang-menu .active { color: #936518; font-weight: 600; pointer-events: none; }
+        article header { margin-bottom: 2.5rem; }
+        h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.01em; color: #16140F; margin-bottom: 0.6rem; line-height: 1.18; }
+        .post-date { font-size: 0.76rem; color: #936518; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; text-transform: uppercase; }
+        article { font-size: 1.07rem; line-height: 1.75; color: #2B2820; }
+        article h2 { font-size: 1.45rem; font-weight: 600; color: #16140F; margin: 2.6rem 0 1rem; letter-spacing: -0.01em; }
+        article h3 { font-size: 1.1rem; font-weight: 600; color: #16140F; margin: 1.8rem 0 0.5rem; }
+        article p { margin-bottom: 1.3rem; }
+        article em { color: #16140F; font-style: italic; }
+        article a { color: #246B7A; text-decoration: none; border-bottom: 1px solid #B7CDD3; }
+        article a:hover { border-bottom-color: #246B7A; }
+        article ul, article ol { margin: 0 0 1.3rem 1.5rem; }
+        article li { margin-bottom: 0.5rem; }
+        article blockquote { border-left: 3px solid #B8893F; padding-left: 1rem; margin: 0 0 1.3rem; color: #6B6658; font-style: italic; }
+        article code { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.9em; }
+        article pre { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 8px; padding: 1rem; overflow-x: auto; margin-bottom: 1.3rem; }
+        article pre code { background: none; border: none; padding: 0; }
+        .sig { margin-top: 3rem; color: #936518; font-size: 0.95rem; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #DBD4C3; font-size: 0.8rem; color: #7A7466; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <a href="/" class="brand"><img src="/wordmark-light.svg" alt="Spookwerk"></a>
+            <details class="lang-switcher">
+                <summary>Nederlands &#9662;</summary>
+                <div class="lang-menu">
+                    <a href="../en/how-to-export-heart-rate-history-from-apple-health.html">English</a>
+                    <a href="how-to-export-heart-rate-history-from-apple-health.html" class="active">Nederlands</a>
+                </div>
+            </details>
+        </div>
+        <a href="/blog/nl/" class="backlink">&larr; Blog</a>
+        <article>
+            <header>
+                <h1>Zo exporteer je je hartslaggeschiedenis uit Apple Health</h1>
+                <p class="post-date">2026-10-15</p>
+            </header>
+            <p><strong>Vitadatum exporteert je hartslaggeschiedenis uit Apple Health naar JSON- of CSV-bestanden op je iPhone. Die open je in een spreadsheet of plak je in ChatGPT of Claude, in plaats van te zoeken in de enorme XML-export van Apple.</strong></p>
+
+<p>De gratis versie exporteert de laatste 7 dagen als JSON. CSV-bestanden en alles wat ouder is dan 7 dagen horen bij Vitadatum Premium, een eenmalige aankoop van €4,99 zonder abonnement. Dat hoor je liever nu dan bij de betaalmuur.</p>
+
+<p><a href="https://apps.apple.com/app/vitadatum/id6763707308">Download Vitadatum in de App Store</a></p>
+
+<h2>Waarom de export van Apple je hartslag niet los geeft</h2>
+
+<p>Apple geeft je je gegevens wel. Tik in de Gezondheid-app op je profielfoto, scrol naar beneden en tik op Exporteer alle gezondheidsgegevens. Even later heb je <code>export.zip</code>, met daarin <code>export.xml</code>. Daarin staan bijna al je metingen, in een formaat dat bedoeld is voor software. ECG's komen als losse CSV-bestanden in een map electrocardiograms, en trainingsroutes als GPX-bestanden.</p>
+
+<p>Je ECG's krijg je dus wel los. Je hartslag niet. Die zit in <code>export.xml</code> tussen je stappen, je slaap en alles wat je telefoon en horloge ooit hebben vastgelegd. Alleen je hartslag opvragen kan niet.</p>
+
+<p>Het bestand wordt ook groot. Iemand op het ondersteuningsforum van Apple wilde per uur tellen hoe vaak de hartslag 's nachts te hoog was, om te zien of een medicijn verschil maakte. Windows toonde de twee XML-bestanden in de export als Microsoft Edge HTML-documenten, en <a href="https://discussions.apple.com/thread/255504486">de vraagsteller schreef</a>:</p>
+
+<blockquote>"The two Microsoft Edge HTML documents are 277 MB and 173 MB respectively ..." "However, I can't open them."</blockquote>
+
+<p>Dat is de export van één persoon, geen vaste maat. Een export van een paar jaar Apple Watch-gegevens kan kleiner uitvallen, of flink groter.</p>
+
+<p>Eerlijk is eerlijk. De export van Apple is gratis en grondig. Het is alleen geen hartslagbestand. Ik heb Vitadatum gebouwd omdat ik bestanden wilde die ik kon openen.</p>
+
+<h2>Stap voor stap: je hartslaggeschiedenis uit Apple Health met Vitadatum</h2>
+
+<ol>
+<li><strong>Installeer de app en geef toegang tot Gezondheid.</strong> Open Vitadatum en tik op Aan de slag. iOS toont het toestemmingsscherm van Gezondheid. Op iOS 27 vraagt Gezondheid ook hoe ver terug je gegevens wilt delen. Kies <em>Alle vastgelegde en toekomstige gegevens</em>. Kies je <em>Afgelopen 30 dagen en toekomstige gegevens</em>, dan kan Vitadatum alleen de laatste 30 dagen lezen, en geen enkele export reikt verder terug dan de periode die jij toestaat. Je kunt dat later verruimen via Instellingen › Privacy en beveiliging › Gezondheid › Vitadatum › Wijzig toegang. Heb je Premium, voer dan na het verruimen één keer Volledige export (reset) uit, zodat de oudere gegevens ook meekomen.</li>
+<li><strong>Kies je categorieën.</strong> Onder Exportcategorieën staan 14 gezondheidscategorieën. Laat Hart aan en zet uit wat je niet nodig hebt. Minder categorieën betekent een snellere export en minder bestanden. In Hart zit meer dan alleen je hartslag, en met detail-CSV's aan krijgt elk meettype daarin een eigen bestand.</li>
+<li><strong>Gratis: exporteer een week als JSON.</strong> Zonder Premium tik je op Exporteer mijn gezondheidsdata en krijg je de laatste 7 dagen als JSON. Genoeg om te zien wat erin staat.</li>
+<li><strong>Premium: zet CSV aan.</strong> In de instellingen van Vitadatum staat in de gratis versie een slotje bij Ook exporteren als CSV. Tik erop en je ziet het aankoopscherm van €4,99. Zet daarna Ook exporteren als CSV aan, en Inclusief gedetailleerde CSV's. Pas met die detailbestanden krijgt je hartslag een eigen bestand. Doe dat vóór je eerste export. Zet je het later pas aan, voer dan één keer Volledige export (reset) uit of tik op Genereer samenvatting + detail-CSV's. Dan krijg je ook voor je oudere gegevens detailbestanden. ECG-curves komen alleen mee met een export die je in de app start, dus voor oudere opnames voer je Volledige export (reset) uit.</li>
+<li><strong>Kies waar de bestanden heen gaan.</strong> Standaard komen ze in de map HealthExports van Vitadatum onder Op mijn iPhone in de Bestanden-app. Met Premium kies je via Kies exportmap iCloud Drive of een andere map in Bestanden; Vitadatum zet daar een map HealthExports in. Met iCloud Drive krijg je de bestanden het makkelijkst op je computer.</li>
+<li><strong>Exporteer.</strong> Tik op Exporteer mijn gezondheidsdata en houd de app open met het scherm aan zolang hij bezig is. Een eerste export van jaren aan gegevens kan een aantal minuten duren. Als hij klaar is, brengt Open in Bestanden je naar de map.</li>
+</ol>
+
+<h2>Wat je krijgt</h2>
+
+<p>De CSV-export schrijft <code>summary.csv</code>, met één rij per dag, plus een map <code>csv</code> met een detailbestand per meettype. Hartslag en HRV krijgen daarin elk een eigen bestand, <code>HeartRate.csv</code> en <code>HeartRateVariabilitySDNN.csv</code>.</p>
+
+<p>Beide bestanden hebben dezelfde zeven kolommen, met Engelse namen. <code>date</code> is je lokale dag. <code>start_date</code> en <code>end_date</code> zijn de begin- en eindtijd van de meting, in UTC. Daarna volgen <code>value</code> en <code>unit</code>. <code>source_name</code> en <code>device</code> vertellen welke app en welk horloge of welke telefoon de meting vastlegde. Elke rij is één HealthKit-sample, meestal één meting. Hartslag staat in slagen per minuut, HRV in milliseconden.</p>
+
+<p>Heb je ECG's van een Apple Watch, dan komen die ook mee met een export die je in de app start, met Ook exporteren als CSV en Inclusief gedetailleerde CSV's aan. Elke opname krijgt een eigen bestand in <code>csv/ECG</code> met de volledige spanningscurve, één rij per meetpunt. In <code>ecg.csv</code> staan alle opnames op een rij, met hun classificatie en gemiddelde hartslag. Achtergrondexports en Genereer samenvatting + detail-CSV's schrijven geen spanningscurves. De gratis JSON bevat de gegevens van elke opname, zonder de curve.</p>
+
+<h2>Wat je met de cijfers doet</h2>
+
+<p>De CSV-bestanden open je in Excel, Numbers en Google Spreadsheets. Excel met Nederlandse landinstellingen zet een bestand met komma's graag helemaal in kolom A, en met decimalen ligt er nog een valkuil. In <a href="how-to-get-apple-health-data-into-excel-or-google-sheets.html">Zo krijg je je Apple Health-gegevens in Excel of Google Spreadsheets</a> lees je hoe je beide omzeilt. Vraag je je nog af waarom Gezondheid helemaal geen CSV-knop heeft, begin dan bij <a href="how-to-export-apple-health-to-csv.html">Apple Health-data exporteren naar CSV</a>.</p>
+
+<p>Staat <code>HeartRate.csv</code> eenmaal in een spreadsheet, dan wordt die forumvraag een draaitabel. <code>start_date</code> is UTC-tekst zoals <code>2026-03-14T02:15:00Z</code>. Maak daarom eerst een uurkolom:</p>
+
+<pre><code>=REST(WAARDE(DEEL(B2;12;2))+1;24)</code></pre>
+
+<p>Die formule pakt het uur uit de UTC-tekst en telt er één bij op voor onze wintertijd. Gebruik <code>+2</code> voor metingen tussen de laatste zondag van maart en de laatste zondag van oktober. Zonder die correctie vallen je nachten op de verkeerde uren. Laat <code>start_date</code> bij het importeren tekst; heeft Excel of Numbers er een datum van gemaakt, dan geeft de formule een fout. Tel daarna per uur de rijen boven je grens met <code>AANTALLEN.ALS</code>, of voeg een kolom <code>=D2&gt;100</code> toe en maak een draaitabel op het uur en die kolom. Google Spreadsheets en Numbers accepteren ook de Engelse functienamen.</p>
+
+<p>Een JSON-bestand open je niet prettig in een spreadsheet, maar je geeft het makkelijk aan ChatGPT of Claude. De gratis export schrijft één JSON-bestand per dag, met elke categorie die aanstaat. Zet alles behalve Hart uit, voeg de dagbestanden toe aan een chat en vraag naar trends in je hartslag. Vitadatum zelf heeft geen AI aan boord. De app schrijft de bestanden, en wat ze leest is jouw keuze.</p>
+
+<h2>Bijhouden</h2>
+
+<p>Met Premium draaien Achtergrondexports vanzelf zodra je eerste export met Premium klaar is. Er is geen schakelaar voor. Komen er nieuwe gegevens binnen in Gezondheid, dan zet Vitadatum die in de exportmap zonder dat je de app opent, maar alleen zolang je iPhone ontgrendeld is en niet terwijl Vitadatum zelf openstaat. iOS bepaalt wanneer achtergrondwerk draait, dus de update kan een tijdje achterlopen op je horloge.</p>
+
+<p>Elke week met de hand exporteren is dan voorbij. Een geïmporteerde spreadsheet blijft wel een kopie, dus importeer het bestand opnieuw als je er verse cijfers in wilt.</p>
+
+<p>De gratis versie is de eerlijke manier om te kijken voordat je betaalt. Exporteer een week, open de map en kijk of je hartslagmetingen erin staan.</p>
+
+<p><a href="https://apps.apple.com/app/vitadatum/id6763707308">Download Vitadatum in de App Store</a>, of lees meer op de <a href="/apps/vitadatum/nl/">Vitadatum-pagina</a>.</p>
+
+<h2>Veelgestelde vragen</h2>
+
+<h3>Kan ik alleen mijn hartslaggegevens uit Apple Health exporteren?</h3>
+<p>De export van Apple zelf zet altijd alles in één XML-bestand. In Vitadatum kies je welke van de 14 gezondheidscategorieën je exporteert. Met Inclusief gedetailleerde CSV's aan krijgen hartslag en HRV elk een eigen CSV-bestand.</p>
+
+<h3>Kan ik hartslaggegevens gratis exporteren?</h3>
+<p>Ja, van de laatste 7 dagen. De gratis versie van Vitadatum exporteert die als JSON. Oudere gegevens en CSV-bestanden horen bij Vitadatum Premium, een eenmalige aankoop van €4,99 zonder abonnement.</p>
+
+<h3>Hoe ver terug gaat de export?</h3>
+<p>Zo ver terug als Apple Health de app laat lezen. Op iOS 27 kies je die periode wanneer je toegang geeft. Met 'Alle vastgelegde en toekomstige gegevens' leest Vitadatum verder terug dan de laatste 30 dagen. De gratis versie exporteert de laatste 7 dagen.</p>
+
+<h3>Worden mijn hartslaggegevens ergens naartoe geüpload?</h3>
+<p>Nee. Vitadatum uploadt niets en heeft geen account. Standaard blijven de bestanden in de map HealthExports van Vitadatum onder Op mijn iPhone. Met Premium kun je een map in iCloud Drive of een andere map in Bestanden kiezen. Kies je iCloud Drive, dan synchroniseert iCloud die bestanden zelf, net als elk ander bestand daar.</p>
+
+<h3>Exporteert Vitadatum ook HRV en ECG's?</h3>
+<p>Ja. Met Inclusief gedetailleerde CSV's aan krijgt HRV een eigen bestand naast dat van je hartslag, en ECG's van een Apple Watch komen mee met hun volledige spanningscurve, één bestand per opname, als je de export in de app start.</p>
+            <p class="sig">Spookwerk</p>
+        </article>
+        <!-- spookwerk-signup -->
+        <form
+          action="https://buttondown.email/api/emails/embed-subscribe/spookwerk"
+          method="post"
+          target="_blank"
+          style="display:flex;flex-wrap:wrap;gap:.5rem;max-width:28rem;margin:1.5rem 0">
+          <label for="bd-email" style="flex:1 1 100%;font-weight:600">
+            Nieuwe apps van Spookwerk — geen spam, je kunt je altijd afmelden
+          </label>
+          <input id="bd-email" type="email" name="email" required
+            placeholder="jij@voorbeeld.nl"
+            style="flex:1 1 12rem;padding:.6rem .8rem;border:1px solid #999;border-radius:6px">
+          <button type="submit"
+            style="flex:0 0 auto;padding:.6rem 1.1rem;border:0;border-radius:6px;
+                   background:#16140F;color:#ECE7DA;font-weight:600;cursor:pointer">
+            Aanmelden
+          </button>
+        </form>
+        <!-- /spookwerk-signup -->
+        <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+    </div>
+</body>
+</html>

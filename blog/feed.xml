@@ -5,8 +5,15 @@
         <link>https://spookwerk.app/blog/</link>
         <description>Stories from the workshop.</description>
         <language>en-us</language>
-        <lastBuildDate>Wed, 14 Oct 2026 09:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Thu, 15 Oct 2026 09:00:00 +0200</lastBuildDate>
         <atom:link href="https://spookwerk.app/blog/feed.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>How to export your heart-rate history from Apple Health</title>
+            <link>https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html</link>
+            <guid>https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html</guid>
+            <pubDate>Thu, 15 Oct 2026 09:00:00 +0200</pubDate>
+            <description>Apple's Health export buries your heart rate in one giant XML file. Here's how to get heart rate and HRV out as files of their own, step by step.</description>
+        </item>
         <item>
             <title>How to get your Apple Health data into Excel or Google Sheets</title>
             <link>https://spookwerk.app/blog/posts/en/how-to-get-apple-health-data-into-excel-or-google-sheets.html</link>

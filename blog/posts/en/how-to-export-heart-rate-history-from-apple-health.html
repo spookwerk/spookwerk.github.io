@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ECE7DA">
+    <title>How to export your heart-rate history from Apple Health — Spookwerk</title>
+    <meta name="description" content="Apple's Health export buries your heart rate in one giant XML file. Here's how to get heart rate and HRV out as files of their own, step by step.">
+    <link rel="alternate" type="application/rss+xml" title="Spookwerk Blog" href="/blog/feed.xml">
+    <link rel="canonical" href="https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html">
+    <link rel="alternate" hreflang="en" href="https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html">
+    <link rel="alternate" hreflang="nl" href="https://spookwerk.app/blog/posts/nl/how-to-export-heart-rate-history-from-apple-health.html">
+    <link rel="alternate" hreflang="x-default" href="https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to export your heart-rate history from Apple Health">
+    <meta property="og:description" content="Apple's Health export buries your heart rate in one giant XML file. Here's how to get heart rate and HRV out as files of their own, step by step.">
+    <meta property="og:url" content="https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html">
+    <meta property="og:image" content="https://spookwerk.app/og/default.png">
+    <meta property="og:site_name" content="Spookwerk">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="nl_NL">
+    <meta property="article:published_time" content="2026-10-15">
+    <meta property="article:author" content="Spookwerk">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to export your heart-rate history from Apple Health">
+    <meta name="twitter:description" content="Apple's Health export buries your heart rate in one giant XML file. Here's how to get heart rate and HRV out as files of their own, step by step.">
+    <meta name="twitter:image" content="https://spookwerk.app/og/default.png">
+    <meta name="twitter:site" content="@Spookwerk">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://spookwerk.app/#organization",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "logo": "https://spookwerk.app/logo.png",
+      "description": "Dutch indie studio building privacy-first iOS apps.",
+      "email": "info@spookwerk.app",
+      "vatID": "NL005445579B82",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "De Nieuwe Erven 3, Unit 14531",
+        "postalCode": "5431NV",
+        "addressLocality": "Cuijk",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://spookwerk.nl",
+        "https://x.com/Spookwerk",
+        "https://www.instagram.com/spookwerk/",
+        "https://bsky.app/profile/spookwerk.app",
+        "https://www.youtube.com/@Spookwerk",
+        "https://www.tiktok.com/@spookwerk",
+        "https://www.threads.net/@spookwerk",
+        "https://www.reddit.com/user/Spookwerk"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://spookwerk.app/#website",
+      "name": "Spookwerk",
+      "url": "https://spookwerk.app",
+      "inLanguage": ["en", "nl"],
+      "publisher": { "@id": "https://spookwerk.app/#organization" }
+    }
+  ]
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html#blogposting",
+      "headline": "How to export your heart-rate history from Apple Health",
+      "description": "Apple's Health export buries your heart rate in one giant XML file. Here's how to get heart rate and HRV out as files of their own, step by step.",
+      "inLanguage": "en",
+      "datePublished": "2026-10-15",
+      "image": "https://spookwerk.app/og/default.png",
+      "url": "https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html",
+      "mainEntityOfPage": "https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html",
+      "author":    { "@id": "https://spookwerk.app/#organization" },
+      "publisher": { "@id": "https://spookwerk.app/#organization" },
+      "isPartOf":  { "@id": "https://spookwerk.app/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://spookwerk.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://spookwerk.app/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to export your heart-rate history from Apple Health" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I export only my heart-rate data from Apple Health?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apple's own export always puts everything in one XML file. Vitadatum lets you choose which of its 14 health categories to export. With Include Detailed CSVs on, heart rate and HRV each get their own CSV file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export heart-rate data for free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, for the last 7 days. Vitadatum's free version exports them as JSON. Older data and CSV files come with Vitadatum Premium, a €4.99 one-time purchase with no subscription."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far back does the export go?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As far back as Apple Health lets the app read. On iOS 27 you choose that window when you grant access. Picking 'All Recorded Data and Future Data' lets Vitadatum read beyond the last 30 days. The free version exports the last 7 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my heart-rate data uploaded anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Vitadatum uploads nothing and has no account. By default the files stay in Vitadatum's HealthExports folder under On My iPhone. With Premium you can pick an iCloud Drive folder or another folder in Files. If you pick iCloud Drive, iCloud syncs those files itself, like any other file there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it export HRV and ECG too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. With Include Detailed CSVs on, HRV gets its own file next to heart rate, and ECG recordings from an Apple Watch come with their full voltage trace, one file per recording, when you run the export in the app."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Avenir Next', 'Futura', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #ECE7DA; color: #2B2820; min-height: 100vh; padding: 2rem; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 640px; margin: 0 auto; }
+        .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
+        .topbar .brand { line-height: 0; }
+        .topbar .brand img { width: 140px; height: auto; opacity: 0.92; transition: opacity 0.2s; }
+        .topbar .brand:hover img { opacity: 1; }
+        .backlink { display: inline-block; margin-bottom: 2.25rem; color: #7A7466; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.02em; }
+        .backlink:hover { color: #16140F; }
+        .lang-switcher { position: relative; }
+        .lang-switcher summary { list-style: none; cursor: pointer; font-size: 0.8rem; color: #7A7466; padding: 0.3rem 0.65rem; border: 1px solid #CFC7B4; border-radius: 6px; letter-spacing: 0.02em; }
+        .lang-switcher summary:hover { color: #16140F; border-color: #B8893F; }
+        .lang-switcher summary::-webkit-details-marker { display: none; }
+        .lang-switcher .lang-menu { position: absolute; right: 0; top: 100%; margin-top: 0.3rem; background: #F5F1E8; border: 1px solid #CFC7B4; border-radius: 6px; padding: 0.25rem 0; min-width: 150px; z-index: 10; box-shadow: 0 6px 20px rgba(22,20,15,0.08); }
+        .lang-switcher .lang-menu a { display: block; padding: 0.4rem 0.8rem; font-size: 0.82rem; color: #2B2820; text-decoration: none; }
+        .lang-switcher .lang-menu a:hover { background: #E7E1D2; color: #16140F; }
+        .lang-switcher .lang-menu .active { color: #936518; font-weight: 600; pointer-events: none; }
+        article header { margin-bottom: 2.5rem; }
+        h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.01em; color: #16140F; margin-bottom: 0.6rem; line-height: 1.18; }
+        .post-date { font-size: 0.76rem; color: #936518; font-variant-numeric: tabular-nums; letter-spacing: 0.05em; text-transform: uppercase; }
+        article { font-size: 1.07rem; line-height: 1.75; color: #2B2820; }
+        article h2 { font-size: 1.45rem; font-weight: 600; color: #16140F; margin: 2.6rem 0 1rem; letter-spacing: -0.01em; }
+        article h3 { font-size: 1.1rem; font-weight: 600; color: #16140F; margin: 1.8rem 0 0.5rem; }
+        article p { margin-bottom: 1.3rem; }
+        article em { color: #16140F; font-style: italic; }
+        article a { color: #246B7A; text-decoration: none; border-bottom: 1px solid #B7CDD3; }
+        article a:hover { border-bottom-color: #246B7A; }
+        article ul, article ol { margin: 0 0 1.3rem 1.5rem; }
+        article li { margin-bottom: 0.5rem; }
+        article blockquote { border-left: 3px solid #B8893F; padding-left: 1rem; margin: 0 0 1.3rem; color: #6B6658; font-style: italic; }
+        article code { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.9em; }
+        article pre { background: #F3EFE5; border: 1px solid #DBD4C3; border-radius: 8px; padding: 1rem; overflow-x: auto; margin-bottom: 1.3rem; }
+        article pre code { background: none; border: none; padding: 0; }
+        .sig { margin-top: 3rem; color: #936518; font-size: 0.95rem; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #DBD4C3; font-size: 0.8rem; color: #7A7466; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <a href="/" class="brand"><img src="/wordmark-light.svg" alt="Spookwerk"></a>
+            <details class="lang-switcher">
+                <summary>English &#9662;</summary>
+                <div class="lang-menu">
+                    <a href="how-to-export-heart-rate-history-from-apple-health.html" class="active">English</a>
+                    <a href="../nl/how-to-export-heart-rate-history-from-apple-health.html">Nederlands</a>
+                </div>
+            </details>
+        </div>
+        <a href="/blog/" class="backlink">&larr; Blog</a>
+        <article>
+            <header>
+                <h1>How to export your heart-rate history from Apple Health</h1>
+                <p class="post-date">2026-10-15</p>
+            </header>
+            <p><strong>Vitadatum exports your Apple Health heart-rate history to JSON or CSV files on your iPhone, so you can open them in a spreadsheet or paste them into ChatGPT or Claude instead of digging through Apple's giant XML export.</strong></p>
+
+<p>The free version exports the last 7 days as JSON. CSV files and anything older than 7 days come with Vitadatum Premium, a €4.99 one-time purchase with no subscription. Better you hear that now than at the paywall.</p>
+
+<p><a href="https://apps.apple.com/app/vitadatum/id6763707308">Download Vitadatum on the App Store</a></p>
+
+<h2>Why Apple's own export doesn't give you heart rate on its own</h2>
+
+<p>Apple does hand you your data. In the Health app, tap your profile picture, scroll to the bottom and tap Export All Health Data. A while later you have <code>export.zip</code>, and inside it <code>export.xml</code>. That file holds almost every record, in a format written for software to read. ECG recordings come as separate CSV files in an electrocardiograms folder, and workout routes as GPX files.</p>
+
+<p>So your ECGs do come out on their own. Your heart rate doesn't. It sits in <code>export.xml</code> between your steps, your sleep and everything else your phone and watch ever logged, and there's no option to ask for heart rate alone.</p>
+
+<p>The file also gets big. Someone on Apple's support forum wanted to count high heart-rate readings at night by the hour, to see whether a medication made a difference. Windows listed the two XML files inside as Microsoft Edge HTML documents, and <a href="https://discussions.apple.com/thread/255504486">they wrote</a>:</p>
+
+<blockquote>"The two Microsoft Edge HTML documents are 277 MB and 173 MB respectively ..." "However, I can't open them."</blockquote>
+
+<p>That's one person's export, not a rule. A few years of Apple Watch data can come out smaller or a lot bigger.</p>
+
+<p>To be fair to Apple, the export is free and it's thorough. It isn't a heart-rate file. I built Vitadatum because I wanted files I could open.</p>
+
+<h2>Step by step: heart-rate history out of Apple Health with Vitadatum</h2>
+
+<ol>
+<li><strong>Install it and give it Health access.</strong> Open Vitadatum and tap Get Started. iOS shows its Health permission sheet. On iOS 27, Health also asks how much history to share. Choose <em>All Recorded Data and Future Data</em>. With the 30-day option, Vitadatum can only read the last 30 days, and no export can reach further back than the window you grant. You can widen it later in Settings › Privacy &amp; Security › Health › Vitadatum › Change Access. Once you have Premium, run Full Export (Reset) after widening it, so the older data gets picked up.</li>
+<li><strong>Pick your categories.</strong> Export Categories lists 14 health categories. Keep Heart on and switch off what you don't need. Fewer categories means a faster export and fewer files. The Heart category holds more than heart rate alone, and with detail CSVs on, each of its metrics gets its own file.</li>
+<li><strong>Free: export a week as JSON.</strong> Without Premium, tap Export My Health Data and you get the last 7 days as JSON. That's enough to see what's there.</li>
+<li><strong>Premium: turn on CSV.</strong> In Vitadatum's settings, Also Export as CSV carries a lock on the free version. Tapping it opens the €4.99 unlock. Then switch on Also Export as CSV, and Include Detailed CSVs. The detail files are where heart rate gets its own file. Do this before your first export. If you switch it on later, run Full Export (Reset) once, or tap Generate Summary + Detail CSVs, to get detail files for your older data. ECG traces only come with an export started in the app, so for older recordings use Full Export (Reset).</li>
+<li><strong>Choose where the files go.</strong> By default they land in Vitadatum's HealthExports folder under On My iPhone in the Files app. With Premium, Choose Export Folder lets you pick iCloud Drive or any other folder in Files, and Vitadatum puts a HealthExports folder there. iCloud Drive is the easiest way to get the files onto a computer.</li>
+<li><strong>Export.</strong> Tap Export My Health Data and keep the app open with the screen on while it runs. A first export of years of data can take several minutes. When it's done, Open in Files takes you to the folder.</li>
+</ol>
+
+<h2>What you get</h2>
+
+<p>The CSV export writes <code>summary.csv</code>, with one row per day, plus a <code>csv</code> folder with one detail file per metric. Heart rate and HRV land in separate files there, <code>HeartRate.csv</code> and <code>HeartRateVariabilitySDNN.csv</code>.</p>
+
+<p>Both files have the same seven columns. <code>date</code> is your local day. <code>start_date</code> and <code>end_date</code> are the reading's start and end time, written in UTC. Then come <code>value</code>, <code>unit</code>, and <code>source_name</code> and <code>device</code>, which tell you which app and which watch or phone recorded it. Each row is one HealthKit sample, usually a single reading. Heart rate is in beats per minute, HRV in milliseconds.</p>
+
+<p>If you have ECG recordings from an Apple Watch, an export you start in the app can include them too, with Also Export as CSV and Include Detailed CSVs on. Each recording gets its own file in <code>csv/ECG</code> with the full voltage trace, one row per sample, and <code>ecg.csv</code> lists every recording with its classification and average heart rate. Background Exports and Generate Summary + Detail CSVs don't write the traces. The free JSON holds each recording's details without the trace.</p>
+
+<h2>Using the numbers</h2>
+
+<p>The CSV files open in Excel, Numbers and Google Sheets. Excel set to a Dutch, German or other European region has a habit of dumping a comma-separated file into column A, and there's a decimal-point trap too. <a href="how-to-get-apple-health-data-into-excel-or-google-sheets.html">How to get your Apple Health data into Excel or Google Sheets</a> walks through both. If you're still wondering why Health has no CSV button at all, start with <a href="how-to-export-apple-health-to-csv.html">How to export Apple Health data to CSV</a>.</p>
+
+<p>Once <code>HeartRate.csv</code> is in a sheet, that forum question becomes a pivot table. <code>start_date</code> is UTC text like <code>2026-03-14T02:15:00Z</code>, so add an hour column first:</p>
+
+<pre><code>=MOD(VALUE(MID(B2,12,2))+1,24)</code></pre>
+
+<p>That takes the hour from the UTC text and adds one for Central European winter time. Use <code>+2</code> for readings between the last Sunday of March and the last Sunday of October, or your own offset. Without it your nights land on the wrong hours. Keep <code>start_date</code> as text when you import; if Excel or Numbers turned it into a date, the formula returns an error. If your Excel uses a European region, write semicolons between the arguments instead of commas. Then count the rows above your threshold per hour with <code>COUNTIFS</code>, or add a column like <code>=D2&gt;100</code> and build a pivot table on the hour and that column. Google Sheets and Numbers take the same functions.</p>
+
+<p>JSON doesn't open well in a spreadsheet, but it's easy to hand to ChatGPT or Claude. The free export writes one JSON file per day, with every category you left on. Switch off everything but Heart, then attach the day files to a chat and ask about trends in your heart rate. Vitadatum has no AI inside it. It writes the files, and what reads them is your choice.</p>
+
+<h2>Keeping it current</h2>
+
+<p>With Premium, Background Exports run on their own once your first export with Premium is done. There's no switch for them. When new data arrives in Health, Vitadatum adds it to the export folder without you opening the app, but only while your iPhone is unlocked and not while Vitadatum itself is open. iOS decides when background work runs, so the update can lag behind your watch by a while.</p>
+
+<p>That ends the weekly ritual of exporting by hand. A spreadsheet you imported is still a copy, though, so import the file again when you want fresh numbers in it.</p>
+
+<p>The free version is the honest way to check before you pay. Export a week, open the folder, and see whether your heart-rate readings are there.</p>
+
+<p><a href="https://apps.apple.com/app/vitadatum/id6763707308">Download Vitadatum on the App Store</a>, or read more on the <a href="/apps/vitadatum/">Vitadatum page</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>Can I export only my heart-rate data from Apple Health?</h3>
+<p>Apple's own export always puts everything in one XML file. Vitadatum lets you choose which of its 14 health categories to export. With Include Detailed CSVs on, heart rate and HRV each get their own CSV file.</p>
+
+<h3>Can I export heart-rate data for free?</h3>
+<p>Yes, for the last 7 days. Vitadatum's free version exports them as JSON. Older data and CSV files come with Vitadatum Premium, a €4.99 one-time purchase with no subscription.</p>
+
+<h3>How far back does the export go?</h3>
+<p>As far back as Apple Health lets the app read. On iOS 27 you choose that window when you grant access. Picking 'All Recorded Data and Future Data' lets Vitadatum read beyond the last 30 days. The free version exports the last 7 days.</p>
+
+<h3>Is my heart-rate data uploaded anywhere?</h3>
+<p>No. Vitadatum uploads nothing and has no account. By default the files stay in Vitadatum's HealthExports folder under On My iPhone. With Premium you can pick an iCloud Drive folder or another folder in Files. If you pick iCloud Drive, iCloud syncs those files itself, like any other file there.</p>
+
+<h3>Does it export HRV and ECG too?</h3>
+<p>Yes. With Include Detailed CSVs on, HRV gets its own file next to heart rate, and ECG recordings from an Apple Watch come with their full voltage trace, one file per recording, when you run the export in the app.</p>
+            <p class="sig">Spookwerk</p>
+        </article>
+        <!-- spookwerk-signup -->
+        <form
+          action="https://buttondown.email/api/emails/embed-subscribe/spookwerk"
+          method="post"
+          target="_blank"
+          style="display:flex;flex-wrap:wrap;gap:.5rem;max-width:28rem;margin:1.5rem 0">
+          <label for="bd-email" style="flex:1 1 100%;font-weight:600">
+            New apps from Spookwerk — no spam, unsubscribe anytime
+          </label>
+          <input id="bd-email" type="email" name="email" required
+            placeholder="you@example.com"
+            style="flex:1 1 12rem;padding:.6rem .8rem;border:1px solid #999;border-radius:6px">
+          <button type="submit"
+            style="flex:0 0 auto;padding:.6rem 1.1rem;border:0;border-radius:6px;
+                   background:#16140F;color:#ECE7DA;font-weight:600;cursor:pointer">
+            Subscribe
+          </button>
+        </form>
+        <!-- /spookwerk-signup -->
+        <footer>&copy; 2026 Spookwerk &middot; KvK 42035025</footer>
+    </div>
+</body>
+</html>

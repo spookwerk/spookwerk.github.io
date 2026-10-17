@@ -126,7 +126,7 @@
           "name": "Is my health data uploaded anywhere?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Vitadatum uploads nothing and has no account. By default the files stay in On My iPhone. With Premium you can pick an iCloud Drive folder or another folder in Files. If you pick iCloud Drive, iCloud syncs those files itself, like any other file there."
+            "text": "No. Vitadatum uploads nothing and has no account. By default the files stay in Vitadatum's HealthExports folder under On My iPhone. With Premium you can pick an iCloud Drive folder or another folder in Files. If you pick iCloud Drive, iCloud syncs those files itself, like any other file there."
           }
         },
         {
@@ -224,7 +224,7 @@
 
 <p>Both complaints hold up. The export is all or nothing, so you can't ask for blood pressure alone. The XML is one long list of records with no columns to sort. And after a few years of Apple Watch data the file is big enough that opening it at all becomes a project.</p>
 
-<p>To be fair to Apple, the export is free and it's thorough. It just isn't a spreadsheet, and it never claimed to be one. I built Vitadatum because I wanted the spreadsheet.</p>
+<p>To be fair to Apple, the export is free and it's thorough. It isn't a spreadsheet, and it never claimed to be one. I built Vitadatum because I wanted the spreadsheet.</p>
 
 <h2>Step by step: Apple Health to CSV with Vitadatum</h2>
 
@@ -233,7 +233,7 @@
 <li><strong>Unlock Premium.</strong> In Vitadatum's settings, Also Export as CSV carries a lock on the free version. Tapping it opens the €4.99 unlock.</li>
 <li><strong>Pick your categories.</strong> Export Categories lists 14 health categories, such as heart, sleep, workouts and nutrition. Switch off what you don't need. Fewer categories means a faster export and fewer files.</li>
 <li><strong>Turn on CSV.</strong> Switch on Also Export as CSV, then Include Detailed CSVs if you want a separate file per metric. Do this before your first export. If you switch it on later, there are two ways to get detail files for your older data. Run Full Export (Reset) once, or tap Generate Summary + Detail CSVs.</li>
-<li><strong>Choose where the files go.</strong> By default they land in a HealthExports folder under On My iPhone in the Files app. Choose Export Folder lets you pick iCloud Drive or any other folder in Files. iCloud Drive is the easiest way to get the files onto a computer.</li>
+<li><strong>Choose where the files go.</strong> By default they land in Vitadatum's HealthExports folder under On My iPhone in the Files app. Choose Export Folder lets you pick iCloud Drive or any other folder in Files, and Vitadatum puts a HealthExports folder there. iCloud Drive is the easiest way to get the files onto a computer.</li>
 <li><strong>Export.</strong> Tap Export My Health Data and keep the app open with the screen on while it runs. A first export of years of data can take several minutes. When it's done, Open in Files takes you to the folder.</li>
 </ol>
 
@@ -255,11 +255,13 @@
 
 <p>That's the file for charting a trend over months. The detail files are for when you want every reading. Each metric gets its own CSV in the <code>csv</code> folder, one row per measurement, with its start and end time, the value, the unit, and the app or device that recorded it. <code>StepCount.csv</code>, <code>HeartRate.csv</code> and <code>workouts.csv</code> are typical. Blood pressure comes as two files, <code>BloodPressureSystolic.csv</code> and <code>BloodPressureDiastolic.csv</code>, one row per reading. Match them on the timestamp and you have each reading back as a pair.</p>
 
-<p>Workouts come out as one row per workout, with type, duration, energy and distance. Sleep comes out as one row per segment, with the stage, such as core, deep or REM, named in its own column. ECG recordings from an Apple Watch include the voltage trace, about 15,000 samples per recording at 512 Hz, one file per recording in <code>csv/ECG</code>. A <code>README.txt</code> in the export folder lists the summary columns, how each one is calculated, and which detail files you have.</p>
+<p>Workouts come out as one row per workout, with type, duration, energy and distance. Sleep comes out as one row per segment, with the stage, such as core, deep or REM, named in its own column. ECG recordings from an Apple Watch include the voltage trace, about 15,000 samples per recording at 512 Hz, one file per recording in <code>csv/ECG</code>, when Include Detailed CSVs is on and you run the export in the app. A <code>README.txt</code> in the export folder lists the summary columns, how each one is calculated, and which detail files you have.</p>
+
+<p>Mostly after your heart rate? <a href="how-to-export-heart-rate-history-from-apple-health.html">How to export your heart-rate history from Apple Health</a> covers <code>HeartRate.csv</code> and the HRV file column by column, and how to count readings by the hour.</p>
 
 <h2>Keeping it current</h2>
 
-<p>With Premium, Background Exports run on their own. There's no switch for them. When new data arrives in Health, Vitadatum adds it to the export folder without you opening the app, but only while your iPhone is unlocked. iOS decides when background work runs, so the update can lag behind your watch by a while.</p>
+<p>With Premium, Background Exports run on their own once your first export with Premium is done. There's no switch for them. When new data arrives in Health, Vitadatum adds it to the export folder without you opening the app, but only while your iPhone is unlocked and not while Vitadatum itself is open. iOS decides when background work runs, so the update can lag behind your watch by a while.</p>
 
 <p>Your spreadsheet does not follow along on its own. Google Sheets doesn't read a folder on your iPhone or in iCloud Drive, and an imported sheet is a copy. When you want fresh numbers, import <code>summary.csv</code> again with Replace current sheet, or reopen the file in Excel.</p>
 
@@ -280,7 +282,7 @@
 <p>Not on its own. You switch categories off, not single metrics. With Include Detailed CSVs on, each metric gets its own file, workouts included. Blood pressure comes as two files, systolic and diastolic.</p>
 
 <h3>Is my health data uploaded anywhere?</h3>
-<p>No. Vitadatum uploads nothing and has no account. By default the files stay in On My iPhone. With Premium you can pick an iCloud Drive folder or another folder in Files. If you pick iCloud Drive, iCloud syncs those files itself, like any other file there.</p>
+<p>No. Vitadatum uploads nothing and has no account. By default the files stay in Vitadatum's HealthExports folder under On My iPhone. With Premium you can pick an iCloud Drive folder or another folder in Files. If you pick iCloud Drive, iCloud syncs those files itself, like any other file there.</p>
 
 <h3>How far back can I export?</h3>
 <p>As far back as Apple Health lets the app read. On iOS 27 you choose that window when you grant access; picking 'All Recorded Data and Future Data' lets Vitadatum read beyond the last 30 days. The free version exports the last 7 days.</p>

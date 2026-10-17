@@ -126,7 +126,7 @@
           "name": "Worden mijn gezondheidsgegevens ergens naartoe geüpload?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nee. Vitadatum uploadt niets en heeft geen account. Standaard blijven de bestanden in Op mijn iPhone. Met Premium kun je een map in iCloud Drive of een andere map in Bestanden kiezen. Kies je iCloud Drive, dan synchroniseert iCloud die bestanden zelf, net als elk ander bestand daar."
+            "text": "Nee. Vitadatum uploadt niets en heeft geen account. Standaard blijven de bestanden in de map HealthExports van Vitadatum onder Op mijn iPhone. Met Premium kun je een map in iCloud Drive of een andere map in Bestanden kiezen. Kies je iCloud Drive, dan synchroniseert iCloud die bestanden zelf, net als elk ander bestand daar."
           }
         },
         {
@@ -233,7 +233,7 @@
 <li><strong>Ontgrendel Premium.</strong> In de instellingen van Vitadatum staat in de gratis versie een slotje bij Ook exporteren als CSV. Tik erop en je ziet het aankoopscherm van €4,99.</li>
 <li><strong>Kies je categorieën.</strong> Onder Exportcategorieën staan 14 gezondheidscategorieën, zoals hart, slaap, trainingen en voeding. Zet uit wat je niet nodig hebt. Minder categorieën betekent een snellere export en minder bestanden.</li>
 <li><strong>Zet CSV aan.</strong> Zet Ook exporteren als CSV aan, en daarna Inclusief gedetailleerde CSV's als je per meting een apart bestand wilt. Doe dat vóór je eerste export. Zet je het later pas aan, dan zijn er twee manieren om ook voor je oudere gegevens detailbestanden te krijgen. Doe één keer Volledige export (reset), of tik op Genereer samenvatting + detail-CSV's.</li>
-<li><strong>Kies waar de bestanden heen gaan.</strong> Standaard komen ze in een map HealthExports onder Op mijn iPhone in de Bestanden-app. Met Kies exportmap kies je iCloud Drive of een andere map in Bestanden. Met iCloud Drive krijg je de bestanden het makkelijkst op je computer.</li>
+<li><strong>Kies waar de bestanden heen gaan.</strong> Standaard komen ze in de map HealthExports van Vitadatum onder Op mijn iPhone in de Bestanden-app. Met Kies exportmap kies je iCloud Drive of een andere map in Bestanden; Vitadatum zet daar een map HealthExports in. Met iCloud Drive krijg je de bestanden het makkelijkst op je computer.</li>
 <li><strong>Exporteer.</strong> Tik op Exporteer mijn gezondheidsdata en houd de app open met het scherm aan zolang hij bezig is. Een eerste export van jaren aan gegevens kan een aantal minuten duren. Als hij klaar is, brengt Open in Bestanden je naar de map.</li>
 </ol>
 
@@ -255,11 +255,13 @@
 
 <p>Dat is het bestand om een trend over maanden in een grafiek te zetten. De detailbestanden zijn voor als je elke meting wilt zien. Elke meting krijgt een eigen CSV in de map <code>csv</code>, met één rij per meting: begin- en eindtijd, waarde, eenheid, en de app of het apparaat dat hem vastlegde. <code>StepCount.csv</code>, <code>HeartRate.csv</code> en <code>workouts.csv</code> zijn typische namen. Bloeddruk komt in twee bestanden, <code>BloodPressureSystolic.csv</code> en <code>BloodPressureDiastolic.csv</code>, met één rij per meting. Koppel ze op het tijdstip, dan heb je elke meting weer als paar.</p>
 
-<p>Trainingen komen eruit als één rij per training, met soort, duur, energie en afstand. Slaap komt eruit als één rij per slaapblok, met de fase, zoals kern, diep of REM, in een eigen kolom. ECG's van een Apple Watch bevatten de volledige spanningscurve, ongeveer 15.000 metingen per opname bij 512 Hz, één bestand per opname in <code>csv/ECG</code>. Een <code>README.txt</code> in de exportmap noemt de kolommen van het overzicht, hoe elke kolom berekend is en welke detailbestanden je hebt.</p>
+<p>Trainingen komen eruit als één rij per training, met soort, duur, energie en afstand. Slaap komt eruit als één rij per slaapblok, met de fase, zoals kern, diep of REM, in een eigen kolom. ECG's van een Apple Watch bevatten de volledige spanningscurve, ongeveer 15.000 metingen per opname bij 512 Hz, één bestand per opname in <code>csv/ECG</code>, als Inclusief gedetailleerde CSV's aanstaat en je de export in de app start. Een <code>README.txt</code> in de exportmap noemt de kolommen van het overzicht, hoe elke kolom berekend is en welke detailbestanden je hebt.</p>
+
+<p>Gaat het je vooral om je hartslag? <a href="how-to-export-heart-rate-history-from-apple-health.html">Zo exporteer je je hartslaggeschiedenis uit Apple Health</a> loopt <code>HeartRate.csv</code> en het HRV-bestand kolom voor kolom door, en laat zien hoe je metingen per uur telt.</p>
 
 <h2>Bijhouden</h2>
 
-<p>Met Premium draaien Achtergrondexports vanzelf. Er is geen schakelaar voor. Komen er nieuwe gegevens binnen in Gezondheid, dan zet Vitadatum die in de exportmap zonder dat je de app opent, maar alleen zolang je iPhone ontgrendeld is. iOS bepaalt wanneer achtergrondwerk draait, dus de update kan een tijdje achterlopen op je horloge.</p>
+<p>Met Premium draaien Achtergrondexports vanzelf zodra je eerste export met Premium klaar is. Er is geen schakelaar voor. Komen er nieuwe gegevens binnen in Gezondheid, dan zet Vitadatum die in de exportmap zonder dat je de app opent, maar alleen zolang je iPhone ontgrendeld is en niet terwijl Vitadatum zelf openstaat. iOS bepaalt wanneer achtergrondwerk draait, dus de update kan een tijdje achterlopen op je horloge.</p>
 
 <p>Je spreadsheet loopt niet vanzelf mee. Google Spreadsheets leest geen map op je iPhone of in iCloud Drive, en een geïmporteerd blad is een kopie. Wil je verse cijfers, importeer <code>summary.csv</code> dan opnieuw en vervang het huidige blad, of open het bestand opnieuw in Excel.</p>
 
@@ -280,7 +282,7 @@
 <p>Niet los. Je zet categorieën uit, geen losse metingen. Met Inclusief gedetailleerde CSV's aan krijgt elke meting een eigen bestand, trainingen ook. Bloeddruk komt in twee bestanden, bovendruk en onderdruk.</p>
 
 <h3>Worden mijn gezondheidsgegevens ergens naartoe geüpload?</h3>
-<p>Nee. Vitadatum uploadt niets en heeft geen account. Standaard blijven de bestanden in Op mijn iPhone. Met Premium kun je een map in iCloud Drive of een andere map in Bestanden kiezen. Kies je iCloud Drive, dan synchroniseert iCloud die bestanden zelf, net als elk ander bestand daar.</p>
+<p>Nee. Vitadatum uploadt niets en heeft geen account. Standaard blijven de bestanden in de map HealthExports van Vitadatum onder Op mijn iPhone. Met Premium kun je een map in iCloud Drive of een andere map in Bestanden kiezen. Kies je iCloud Drive, dan synchroniseert iCloud die bestanden zelf, net als elk ander bestand daar.</p>
 
 <h3>Hoe ver terug kan ik exporteren?</h3>
 <p>Zo ver terug als Apple Health de app laat lezen. Op iOS 27 kies je die periode wanneer je toegang geeft; met 'Alle vastgelegde en toekomstige gegevens' leest Vitadatum verder terug dan de laatste 30 dagen. De gratis versie exporteert de laatste 7 dagen.</p>
