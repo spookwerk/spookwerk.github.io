@@ -85,6 +85,7 @@
       "description": "Apple Health exporteert XML, geen CSV — dit is de eerlijke handleiding om je gezondheidsdata echt in een spreadsheet te krijgen, met de hand of met een app.",
       "inLanguage": "nl",
       "datePublished": "2026-06-27",
+      "dateModified": "2026-12-01",
       "image": "https://spookwerk.app/og/default.png",
       "url": "https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html",
       "mainEntityOfPage": "https://spookwerk.app/blog/posts/nl/how-to-export-apple-health-to-csv.html",
@@ -126,7 +127,7 @@
           "name": "In welk formaat exporteert Apple Health?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Een .zip-archief met een groot XML-bestand (export.xml) met je volledige gezondheidsgeschiedenis. Geen enkele spreadsheet opent het in nette rijen."
+            "text": "Een .zip-archief met een groot XML-bestand (export.xml) met je Health-gegevens. Geen enkele spreadsheet opent het in nette rijen."
           }
         },
         {
@@ -142,7 +143,7 @@
           "name": "Uploadt Vitadatum mijn gezondheidsdata?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nee. Vitadatum draait volledig op je toestel — geen account, geen server, geen cloud-upload. Je data verlaat je telefoon alleen als je er zelf voor kiest om een geëxporteerd bestand te delen."
+            "text": "Nee. Vitadatum heeft geen account en geen server en verwerkt alles op je iPhone. Standaard blijven je bestanden op je iPhone en in je eigen reservekopie van het toestel; ze verlaten je iPhone alleen via die reservekopie, via een cloudmap die je kiest of als je ze zelf deelt."
           }
         }
       ]
@@ -204,29 +205,29 @@
         <article>
             <header>
                 <h1>Apple Health-data exporteren naar CSV</h1>
-                <p class="post-date">2026-06-27</p>
+                <p class="post-date">2026-06-27 · Bijgewerkt 2026-12-01</p>
             </header>
             <p><strong>Apple Health exporteert niet naar CSV.</strong> De ingebouwde export geeft je één <code>.zip</code> met daarin één groot XML-bestand (<code>export.xml</code>) — geen spreadsheet. Om echt CSV te krijgen heb je twee opties: die XML zelf converteren met een script, of een app gebruiken die Apple Health uitleest en rechtstreeks CSV wegschrijft, zoals Vitadatum. Deze handleiding behandelt ze allebei, eerlijk.</p>
 
 <h2>Waar de exportknop staat — en wat je er eigenlijk mee krijgt</h2>
 
-<p>Open op je iPhone de Gezondheid-app, tik op <em>Overzicht</em>, tik op je <em>profielfoto of initialen</em> rechtsboven, scrol naar beneden en tik op <em>Exporteer alle gezondheidsgegevens</em>. Na een minuut of twee krijg je een <code>.zip</code>-archief. Pak het uit en je vindt <code>export.xml</code> — één groot XML-document met je volledige gezondheidsgeschiedenis.</p>
+<p>Open op je iPhone de Gezondheid-app, tik op <em>Overzicht</em>, tik op je <em>profielfoto of initialen</em> rechtsboven, scrol naar beneden en tik op <em>Exporteer alle gezondheidsgegevens</em>. Na een minuut of twee krijg je een <code>.zip</code>-archief. Pak het uit en je vindt <code>export.xml</code> — één groot XML-document met je Health-gegevens.</p>
 
 <p>Er is nergens in Apple Health een knop "Exporteer naar CSV", en die is er ook nooit geweest. XML is een formaat waarmee apps met elkaar praten; het is geen formaat dat Numbers, Excel of Google Sheets in nette rijen opent, en je kunt het ook niet comfortabel aan ChatGPT of Claude geven. Dus je hebt "je data" — technisch waar, praktisch vastgelopen.</p>
 
 <h2>Route 1 — converteer de XML zelf</h2>
 
-<p>Als je wel raad weet met een beetje code, kun je <code>export.xml</code> platslaan tot CSV. Pak het archief uit, parse vervolgens de XML (Python's ingebouwde <code>xml.etree.ElementTree</code> werkt prima) en schrijf de records weg als rijen. De structuur is genest en het bestand kan enorm zijn — jaren aan hartslagmetingen per minuut tellen snel op — dus een naïef script dat alles in het geheugen laadt zal het zwaar krijgen. Er zijn ook open-source converters die dit doen.</p>
+<p>Als je wel raad weet met een beetje code, kun je <code>export.xml</code> platslaan tot CSV. Pak het archief uit, parse vervolgens de XML (Python's ingebouwde <code>xml.etree.ElementTree</code> werkt prima) en schrijf de records weg als rijen. De structuur is genest en het bestand kan enorm zijn — hartslagmetingen per minuut tellen snel op — dus een naïef script dat alles in het geheugen laadt zal het zwaar krijgen. Er zijn ook open-source converters die dit doen.</p>
 
 <p>Het is een echte optie, en het is gratis. Het is ook echt gepriegel: je werkt met één gigantisch bestand, inconsistente recordtypes en eenheidsvelden die je zelf moet ontcijferen. Prima voor een ontwikkelaar op een rustige middag. Lastig voor wie gewoon zijn stappenteller in een spreadsheet wil.</p>
 
 <h2>Route 2 — gebruik een app die rechtstreeks CSV exporteert</h2>
 
-<p>De andere route is om de XML helemaal over te slaan en een app te gebruiken die Apple Health uitleest en de CSV voor je wegschrijft. <a href="/apps/vitadatum/">Vitadatum</a> (die ik maak) doet precies dat, op je toestel. Het leest HealthKit uit en exporteert nette CSV en JSON — een samenvattings-CSV plus een detail-CSV per metriek, voor 187 metrieken in 14 categorieën, inclusief ECG. Open de CSV in Excel, Numbers of Google Sheets; geef de JSON aan ChatGPT of Claude.</p>
+<p>De andere route is om de XML helemaal over te slaan en een app te gebruiken die Apple Health uitleest en de CSV voor je wegschrijft. <a href="/apps/vitadatum/">Vitadatum</a> (die ik maak) doet precies dat, op je toestel. Het leest HealthKit uit en exporteert nette CSV en JSON — een samenvattings-CSV plus een detail-CSV per metriek (CSV is een Premium-functie), voor maximaal 193 metrieken in 14 categorieën, afhankelijk van je iOS-versie. ECG-opnames komen met Premium als golfvorm-CSV's. Open de CSV in Excel, Numbers of Google Sheets; geef de JSON aan ChatGPT of Claude.</p>
 
-<p>Het draait volledig op je telefoon: geen account, geen backend, geen cloud-upload. Je gezondheidsdata verlaat het toestel nooit, tenzij je er zelf voor kiest om een bestand te delen — wat een wezenlijk verschil is met tools die alles naar een server uploaden om de conversie te doen.</p>
+<p>Het verwerkt alles op je telefoon: geen account, geen backend, geen cloud-upload. Standaard blijven je bestanden op je iPhone en in je eigen reservekopie van het toestel; ze verlaten je iPhone alleen via die reservekopie, via een cloudmap die je kiest of als je ze zelf deelt. Dat is een wezenlijk verschil met tools die alles naar een server uploaden om de conversie te doen.</p>
 
-<p>Het is gratis voor de laatste 7 dagen, zodat je precies ziet wat je krijgt voordat je iets betaalt, en een eenmalige ontgrendeling van € 4,99 (geen abonnement) geeft je alles voorbij die 7 dagen, zo ver terug als Apple Health de app laat lezen, plus CSV-export en automatische exports op de achtergrond. Je vindt het <a href="https://apps.apple.com/app/vitadatum/id6763707308">in de App Store</a>.</p>
+<p>De laatste 7 dagen zijn gratis als JSON, zodat je precies ziet wat je krijgt voordat je iets betaalt. Premium, een eenmalige aankoop (geen abonnement), geeft je alles voorbij die 7 dagen, zo ver terug als Apple Health de app laat lezen, plus CSV-export, achtergrondexports en je eigen exportmap. Je vindt het <a href="https://apps.apple.com/app/vitadatum/id6763707308">in de App Store</a>.</p>
 
 <h2>Welke route moet je kiezen?</h2>
 
@@ -243,13 +244,13 @@
 <p>Open de Gezondheid-app, tik op Overzicht, tik op je profielfoto of initialen rechtsboven, scrol naar beneden en tik op Exporteer alle gezondheidsgegevens.</p>
 
 <h3>In welk formaat exporteert Apple Health?</h3>
-<p>Een <code>.zip</code>-archief met een groot XML-bestand (<code>export.xml</code>) met je volledige gezondheidsgeschiedenis. Geen enkele spreadsheet opent het in nette rijen.</p>
+<p>Een <code>.zip</code>-archief met een groot XML-bestand (<code>export.xml</code>) met je Health-gegevens. Geen enkele spreadsheet opent het in nette rijen.</p>
 
 <h3>Hoe open ik het geëxporteerde bestand in Excel of Numbers?</h3>
 <p>Je kunt <code>export.xml</code> niet rechtstreeks als spreadsheet openen — XML is niet tabelvormig. Converteer het eerst naar CSV (met een script), of gebruik een app als Vitadatum die CSV exporteert die je direct in Excel, Numbers of Google Sheets opent.</p>
 
 <h3>Uploadt Vitadatum mijn gezondheidsdata?</h3>
-<p>Nee. Vitadatum draait volledig op je toestel — geen account, geen server, geen cloud-upload. Je data verlaat je telefoon alleen als je er zelf voor kiest om een geëxporteerd bestand te delen.</p>
+<p>Nee. Vitadatum heeft geen account en geen server en verwerkt alles op je iPhone. Standaard blijven je bestanden op je iPhone en in je eigen reservekopie van het toestel; ze verlaten je iPhone alleen via die reservekopie, via een cloudmap die je kiest of als je ze zelf deelt.</p>
             <p class="sig">Spookwerk</p>
         </article>
         <!-- spookwerk-signup -->

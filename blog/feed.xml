@@ -5,7 +5,7 @@
         <link>https://spookwerk.app/blog/</link>
         <description>Stories from the workshop.</description>
         <language>en-us</language>
-        <lastBuildDate>Thu, 15 Oct 2026 09:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Tue, 01 Dec 2026 09:00:00 +0100</lastBuildDate>
         <atom:link href="https://spookwerk.app/blog/feed.xml" rel="self" type="application/rss+xml" />
         <item>
             <title>How to export your heart-rate history from Apple Health</title>
@@ -47,7 +47,7 @@
             <link>https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html</link>
             <guid>https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html</guid>
             <pubDate>Sat, 07 Jun 2026 09:00:00 +0200</pubDate>
-            <description>A recovery diary I had to keep by hand turned into an app that gets a decade of Apple Health data out of your phone — local, in JSON and CSV, yours to actually use.</description>
+            <description>A recovery diary I had to keep by hand turned into an app that gets your Apple Health data out of your phone — on-device, in JSON and CSV, yours to actually use.</description>
         </item>
     </channel>
 </rss>

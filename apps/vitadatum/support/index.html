@@ -223,10 +223,12 @@
 
         <h2>Common Questions</h2>
         <ul>
-            <li><strong>Where are my exported files?</strong> By default, exports are saved to the app's local storage on your device. You can find them in the Files app under On My iPhone &gt; Vitadatum &gt; HealthExports. You can also choose a custom folder (like iCloud Drive) in Settings.</li>
-            <li><strong>Why does the app need access to all health data types?</strong> Vitadatum requests read access to all available types so you can export as much of your health history as Apple Health lets it read. You can disable categories you don't need in Settings &gt; Export Categories.</li>
+            <li><strong>Where are my exported files?</strong> By default, exports are saved to the app's local storage on your device. You can find them in the Files app under On My iPhone &gt; Vitadatum &gt; HealthExports. With Premium you can choose your own folder (like iCloud Drive) in Settings. By default the files are also part of your iPhone backup.</li>
+            <li><strong>Why does the app ask for access to so many health data types?</strong> Vitadatum asks for read access to the types it can export, so you can export as much as Apple Health lets the app read. You can switch categories off in Settings &gt; Export Categories.</li>
             <li><strong>How do I restore my purchase?</strong> Open the app, go to Settings, and tap "Restore Purchases".</li>
             <li><strong>The app says my Health access needs a refresh. Why?</strong> After restoring an iPhone from an iCloud backup, iOS does not keep Health read permissions for any app; Apple has confirmed this is expected behaviour, not a bug. Vitadatum detects it and asks you to grant access again, once. To keep your permissions when moving to a new iPhone, migrate with Quick Start (device to device) instead of restoring from an iCloud backup.</li>
+            <li><strong>Why does Vitadatum ask for access again after the update?</strong> After updating to 1.2, Vitadatum asks once for access to the new data types. Until you answer, exports keep running for the types you already allowed.</li>
+            <li><strong>How far back can the app read on iOS 27?</strong> On iOS 27 you choose how far back the app can read in the Health permission sheet; Vitadatum shows the date its access starts.</li>
         </ul>
 
         <h2>How Exports Work</h2>
@@ -235,7 +237,7 @@
             <li><strong>Apple Watch sync delay</strong> &mdash; Your Watch records data continuously but only syncs to your iPhone when the phone is unlocked and in Bluetooth range. After sleeping or being away from your phone, recent Watch data may take minutes to hours to appear. An export right after unlocking may not include everything yet &mdash; the next export will catch it.</li>
             <li><strong>Sleep data may shift between days</strong> &mdash; Sleep sessions that cross midnight (e.g. 23:00&ndash;07:00) are attributed to the day you woke up, matching how Apple Health displays them. This is normal.</li>
             <li><strong>Numbers may differ slightly from Apple Health</strong> &mdash; Apple Health deduplicates overlapping samples from iPhone and Apple Watch in real time. Vitadatum includes this deduplication for key metrics (steps, distance, flights, energy), but timing differences in when data arrives can cause small temporary discrepancies that resolve on the next export.</li>
-            <li><strong>Automatic background exports</strong> (premium) &mdash; When enabled, the app exports new data periodically in the background. iOS controls the exact timing based on battery, usage patterns, and system load.</li>
+            <li><strong>Background exports</strong> (Premium) &mdash; After your first manual export with Premium, the app adds new data to your export folder in the background. iOS decides when that happens: at most about once an hour, while your iPhone is unlocked, and not after you force-quit the app.</li>
         </ul>
 
         <h2>Privacy</h2>

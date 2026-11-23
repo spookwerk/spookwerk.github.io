@@ -12,7 +12,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#ECE7DA">
     <title>Vitadatum — Spookwerk</title>
-    <meta name="description" content="Export your Apple Health data to JSON and CSV. All 187 HealthKit data types, incremental and automatic background exports — private by default, your data stays on your device.">
+    <meta name="description" content="Export your Apple Health data to JSON and CSV on your iPhone. Up to 193 metrics. The last 7 days of JSON are free; CSV, older data and background exports are Premium.">
     <link rel="canonical" href="https://spookwerk.app/apps/vitadatum/">
     <link rel="alternate" hreflang="en" href="https://spookwerk.app/apps/vitadatum/">
     <link rel="alternate" hreflang="nl" href="https://spookwerk.app/apps/vitadatum/nl/">
@@ -20,7 +20,7 @@
     <link rel="alternate" hreflang="x-default" href="https://spookwerk.app/apps/vitadatum/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Vitadatum">
-    <meta property="og:description" content="Export your Apple Health data to JSON and CSV. All 187 HealthKit data types, incremental and automatic background exports — private by default, your data stays on your device.">
+    <meta property="og:description" content="Export your Apple Health data to JSON and CSV on your iPhone. Up to 193 metrics. The last 7 days of JSON are free; CSV, older data and background exports are Premium.">
     <meta property="og:url" content="https://spookwerk.app/apps/vitadatum/">
     <meta property="og:image" content="https://spookwerk.app/og/default.png">
     <meta property="og:site_name" content="Spookwerk">
@@ -29,7 +29,7 @@
     <meta property="og:locale:alternate" content="de_DE">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Vitadatum">
-    <meta name="twitter:description" content="Export your Apple Health data to JSON and CSV. All 187 HealthKit data types, incremental and automatic background exports — private by default, your data stays on your device.">
+    <meta name="twitter:description" content="Export your Apple Health data to JSON and CSV on your iPhone. Up to 193 metrics. The last 7 days of JSON are free; CSV, older data and background exports are Premium.">
     <meta name="twitter:image" content="https://spookwerk.app/og/default.png">
     <meta name="twitter:site" content="@Spookwerk">
     <script type="application/ld+json">
@@ -82,7 +82,7 @@
       "@type": "SoftwareApplication",
       "@id": "https://spookwerk.app/apps/vitadatum/#app",
       "name": "Vitadatum",
-      "description": "Export your Apple Health data to JSON and CSV. All 187 HealthKit data types, incremental and automatic background exports — private by default, your data stays on your device.",
+      "description": "Export your Apple Health data to JSON and CSV on your iPhone. Up to 193 metrics. The last 7 days of JSON are free; CSV, older data and background exports are Premium.",
       "url": "https://spookwerk.app/apps/vitadatum/",
       "operatingSystem": "iOS",
       "applicationCategory": "HealthApplication",
@@ -94,11 +94,11 @@
       "@type": "FAQPage",
       "@id": "https://spookwerk.app/apps/vitadatum/#faq",
       "mainEntity": [
-        { "@type": "Question", "name": "How do I export my Apple Health data to CSV?", "acceptedAnswer": { "@type": "Answer", "text": "Install Vitadatum, grant it read access to Apple Health, and choose a CSV export. You get a summary CSV with 26 daily columns plus detailed per-metric files, going back as far as Apple Health lets the app read — all generated on your iPhone. CSV export is part of the one-time €4.99 unlock — the free tier exports the last 7 days as JSON." } },
+        { "@type": "Question", "name": "How do I export my Apple Health data to CSV?", "acceptedAnswer": { "@type": "Answer", "text": "Install Vitadatum, grant it read access to Apple Health, and turn on CSV export in Settings. You get a summary CSV with one row per day and 26 columns, plus one detailed CSV per metric, all generated on your iPhone. CSV is a Premium feature, a one-time purchase. Premium exports go as far back as Apple Health lets the app read; the free version exports the last 7 days as JSON." } },
         { "@type": "Question", "name": "Can I export Apple Health data for ChatGPT or Claude?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Vitadatum exports structured JSON, the format AI tools read most reliably, so you can upload it straight to ChatGPT, Claude, or any LLM. Vitadatum doesn't do any AI itself — it just prepares your data in the format those tools prefer." } },
-        { "@type": "Question", "name": "Does Vitadatum upload my health data anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Everything happens on your device. No accounts, no cloud uploads, no analytics, no tracking. Your health data never leaves your iPhone unless you share the exported file yourself." } },
-        { "@type": "Question", "name": "What does Vitadatum cost?", "acceptedAnswer": { "@type": "Answer", "text": "A one-time €4.99 unlock, with no subscription. The last 7 days of JSON export — all 187 metrics — are free, so you can see your data before paying." } },
-        { "@type": "Question", "name": "Which health data can I export?", "acceptedAnswer": { "@type": "Answer", "text": "All 187 HealthKit data types across 14 categories: steps, heart rate, HRV, sleep stages, workouts, blood glucose, ECG waveforms, nutrition, and more." } }
+        { "@type": "Question", "name": "Does Vitadatum upload my health data anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Vitadatum has no account, no servers, no analytics and no tracking, and all processing happens on your iPhone. By default your files stay on your iPhone and in your own device backup. They leave it only through that backup, a cloud folder you choose, or when you share them yourself." } },
+        { "@type": "Question", "name": "What does Vitadatum cost?", "acceptedAnswer": { "@type": "Answer", "text": "Vitadatum is free to download. The last 7 days of JSON, with every metric, are free, so you can see your data before paying. Premium is a one-time purchase, with no subscription, and adds older data, CSV, background exports and your own export folder." } },
+        { "@type": "Question", "name": "Which health data can I export?", "acceptedAnswer": { "@type": "Answer", "text": "Up to 193 HealthKit data types across 14 categories, depending on your iOS version: steps, heart rate, HRV, sleep stages, workouts, blood glucose, ECG recordings, nutrition, and more. ECG waveform files are part of the Premium CSV export." } }
       ]
     },
     {
@@ -275,18 +275,20 @@
             </details>
         </nav>
         <h1>Vitadatum</h1>
-        <p class="subtitle">Export your Apple Health data to JSON and CSV. All 187 data types. Private by default.</p>
-        <p class="lead">Vitadatum is an iOS app that exports your Apple Health data to clean CSV and JSON files, right on your iPhone. Grant it read access to Apple Health, pick what you want, and you get all 187 HealthKit data types as spreadsheet-ready CSV or AI-ready JSON — no account, no cloud upload, nothing leaving your device. One-time &euro;4.99; the last 7 days of JSON are free to try first.</p>
+        <p class="subtitle">Export your Apple Health data to JSON and CSV. Up to 193 data types. Private by default.</p>
+        <p class="lead">Vitadatum is an iOS app that exports your Apple Health data to clean CSV and JSON files, right on your iPhone. Grant it read access to Apple Health, pick what you want, and you get up to 193 HealthKit data types as AI-ready JSON or, with Premium, spreadsheet-ready CSV. No account, no servers of ours, no cloud upload by the app. Premium is a one-time purchase; the last 7 days of JSON are free to try first.</p>
         <ul class="features">
-            <li>All 187 HealthKit data types across 14 categories</li>
+            <li>Up to 193 HealthKit data types across 14 categories, depending on your iOS version</li>
             <li>Incremental exports — only new data since last export</li>
-            <li>Automatic background exports via HealthKit observer (premium)</li>
-            <li>CSV summary and per-metric detail files (premium)</li>
-            <li>ECG waveform export at full 512 Hz precision</li>
-            <li>Data stays on your device by default</li>
+            <li>Background exports (Premium), whenever iOS allows it</li>
+            <li>CSV summary and per-metric detail files (Premium)</li>
+            <li>ECG waveform CSV files at full 512 Hz precision (Premium)</li>
+            <li>Older data and Full Export (Reset) (Premium)</li>
+            <li>Your own export folder (Premium)</li>
+            <li>By default your files stay on your iPhone and in your own device backup</li>
             <li>No accounts, no analytics, no tracking</li>
-            <li>No internet connection required</li>
-            <li>Fully accessible — VoiceOver, Dynamic Type, and high-contrast support</li>
+            <li>Exports work without an internet connection</li>
+            <li>Accessible — VoiceOver, Dynamic Type, and high-contrast support</li>
         </ul>
         <div class="links">
             <a href="https://apps.apple.com/app/vitadatum/id6763707308">Download on the App Store</a>
@@ -315,7 +317,7 @@
             <h2>Frequently asked questions</h2>
             <div class="qa">
                 <h3>How do I export my Apple Health data to CSV?</h3>
-                <p>Install Vitadatum, grant it read access to Apple Health, and choose a CSV export. You get a summary CSV with 26 daily columns plus detailed per-metric files, going back as far as Apple Health lets the app read — all generated on your iPhone. CSV export is part of the one-time €4.99 unlock — the free tier exports the last 7 days as JSON.</p>
+                <p>Install Vitadatum, grant it read access to Apple Health, and turn on CSV export in Settings. You get a summary CSV with one row per day and 26 columns, plus one detailed CSV per metric, all generated on your iPhone. CSV is a Premium feature, a one-time purchase. Premium exports go as far back as Apple Health lets the app read; the free version exports the last 7 days as JSON.</p>
             </div>
             <div class="qa">
                 <h3>Can I export Apple Health data for ChatGPT or Claude?</h3>
@@ -323,15 +325,15 @@
             </div>
             <div class="qa">
                 <h3>Does Vitadatum upload my health data anywhere?</h3>
-                <p>No. Everything happens on your device. No accounts, no cloud uploads, no analytics, no tracking. Your health data never leaves your iPhone unless you share the exported file yourself.</p>
+                <p>No. Vitadatum has no account, no servers, no analytics and no tracking, and all processing happens on your iPhone. By default your files stay on your iPhone and in your own device backup. They leave it only through that backup, a cloud folder you choose, or when you share them yourself.</p>
             </div>
             <div class="qa">
                 <h3>What does Vitadatum cost?</h3>
-                <p>A one-time €4.99 unlock, with no subscription. The last 7 days of JSON export — all 187 metrics — are free, so you can see your data before paying.</p>
+                <p>Vitadatum is free to download. The last 7 days of JSON, with every metric, are free, so you can see your data before paying. Premium is a one-time purchase, with no subscription, and adds older data, CSV, background exports and your own export folder.</p>
             </div>
             <div class="qa">
                 <h3>Which health data can I export?</h3>
-                <p>All 187 HealthKit data types across 14 categories: steps, heart rate, HRV, sleep stages, workouts, blood glucose, ECG waveforms, nutrition, and more.</p>
+                <p>Up to 193 HealthKit data types across 14 categories, depending on your iOS version: steps, heart rate, HRV, sleep stages, workouts, blood glucose, ECG recordings, nutrition, and more. ECG waveform files are part of the Premium CSV export.</p>
             </div>
         </section>
     </div>

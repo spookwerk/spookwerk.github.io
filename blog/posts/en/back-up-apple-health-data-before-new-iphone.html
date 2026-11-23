@@ -85,6 +85,7 @@
       "description": "Apple only carries Health data to a new iPhone along certain paths. Here's how to check yours, and how to keep your own readable copy either way.",
       "inLanguage": "en",
       "datePublished": "2026-09-08",
+      "dateModified": "2026-12-01",
       "image": "https://spookwerk.app/og/default.png",
       "url": "https://spookwerk.app/blog/posts/en/back-up-apple-health-data-before-new-iphone.html",
       "mainEntityOfPage": "https://spookwerk.app/blog/posts/en/back-up-apple-health-data-before-new-iphone.html",
@@ -134,7 +135,7 @@
         "name": "How far back does the export go?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The free tier exports the last 7 days as JSON. The one-time €4.99 unlock removes that limit and exports as far back as Apple Health lets the app read, which on recent iOS versions depends on the history window you granted when you gave it access. CSV export is part of the same unlock."
+          "text": "The free version exports the last 7 days as JSON. Premium, a one-time purchase, removes that limit and exports as far back as Apple Health lets the app read, which on recent iOS versions depends on the read window you granted when you gave it access. CSV export is part of Premium."
         }
       },
       {
@@ -142,7 +143,7 @@
         "name": "Where do the exported files go?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "To your iPhone, or to a folder you choose, including iCloud Drive or anywhere reachable via the Files app. The app uploads nothing to Spookwerk. There are no accounts and no servers."
+          "text": "To your iPhone, or to a folder you choose (choosing a folder is Premium), including iCloud Drive or anywhere reachable via the Files app. The app uploads nothing to Spookwerk. There are no accounts and no servers."
         }
       }
       ]
@@ -204,9 +205,9 @@
         <article>
             <header>
                 <h1>How to back up your Apple Health data before switching to a new iPhone</h1>
-                <p class="post-date">2026-09-08</p>
+                <p class="post-date">2026-09-08 · Updated 2026-12-01</p>
             </header>
-            <p><strong>Vitadatum exports your Apple Health data to JSON and CSV files on your iPhone, so you have your own readable copy of your health history before you switch phones, separate from Apple's transfer, which only carries Health data along certain paths, and from a computer backup only if it is encrypted.</strong></p>
+            <p><strong>Vitadatum exports your Apple Health data to JSON and CSV files on your iPhone, so you have your own readable copy of your Health data before you switch phones, separate from Apple's transfer, which only carries Health data along certain paths, and from a computer backup only if it is encrypted.</strong></p>
 <p>That second clause is the part that catches people out, so this post starts there. Sections 1 to 3 are useful whether or not you ever install anything. They cover Apple's mechanism, which is what decides whether six years of workouts land on your new phone. The app turns up in section 4, and only as the second copy.</p>
 <h2>Does Apple Health data transfer to a new iPhone?</h2>
 <p>Yes, but only along a path that carries it. There are three.</p>
@@ -219,7 +220,7 @@
 <blockquote>If your backup isn't encrypted, your Health and Activity data from your iOS device or Apple Watch won't transfer.</blockquote>
 <p>Health data sits in <a href="https://support.apple.com/en-us/108353">the group of things Apple only writes into an encrypted backup</a>. Your saved passwords, Wi-Fi settings, website history and call history are in the same group. So encryption is not extra safety on top of a complete backup. It is the switch that decides whether the data is in the file at all. That is a strange piece of design. A security setting doubles as a completeness setting, and nothing anywhere tells you that it did.</p>
 <h2>The failure mode people actually hit</h2>
-<p>Almost nobody loses their Health history by choosing wrong at a fork in the road. They lose it because they never saw a fork. The reports come in three shapes.</p>
+<p>Almost nobody loses their Health data by choosing wrong at a fork in the road. They lose it because they never saw a fork. The reports come in three shapes.</p>
 <p><strong>The unencrypted computer backup.</strong> Nobody ticked the box. The backup ran, the restore ran, both reported success, and Health opens empty on the new phone. Nothing warns you at any step, because from the backup's point of view nothing went wrong.</p>
 <p><strong>Health switched off in iCloud.</strong> A toggle set years ago, or never set at all, on an account that otherwise backs up fine. Photos come across. Messages come across. Health doesn't.</p>
 <p><strong>A backup older than the data.</strong> The last backup ran before the last few months of workouts, so the restore is genuine and complete and still missing a season of running.</p>
@@ -239,13 +240,13 @@
 <h2>Step 2: Keep your own copy, in a format you can read</h2>
 <p>Everything above is Apple's plumbing. It either works or it doesn't, and you find out at the moment it matters. A second copy in a format you can open yourself changes what happens when it doesn't.</p>
 <p>A device backup is restore-or-nothing. You cannot open one, read one, or check what is inside it. An export is the opposite. Files on disk, in formats that outlive the device that made them.</p>
-<p>That is what <a href="https://spookwerk.app/apps/vitadatum/">Vitadatum</a> does, and it is the app I make. It reads Apple Health on your iPhone and writes JSON and CSV files into a folder you choose, on the device, in iCloud Drive, or anywhere the Files app can reach. The files open in Excel, Numbers, or Google Sheets with no Apple device anywhere in the picture. The JSON goes straight into ChatGPT or Claude if you want something to read the year back to you. And none of it depends on a restore working, an account being signed in, or a password you set two years ago.</p>
+<p>That is what <a href="https://spookwerk.app/apps/vitadatum/">Vitadatum</a> does, and it is the app I make. It reads Apple Health on your iPhone and writes JSON files (and CSV files, with Premium) into Vitadatum's folder on the device. With Premium you can pick any folder the Files app can reach instead, such as iCloud Drive. The files open in Excel, Numbers, or Google Sheets with no Apple device anywhere in the picture. The JSON goes straight into ChatGPT or Claude if you want something to read the year back to you. And none of it depends on a restore working, an account being signed in, or a password you set two years ago.</p>
 <p>One thing it does not do, and I would rather say it here than have you find out at the wrong moment. <strong>Vitadatum does not put data back into the Health app.</strong> It exports. It does not import or restore. Apple's backup or iCloud sync is what moves your history to the new phone. The export is the independent copy you keep in case that goes sideways, and the readable archive you have anyway.</p>
-<p>Same for the price, because this whole post is about history. The free tier exports the <strong>last 7 days</strong> as JSON. The <strong>€4.99 one-time unlock</strong> (no subscription) lifts that limit and adds CSV export, background exports, and the custom folder. If you install it the night before a phone swap, export 7 days, and walk away thinking you saved six years, you did not. I would rather lose the install than ship that misunderstanding.</p>
-<p>Two limits worth naming. Spookwerk never receives your files. There are no accounts and no servers, and the files land in your storage. And the export can only hold what Apple Health hands over. Recent iOS versions let you grant an app a limited window of your history instead of everything recorded, per data type, and if you did that, the export stops where the permission stops. If the export starts later than you expected, widen the permission in the Health app and run a full export again.</p>
+<p>Same for the price, because this whole post is about keeping your Health data. The free version exports the <strong>last 7 days</strong> as JSON. <strong>Premium</strong>, a one-time purchase (no subscription), lifts that limit and adds CSV export, background exports, and the custom folder. If you install it the night before a phone swap, export 7 days, and walk away thinking you saved six years, you did not. I would rather lose the install than ship that misunderstanding.</p>
+<p>Two limits worth naming. Spookwerk never receives your files. There are no accounts and no servers, and the files land in your storage. Vitadatum's own folder is part of your iPhone backup, but a backup is not a copy you can open; copy the files to a computer or a cloud folder for a copy outside the phone. And the export can only hold what Apple Health hands over. Recent iOS versions let you grant an app a limited window of your history instead of everything recorded, per data type, and if you did that, the export stops where the permission stops. If the export starts later than you expected, widen the permission in the Health app and run a full export again.</p>
 <h2>What's in the export (and what isn't)</h2>
-<p>The export covers 187 data types across 14 categories. Steps, distance, flights climbed. Heart rate, resting heart rate, HRV. Sleep stages and workouts. Blood pressure, blood glucose, blood oxygen, respiratory rate, body temperature. Body measurements and nutrition. And ECG.</p>
-<p>ECG is worth calling out, because most tools record only that a reading happened. Vitadatum exports the waveform. Roughly 15,000 voltage measurements per recording, at 512 Hz.</p>
+<p>The export covers up to 193 data types across 14 categories, depending on your iOS version. Steps, distance, flights climbed. Heart rate, resting heart rate, HRV. Sleep stages and workouts. Blood pressure, blood glucose, blood oxygen, respiratory rate, body temperature. Body measurements and nutrition. And ECG.</p>
+<p>ECG is worth calling out, because most tools record only that a reading happened. With Premium, Vitadatum exports the waveform as CSV. Roughly 15,000 voltage measurements per recording, at 512 Hz.</p>
 <p>What is not in it:</p>
 <ul>
     <li>Medical records. The clinical records Health pulls in from a hospital or clinic are a separate system, and they stay out of the export.</li>
@@ -272,9 +273,9 @@
 <h3>Can Vitadatum restore my Health data onto my new iPhone?</h3>
 <p>No. Vitadatum exports your Health data to JSON and CSV files you keep. It does not write data back into the Health app. Apple's backup or iCloud sync is what moves your data to the new phone. The export is your own independent copy in case that doesn't go as planned.</p>
 <h3>How far back does the export go?</h3>
-<p>The free tier exports the last 7 days as JSON. The one-time €4.99 unlock removes that limit and exports as far back as Apple Health lets the app read, which on recent iOS versions depends on the history window you granted when you gave it access. CSV export is part of the same unlock.</p>
+<p>The free version exports the last 7 days as JSON. Premium, a one-time purchase, removes that limit and exports as far back as Apple Health lets the app read, which on recent iOS versions depends on the read window you granted when you gave it access. CSV export is part of Premium.</p>
 <h3>Where do the exported files go?</h3>
-<p>To your iPhone, or to a folder you choose, including iCloud Drive or anywhere reachable via the Files app. The app uploads nothing to Spookwerk. There are no accounts and no servers.</p>
+<p>To your iPhone, or to a folder you choose (choosing a folder is Premium), including iCloud Drive or anywhere reachable via the Files app. The app uploads nothing to Spookwerk. There are no accounts and no servers.</p>
             <p class="sig">Spookwerk</p>
         </article>
         <!-- spookwerk-signup -->

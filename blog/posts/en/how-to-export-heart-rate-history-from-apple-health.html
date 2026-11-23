@@ -85,6 +85,7 @@
       "description": "Apple's Health export buries your heart rate in one giant XML file. Here's how to get heart rate and HRV out as files of their own, step by step.",
       "inLanguage": "en",
       "datePublished": "2026-10-15",
+      "dateModified": "2026-12-01",
       "image": "https://spookwerk.app/og/default.png",
       "url": "https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html",
       "mainEntityOfPage": "https://spookwerk.app/blog/posts/en/how-to-export-heart-rate-history-from-apple-health.html",
@@ -118,7 +119,7 @@
           "name": "Can I export heart-rate data for free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, for the last 7 days. Vitadatum's free version exports them as JSON. Older data and CSV files come with Vitadatum Premium, a €4.99 one-time purchase with no subscription."
+            "text": "Yes, for the last 7 days. Vitadatum's free version exports them as JSON. Older data and CSV files come with Vitadatum Premium, a one-time purchase with no subscription."
           }
         },
         {
@@ -142,7 +143,7 @@
           "name": "Does it export HRV and ECG too?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. With Include Detailed CSVs on, HRV gets its own file next to heart rate, and ECG recordings from an Apple Watch come with their full voltage trace, one file per recording, when you run the export in the app."
+            "text": "Yes, with Premium. With Include Detailed CSVs on, HRV gets its own file next to heart rate, and ECG recordings from an Apple Watch come with their full voltage trace as CSV, one file per recording, when you run the export in the app."
           }
         }
       ]
@@ -204,11 +205,11 @@
         <article>
             <header>
                 <h1>How to export your heart-rate history from Apple Health</h1>
-                <p class="post-date">2026-10-15</p>
+                <p class="post-date">2026-10-15 · Updated 2026-12-01</p>
             </header>
             <p><strong>Vitadatum exports your Apple Health heart-rate history to JSON or CSV files on your iPhone, so you can open them in a spreadsheet or paste them into ChatGPT or Claude instead of digging through Apple's giant XML export.</strong></p>
 
-<p>The free version exports the last 7 days as JSON. CSV files and anything older than 7 days come with Vitadatum Premium, a €4.99 one-time purchase with no subscription. Better you hear that now than at the paywall.</p>
+<p>The free version exports the last 7 days as JSON. CSV files and anything older than 7 days come with Vitadatum Premium, a one-time purchase with no subscription. Better you hear that now than at the paywall.</p>
 
 <p><a href="https://apps.apple.com/app/vitadatum/id6763707308">Download Vitadatum on the App Store</a></p>
 
@@ -232,9 +233,9 @@
 <li><strong>Install it and give it Health access.</strong> Open Vitadatum and tap Get Started. iOS shows its Health permission sheet. On iOS 27, Health also asks how much history to share. Choose <em>All Recorded Data and Future Data</em>. With the 30-day option, Vitadatum can only read the last 30 days, and no export can reach further back than the window you grant. You can widen it later in Settings › Privacy &amp; Security › Health › Vitadatum › Change Access. Once you have Premium, run Full Export (Reset) after widening it, so the older data gets picked up.</li>
 <li><strong>Pick your categories.</strong> Export Categories lists 14 health categories. Keep Heart on and switch off what you don't need. Fewer categories means a faster export and fewer files. The Heart category holds more than heart rate alone, and with detail CSVs on, each of its metrics gets its own file.</li>
 <li><strong>Free: export a week as JSON.</strong> Without Premium, tap Export My Health Data and you get the last 7 days as JSON. That's enough to see what's there.</li>
-<li><strong>Premium: turn on CSV.</strong> In Vitadatum's settings, Also Export as CSV carries a lock on the free version. Tapping it opens the €4.99 unlock. Then switch on Also Export as CSV, and Include Detailed CSVs. The detail files are where heart rate gets its own file. Do this before your first export. If you switch it on later, run Full Export (Reset) once, or tap Generate Summary + Detail CSVs, to get detail files for your older data. ECG traces only come with an export started in the app, so for older recordings use Full Export (Reset).</li>
+<li><strong>Premium: turn on CSV.</strong> In Vitadatum's settings, Also Export as CSV carries a lock on the free version. Tapping it opens the Premium purchase screen. Then switch on Also Export as CSV, and Include Detailed CSVs. The detail files are where heart rate gets its own file. Do this before your first export. If you switch it on later, run Full Export (Reset) once, or tap Generate Summary + Detail CSVs, to get detail files for your older data. ECG traces only come with an export started in the app, so for older recordings use Full Export (Reset).</li>
 <li><strong>Choose where the files go.</strong> By default they land in Vitadatum's HealthExports folder under On My iPhone in the Files app. With Premium, Choose Export Folder lets you pick iCloud Drive or any other folder in Files, and Vitadatum puts a HealthExports folder there. iCloud Drive is the easiest way to get the files onto a computer.</li>
-<li><strong>Export.</strong> Tap Export My Health Data and keep the app open with the screen on while it runs. A first export of years of data can take several minutes. When it's done, Open in Files takes you to the folder.</li>
+<li><strong>Export.</strong> Tap Export My Health Data and keep the app open with the screen on while it runs. A first export of a large archive can take several minutes. When it's done, Open in Files takes you to the folder.</li>
 </ol>
 
 <h2>What you get</h2>
@@ -259,7 +260,7 @@
 
 <h2>Keeping it current</h2>
 
-<p>With Premium, Background Exports run on their own once your first export with Premium is done. There's no switch for them. When new data arrives in Health, Vitadatum adds it to the export folder without you opening the app, but only while your iPhone is unlocked and not while Vitadatum itself is open. iOS decides when background work runs, so the update can lag behind your watch by a while.</p>
+<p>With Premium, Background Exports run on their own once your first export with Premium is done. There's no switch for them. When new data arrives in Health, Vitadatum adds it to the export folder without you opening the app, but only while your iPhone is unlocked and not while Vitadatum itself is open, and not after you force-quit the app. iOS decides when background work runs, so the update can lag behind your watch by a while.</p>
 
 <p>That ends the weekly ritual of exporting by hand. A spreadsheet you imported is still a copy, though, so import the file again when you want fresh numbers in it.</p>
 
@@ -273,7 +274,7 @@
 <p>Apple's own export always puts everything in one XML file. Vitadatum lets you choose which of its 14 health categories to export. With Include Detailed CSVs on, heart rate and HRV each get their own CSV file.</p>
 
 <h3>Can I export heart-rate data for free?</h3>
-<p>Yes, for the last 7 days. Vitadatum's free version exports them as JSON. Older data and CSV files come with Vitadatum Premium, a €4.99 one-time purchase with no subscription.</p>
+<p>Yes, for the last 7 days. Vitadatum's free version exports them as JSON. Older data and CSV files come with Vitadatum Premium, a one-time purchase with no subscription.</p>
 
 <h3>How far back does the export go?</h3>
 <p>As far back as Apple Health lets the app read. On iOS 27 you choose that window when you grant access. Picking 'All Recorded Data and Future Data' lets Vitadatum read beyond the last 30 days. The free version exports the last 7 days.</p>
@@ -282,7 +283,7 @@
 <p>No. Vitadatum uploads nothing and has no account. By default the files stay in Vitadatum's HealthExports folder under On My iPhone. With Premium you can pick an iCloud Drive folder or another folder in Files. If you pick iCloud Drive, iCloud syncs those files itself, like any other file there.</p>
 
 <h3>Does it export HRV and ECG too?</h3>
-<p>Yes. With Include Detailed CSVs on, HRV gets its own file next to heart rate, and ECG recordings from an Apple Watch come with their full voltage trace, one file per recording, when you run the export in the app.</p>
+<p>Yes, with Premium. With Include Detailed CSVs on, HRV gets its own file next to heart rate, and ECG recordings from an Apple Watch come with their full voltage trace as CSV, one file per recording, when you run the export in the app.</p>
             <p class="sig">Spookwerk</p>
         </article>
         <!-- spookwerk-signup -->

@@ -11,7 +11,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#ECE7DA">
     <title>Why I built an Apple Health → CSV exporter — Spookwerk</title>
-    <meta name="description" content="A recovery diary I had to keep by hand turned into an app that gets a decade of Apple Health data out of your phone — local, in JSON and CSV, yours to actually use.">
+    <meta name="description" content="A recovery diary I had to keep by hand turned into an app that gets your Apple Health data out of your phone — on-device, in JSON and CSV, yours to actually use.">
     <link rel="alternate" type="application/rss+xml" title="Spookwerk Blog" href="/blog/feed.xml">
     <link rel="canonical" href="https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html">
     <link rel="alternate" hreflang="en" href="https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html">
@@ -19,7 +19,7 @@
     <link rel="alternate" hreflang="x-default" href="https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Why I built an Apple Health → CSV exporter">
-    <meta property="og:description" content="A recovery diary I had to keep by hand turned into an app that gets a decade of Apple Health data out of your phone — local, in JSON and CSV, yours to actually use.">
+    <meta property="og:description" content="A recovery diary I had to keep by hand turned into an app that gets your Apple Health data out of your phone — on-device, in JSON and CSV, yours to actually use.">
     <meta property="og:url" content="https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html">
     <meta property="og:image" content="https://spookwerk.app/og/default.png">
     <meta property="og:site_name" content="Spookwerk">
@@ -29,7 +29,7 @@
     <meta property="article:author" content="Spookwerk">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Why I built an Apple Health → CSV exporter">
-    <meta name="twitter:description" content="A recovery diary I had to keep by hand turned into an app that gets a decade of Apple Health data out of your phone — local, in JSON and CSV, yours to actually use.">
+    <meta name="twitter:description" content="A recovery diary I had to keep by hand turned into an app that gets your Apple Health data out of your phone — on-device, in JSON and CSV, yours to actually use.">
     <meta name="twitter:image" content="https://spookwerk.app/og/default.png">
     <meta name="twitter:site" content="@Spookwerk">
     <script type="application/ld+json">
@@ -82,9 +82,10 @@
       "@type": "BlogPosting",
       "@id": "https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html#blogposting",
       "headline": "Why I built an Apple Health → CSV exporter",
-      "description": "A recovery diary I had to keep by hand turned into an app that gets a decade of Apple Health data out of your phone — local, in JSON and CSV, yours to actually use.",
+      "description": "A recovery diary I had to keep by hand turned into an app that gets your Apple Health data out of your phone — on-device, in JSON and CSV, yours to actually use.",
       "inLanguage": "en",
       "datePublished": "2026-06-07",
+      "dateModified": "2026-12-01",
       "image": "https://spookwerk.app/og/default.png",
       "url": "https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html",
       "mainEntityOfPage": "https://spookwerk.app/blog/posts/en/why-i-built-an-apple-health-csv-exporter.html",
@@ -157,11 +158,11 @@
         <article>
             <header>
                 <h1>Why I built an Apple Health → CSV exporter</h1>
-                <p class="post-date">2026-06-07</p>
+                <p class="post-date">2026-06-07 · Updated 2026-12-01</p>
             </header>
             <p>Your iPhone has been keeping a diary about you for years. Steps, heart rate, sleep, walking distance, every workout, the slow drift of your resting pulse across a decade. It's all in there, in the Health app, behind a wall of beautiful charts you can look at but can't really <em>use</em>.</p>
 
-<p>Try to get it out. Go on. There's an Export button buried in your Health profile — it hands you a single giant XML file, one document containing your entire health history, in a format no spreadsheet opens and no AI tool politely reads. It's technically "your data." It's also technically useless the moment you want to do anything with it.</p>
+<p>Try to get it out. Go on. There's an Export button buried in your Health profile — it hands you a single giant XML file, one document containing every record Health holds, in a format no spreadsheet opens and no AI tool politely reads. It's technically "your data." It's also technically useless the moment you want to do anything with it.</p>
 
 <p>I built Vitadatum because I hit that wall myself, and I had a very specific reason to need what was on the other side of it.</p>
 
@@ -173,7 +174,7 @@
 
 <p>I'm a developer. So of course I didn't want to copy numbers by hand; I wanted the phone to do it. I built a small prototype that pulled the data out of HealthKit automatically and dropped it where my diary could read it. That was the whole idea, at first: stop the manual typing.</p>
 
-<p>But a prototype that you have to remember to open isn't really automation — it's just a faster chore. So it grew. It turned into a proper exporter that, after the first full export, keeps itself up to date in the background. New day, new numbers, written out on their own, no app to open, no button to press. The data is simply always <em>there</em> — current — ready for any system that wants to chart it, analyse it, or correlate it with how my legs actually felt that week. That background-export behaviour wasn't a feature I dreamed up for a spec sheet. It existed because a recovery diary you have to maintain by hand is a recovery diary you eventually stop maintaining.</p>
+<p>But a prototype that you have to remember to open isn't really automation — it's just a faster chore. So it grew. It turned into a proper exporter that, after the first manual export with Premium, keeps itself up to date in the background, whenever iOS allows it. New day, new numbers, written out on their own, no app to open, no button to press. The data is simply <em>there</em>, as current as iOS lets it be, ready for any system that wants to chart it, analyse it, or correlate it with how my legs actually felt that week. That background-export behaviour wasn't a feature I dreamed up for a spec sheet. It existed because a recovery diary you have to maintain by hand is a recovery diary you eventually stop maintaining.</p>
 
 <p>That's the app. It started as a tool for one person's ergotherapy diary, and the origin is still right there in the codebase — early on, before it was even called Vitadatum, it was "HealthExporter," and one of the very first things I wrote into it was the diary integration. The rest of Vitadatum is what that prototype became once I cleaned it up enough to be useful to someone who isn't me.</p>
 
@@ -185,25 +186,25 @@
 
 <p>Vitadatum picks the first one. It writes your data to a folder on your own device. No account, no login, no analytics, no tracking, no server I run that ever sees a single heartbeat of yours. If you want to feed an export into ChatGPT or Claude, that's your call to make, file in hand — not a default I made for you. The app's entire job is to get your data <em>out, in a clean form, under your control</em>. What you do with it after that is the whole point, and it's none of my business.</p>
 
-<p>JSON for the machines, CSV for the spreadsheets. 187 metrics across 14 categories — steps, heart rate, sleep, ECG, the lot. One file per day, deduplicated, always current. Open it in Numbers, pivot it in Excel, drop it into an AI tool, pipe it into your own script. It's just files. Files are the most durable, most portable, least lock-in format there is, and that's deliberate.</p>
+<p>JSON for the machines, CSV for the spreadsheets (Premium). Up to 193 metrics across 14 categories, depending on your iOS version — steps, heart rate, sleep, ECG, the lot. One JSON file per day, deduplicated. Open it in Numbers, pivot it in Excel, drop it into an AI tool, pipe it into your own script. It's just files. Files are the most durable, most portable, least lock-in format there is, and that's deliberate.</p>
 
-<h2>Why it's €4.99 once, and not €4.99 a month</h2>
+<h2>Why it's a one-time purchase, and not a monthly one</h2>
 
 <p>The default move in 2026 is a subscription. Everything is a subscription. A flashlight app would charge you monthly if it thought it could get away with it.</p>
 
-<p>I'm not doing that here, and the reason is simple: a subscription is a tax on something you only really do once. Getting your health history out of your phone is not an ongoing service I provide you — it's a thing you want to <em>own</em>, like a key to a door that should have been yours all along. Charging you rent forever to walk through your own door would be a little obscene.</p>
+<p>I'm not doing that here, and the reason is simple: a subscription is a tax on something you only really do once. Getting your Health data out of your phone is not an ongoing service I provide you — it's a thing you want to <em>own</em>, like a key to a door that should have been yours all along. Charging you rent every month to walk through your own door would be a little obscene.</p>
 
-<p>So Vitadatum is freemium with a one-time unlock. The free tier exports the last seven days, so you can see exactly what you're getting before you pay anything. €4.99, once, unlocks everything past those seven days, as far back as Apple Health lets the app read, plus CSV export, custom folders, and the background exports that keep everything current. No subscription, no upsell, no "premium tier two." You buy the key, the door is yours.</p>
+<p>So Vitadatum is freemium with a one-time purchase. The free version exports the last seven days as JSON, so you can see exactly what you're getting before you pay anything. Premium, bought once, covers everything past those seven days, as far back as Apple Health lets the app read, plus CSV export, your own export folder, and the background exports. No subscription, no upsell, no "tier two." You buy the key, the door is yours.</p>
 
-<p>That price is deliberate, too. The serious competitors sit at $14.99 and $24.99. I put it low on purpose — low enough that if you've read this far and the thing sounds useful, the price isn't the part you have to think about.</p>
+<p>The price is deliberate, too. The serious competitors charge several times more. I put it low on purpose — low enough that if you've read this far and the thing sounds useful, the price isn't the part you have to think about.</p>
 
 <h2>The point</h2>
 
-<p>I didn't set out to build an App Store product. I set out to stop hand-copying step counts into a recovery diary, and the tool I built to do that turned out to be the thing I wished existed for everyone sitting on a decade of their own health data they can't get at.</p>
+<p>I didn't set out to build an App Store product. I set out to stop hand-copying step counts into a recovery diary, and the tool I built to do that turned out to be the thing I wished existed for everyone sitting on their own Health data they can't get at.</p>
 
 <p>Your data should be yours — not just in the sense that it lives on your device, but in the sense that you can actually <em>take it somewhere and use it</em>. That's the whole app. Everything else is detail.</p>
 
-<p><em>(Getting years of health data off a phone without the thing running out of memory mid-export turned into its own engineering saga — but that's a story for another post.)</em></p>
+<p><em>(Getting a big Health archive off a phone without the thing running out of memory mid-export turned into its own engineering saga — but that's a story for another post.)</em></p>
             <p class="sig">Spookwerk</p>
         </article>
         <!-- spookwerk-signup -->

@@ -85,6 +85,7 @@
       "description": "Apple Health exports XML, not CSV — here's the honest guide to actually getting your health data into a spreadsheet, by hand or with an app.",
       "inLanguage": "en",
       "datePublished": "2026-06-27",
+      "dateModified": "2026-12-01",
       "image": "https://spookwerk.app/og/default.png",
       "url": "https://spookwerk.app/blog/posts/en/how-to-export-apple-health-to-csv.html",
       "mainEntityOfPage": "https://spookwerk.app/blog/posts/en/how-to-export-apple-health-to-csv.html",
@@ -126,7 +127,7 @@
           "name": "What format is the Apple Health export?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A .zip archive containing a large XML file (export.xml) with your full health history. No spreadsheet opens it into clean rows."
+            "text": "A .zip archive containing a large XML file (export.xml) with your Health records. No spreadsheet opens it into clean rows."
           }
         },
         {
@@ -142,7 +143,7 @@
           "name": "Does Vitadatum upload my health data?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Vitadatum runs entirely on your device — no account, no server, no cloud upload. Your data only leaves your phone if you choose to share an exported file."
+            "text": "No. Vitadatum has no account and no server, and it processes everything on your iPhone. By default your files stay on your iPhone and in your own device backup; they leave it only through that backup, a cloud folder you choose, or when you share them yourself."
           }
         }
       ]
@@ -204,29 +205,29 @@
         <article>
             <header>
                 <h1>How to export Apple Health data to CSV</h1>
-                <p class="post-date">2026-06-27</p>
+                <p class="post-date">2026-06-27 · Updated 2026-12-01</p>
             </header>
             <p><strong>Apple Health does not export to CSV.</strong> The built-in export gives you a single <code>.zip</code> containing one large XML file (<code>export.xml</code>) — not a spreadsheet. To actually get CSV, you have two options: convert that XML yourself with a script, or use an app that reads Apple Health and writes CSV directly, like Vitadatum. This guide covers both, honestly.</p>
 
 <h2>Where the export button is — and what it actually gives you</h2>
 
-<p>On your iPhone, open the Health app, tap <em>Summary</em>, tap your <em>profile picture or initials</em> in the top-right corner, scroll to the bottom, and tap <em>Export All Health Data</em>. After a minute or two it produces a <code>.zip</code> archive. Unzip it and you'll find <code>export.xml</code> — one big XML document holding your entire health history.</p>
+<p>On your iPhone, open the Health app, tap <em>Summary</em>, tap your <em>profile picture or initials</em> in the top-right corner, scroll to the bottom, and tap <em>Export All Health Data</em>. After a minute or two it produces a <code>.zip</code> archive. Unzip it and you'll find <code>export.xml</code> — one big XML document holding your Health records.</p>
 
 <p>There is no "Export to CSV" button anywhere in Apple Health, and there never has been. XML is a format apps use to talk to each other; it is not a format Numbers, Excel, or Google Sheets will open into tidy rows, and it's not something you can comfortably hand to ChatGPT or Claude either. So you've got "your data" — technically true, practically stuck.</p>
 
 <h2>Route 1 — convert the XML yourself</h2>
 
-<p>If you're comfortable with a bit of code, you can flatten <code>export.xml</code> into CSV. Unzip the archive, then parse the XML (Python's built-in <code>xml.etree.ElementTree</code> works) and write the records out as rows. The structure is nested and the file can be enormous — years of minute-level heart-rate samples add up fast — so a naive script that loads the whole thing into memory will struggle. There are open-source converters that do this too.</p>
+<p>If you're comfortable with a bit of code, you can flatten <code>export.xml</code> into CSV. Unzip the archive, then parse the XML (Python's built-in <code>xml.etree.ElementTree</code> works) and write the records out as rows. The structure is nested and the file can be enormous — minute-level heart-rate samples add up fast — so a naive script that loads the whole thing into memory will struggle. There are open-source converters that do this too.</p>
 
 <p>It's a real option, and it's free. It's also genuinely fiddly: you're dealing with one giant file, inconsistent record types, and unit fields you have to decode yourself. Fine for a developer on a quiet afternoon. Rough for anyone who just wants their step count in a spreadsheet.</p>
 
 <h2>Route 2 — use an app that exports CSV directly</h2>
 
-<p>The other route is to skip the XML entirely and use an app that reads Apple Health and writes CSV for you. <a href="/apps/vitadatum/">Vitadatum</a> (which I make) does exactly that, on-device. It reads HealthKit and exports clean CSV and JSON — a summary CSV plus a detail CSV per metric, covering 187 metrics across 14 categories, including ECG. Open the CSV in Excel, Numbers, or Google Sheets; feed the JSON to ChatGPT or Claude.</p>
+<p>The other route is to skip the XML entirely and use an app that reads Apple Health and writes CSV for you. <a href="/apps/vitadatum/">Vitadatum</a> (which I make) does exactly that, on-device. It reads HealthKit and exports clean CSV and JSON — a summary CSV plus a detail CSV per metric (CSV is a Premium feature), covering up to 193 metrics across 14 categories, depending on your iOS version. ECG recordings come as waveform CSV files with Premium. Open the CSV in Excel, Numbers, or Google Sheets; feed the JSON to ChatGPT or Claude.</p>
 
-<p>It runs entirely on your phone: no account, no backend, no cloud upload. Your health data never leaves the device unless you choose to share a file — which is a meaningful difference from tools that upload everything to a server to do the conversion.</p>
+<p>It processes everything on your phone: no account, no backend, no cloud upload. By default your files stay on your iPhone and in your own device backup, and they leave it only through that backup, a cloud folder you choose, or when you share them yourself. That is a meaningful difference from tools that upload everything to a server to do the conversion.</p>
 
-<p>It's free for the last 7 days, so you can see the exact output before paying anything, and a €4.99 one-time unlock (no subscription) gets you everything past those 7 days, as far back as Apple Health lets the app read, plus CSV export and automatic background exports. You can find it <a href="https://apps.apple.com/app/vitadatum/id6763707308">on the App Store</a>.</p>
+<p>The last 7 days are free as JSON, so you can see the exact output before paying anything. Premium, a one-time purchase (no subscription), gets you everything past those 7 days, as far back as Apple Health lets the app read, plus CSV export, background exports and your own export folder. You can find it <a href="https://apps.apple.com/app/vitadatum/id6763707308">on the App Store</a>.</p>
 
 <h2>Which route should you pick?</h2>
 
@@ -243,13 +244,13 @@
 <p>Open the Health app, tap Summary, tap your profile picture or initials in the top-right corner, scroll to the bottom, and tap Export All Health Data.</p>
 
 <h3>What format is the Apple Health export?</h3>
-<p>A <code>.zip</code> archive containing a large XML file (<code>export.xml</code>) with your full health history. No spreadsheet opens it into clean rows.</p>
+<p>A <code>.zip</code> archive containing a large XML file (<code>export.xml</code>) with your Health records. No spreadsheet opens it into clean rows.</p>
 
 <h3>How do I open the exported file in Excel or Numbers?</h3>
 <p>You can't open <code>export.xml</code> as a spreadsheet directly — XML isn't tabular. Convert it to CSV first (with a script), or use an app like Vitadatum that exports CSV you can open straight in Excel, Numbers, or Google Sheets.</p>
 
 <h3>Does Vitadatum upload my health data?</h3>
-<p>No. Vitadatum runs entirely on your device — no account, no server, no cloud upload. Your data only leaves your phone if you choose to share an exported file.</p>
+<p>No. Vitadatum has no account and no server, and it processes everything on your iPhone. By default your files stay on your iPhone and in your own device backup; they leave it only through that backup, a cloud folder you choose, or when you share them yourself.</p>
             <p class="sig">Spookwerk</p>
         </article>
         <!-- spookwerk-signup -->
